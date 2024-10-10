@@ -43,6 +43,10 @@ cd ..
 ```
 *once, to move 1 step back*
 
+*9.5) Note that: Before starting to work on your part, always git fetch and pull. And once you are done coding your component, always follow -> git add . -> git commit -> "Your message" -> git pull -> git push*
+
+*9.9) There will be many times, when you will work with merge conflicts. I will teach you regarding this in the following meet*
+
 *10) you will be able to see something in the source control icon on the left, so click that, fill the message box with relevant and verbose commit message, and sync changes*
 
 *11) Have fun*

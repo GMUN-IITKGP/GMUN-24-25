@@ -31,7 +31,7 @@ npm i
 ```
 npm start
 ```
-*this will start your react app in http://localhost:5173*
+*this will start your react app in http://localhost:3000*
 
 *7) Now you are good to go, so to start working on your component, go to that file and start coding*
 

@@ -35,7 +35,7 @@ npm start
 
 *7) Now you are good to go, so to start working on your component, go to that file and start coding*
 
-*8) To see the changes in your component, lets say 'Navbar', go to the url http://localhost:5173/navbar*
+*8) To see the changes in your component, lets say 'Navbar', go to the url http://localhost:3000/navbar*
 
 *9) once you want to commit, move back to the outermost directory, i.e GMUN-24-25. If you're in /gmun directory, run*
 ```
@@ -49,7 +49,7 @@ cd ..
 
 *10) you will be able to see something in the source control icon on the left, so click that, fill the message box with relevant and verbose commit message, and sync changes*
 
-*11) Have fun*
+*11) Happy coding!*
 
 
 

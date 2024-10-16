@@ -1,10 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Profile from "./Profile";
-import NavBar from "./NavBar";
-import ContactForm from "./Contact";
-import GuidePage from "./Guide";
+import Profile from "./components/Profile";
+import Landing from "./components/Landing";
+import NavBar from "./components/Navbar";
+import ContactForm from "./components/Contacts";
+import GuidePage from "./components/Guide";
 import { useState } from "react";
-import EditProfile from "./EditDetails";
+import EditProfile from "./components/EditDetails";
 
 const App = () => {
   const [isUser, setIsUser] = useState(false);
@@ -15,7 +16,8 @@ const App = () => {
 
           <Routes>
  
-            <Route path="/profile" element={<Profile />} />
+          <Route path="/" element={<Landing />} />
+          <Route path="/profile" element={<Profile />} />
 
             <Route path="/contact" element={<ContactForm />} />
             <Route path="/guide" element={<GuidePage />} />

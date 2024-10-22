@@ -14,17 +14,18 @@ const App = () => {
       <BrowserRouter>
         <NavBar />
 
-          <Routes>
- 
+        <Routes>
+
           <Route path="/" element={<Landing />} />
+
           <Route path="/profile" element={<Profile />} />
 
-            <Route path="/contact" element={<ContactForm />} />
-            <Route path="/guide" element={<GuidePage />} />
-            
-            <Route path="/EditDetails" element={<EditProfile />} />
-          </Routes>
-        
+          <Route path="/contact" element={<ContactForm />} />
+          <Route path="/guide" element={<GuidePage />} />
+
+          <Route path="/EditDetails" element={<EditProfile />} />
+        </Routes>
+
       </BrowserRouter>
     </>
   );

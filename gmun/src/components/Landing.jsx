@@ -1,23 +1,25 @@
 import React from 'react'
+import Countdown from './Countdown'
 
 const Landing = () => {
-  return (
-    <div>
+    return (
+        <div>
             <header>
                 <h1>GMUN 2025</h1>
-                <nav>
+                {/* <nav>
                     <a href="#about">About Us</a>
                     <a href="#events">Events</a>
                     <a href="#registration">Registration</a>
                     <a href="#contact">Contact</a>
-                </nav>
+                </nav> */}
             </header>
 
             <div>
+                <Countdown />
                 <section id="about">
                     <h2>Welcomr to GMUN 2025 IIT KGP</h2>
                     <p>
-                    "Today's students... to tomorrow's leaders "
+                        "Today's students... to tomorrow's leaders "
                     </p>
                 </section>
 
@@ -47,7 +49,7 @@ const Landing = () => {
                 <p>&copy; 2024 Communique. All Rights Reserved.</p>
             </footer>
         </div>
-  )
+    )
 }
 
 export default Landing

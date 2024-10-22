@@ -1,0 +1,18 @@
+#countdown {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+    border: 2px solid #007BFF;
+    /* Border color */
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    /* Background color */
+}
+
+.countdown-number {
+    font-size: 36px;
+    /* Size of the number */
+    color: #007BFF;
+    /* Number color */
+}

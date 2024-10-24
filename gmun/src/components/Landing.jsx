@@ -6,18 +6,12 @@ const Landing = () => {
         <div>
             <header>
                 <h1>GMUN 2025</h1>
-                {/* <nav>
-                    <a href="#about">About Us</a>
-                    <a href="#events">Events</a>
-                    <a href="#registration">Registration</a>
-                    <a href="#contact">Contact</a>
-                </nav> */}
             </header>
 
             <div>
                 <Countdown />
                 <section id="about">
-                    <h2>Welcomr to GMUN 2025 IIT KGP</h2>
+                    <h2>Welcome to GMUN 2025 IIT KGP</h2>
                     <p>
                         "Today's students... to tomorrow's leaders "
                     </p>

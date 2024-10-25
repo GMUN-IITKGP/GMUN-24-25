@@ -1,0 +1,71 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    transition: top 0.3s;
+    background-color: #000000;
+}
+
+.nav-logo {
+    font-family: 'Outfit';
+    font-size: 38px;
+    font-weight: 600;
+    padding: 10px;
+    color: rgb(164, 98, 31);
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    font-size: 18px;
+    gap: 60px;
+}
+
+.register {
+    border-radius: 50px;
+    padding: 10px 38px;
+    background-color: rgba(255, 255, 255, 0.837);
+    color: rgb(6, 7, 7);
+
+}
+
+.register a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.register:hover {
+    scale: 1.2;
+    transition: 0.2s;
+}
+
+.nav-list {
+    position: relative;
+    color: whitesmoke;
+}
+
+.nav-list a {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+.nav-list::after {
+    content: "";
+    position: absolute;
+    background-color: rgb(232, 232, 232);
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -10px;
+    transition: 0.3s;
+}
+
+.nav-list:hover::after {
+    width: 100%;
+}

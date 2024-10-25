@@ -6,7 +6,7 @@ import ContactForm from "./components/Contacts";
 import GuidePage from "./components/Guide";
 import { useState } from "react";
 import EditProfile from "./components/EditDetails";
-
+import Committe from "./components/Committe";
 const App = () => {
   const [isUser, setIsUser] = useState(false);
   return (
@@ -17,6 +17,7 @@ const App = () => {
         <Routes>
 
           <Route path="/" element={<Landing />} />
+          <Route path="/navbar" element={<NavBar />} />
 
           <Route path="/profile" element={<Profile />} />
 
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/guide" element={<GuidePage />} />
 
           <Route path="/EditDetails" element={<EditProfile />} />
+          <Route path="/Committe" element={<Committe />} />
         </Routes>
 
       </BrowserRouter>

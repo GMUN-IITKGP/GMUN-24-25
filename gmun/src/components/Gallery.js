@@ -5,14 +5,13 @@ import styled from 'styled-components';
 import image1 from '../images/1.JPG';
 import image2 from '../images/2.jpg';
 import image3 from '../images/3.JPG';
-import image4 from '../images/4.JPG';
 import image5 from '../images/5.JPG';
-import image6 from '../images/6.JPG';
+import image4 from '../images/4.JPG';
 import image7 from '../images/7.JPG';
 import image8 from '../images/8.JPG';
 import image9 from '../images/9.JPG';
 
-const images = [image1, image2, image3, image4, image5, image6, image7, image8, image9];
+const images = [image1, image2, image3, image4, image5, image7, image8, image9];
 
 const Gallery = () => {
   const [highlightedIndex, setHighlightedIndex] = useState(0);

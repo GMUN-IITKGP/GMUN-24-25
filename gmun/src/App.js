@@ -7,6 +7,7 @@ import GuidePage from "./components/Guide";
 import { useState } from "react";
 import EditProfile from "./components/EditDetails";
 import Committe from "./components/Committe";
+import Gallery from "./components/Gallery";
 const App = () => {
   const [isUser, setIsUser] = useState(false);
   return (
@@ -26,6 +27,7 @@ const App = () => {
 
           <Route path="/EditDetails" element={<EditProfile />} />
           <Route path="/Committe" element={<Committe />} />
+          <Route path="/gallery" element={<Gallery />} />
         </Routes>
 
       </BrowserRouter>

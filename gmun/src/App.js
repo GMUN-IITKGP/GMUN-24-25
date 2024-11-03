@@ -6,9 +6,10 @@ import ContactForm from "./components/Contacts";
 import GuidePage from "./components/Guide";
 import { useState } from "react";
 import EditProfile from "./components/EditDetails";
+import Committee from "./components/Committee";
 // import Committe from "./components/Committe";
 import Gallery from "./components/Gallery";
-import Committee from "./components/Committee";
+import WorldMap from "./components/WorldMap";
 const App = () => {
   // const [isUser, setIsUser] = useState(false);
   return (
@@ -29,7 +30,9 @@ const App = () => {
           <Route path="/EditDetails" element={<EditProfile />} />
 
           <Route path="/gallery" element={<Gallery />} />
-          <Route path="/committee" element={<Committee />} />
+          <Route path="/WorldMap" element={<WorldMap />} />
+          {/* Dynamic route for committees */}
+        <Route path="/committee/:id" element={<Committee />} /> 
         </Routes>
 
       </BrowserRouter>

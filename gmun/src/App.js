@@ -6,16 +6,16 @@ import ContactForm from "./components/Contacts";
 import GuidePage from "./components/Guide";
 import { useState } from "react";
 import EditProfile from "./components/EditDetails";
-// import Committe from "./components/Committe";
+
 import Gallery from "./components/Gallery";
 import Committee from "./components/Committee";
+
 const App = () => {
   // const [isUser, setIsUser] = useState(false);
   return (
     <>
       <BrowserRouter>
         <NavBar />
-
         <Routes>
 
           <Route path="/" element={<Landing />} />

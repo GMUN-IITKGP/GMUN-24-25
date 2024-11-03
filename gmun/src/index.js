@@ -1,13 +1,86 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './styles/index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { Children } from "react";
+import ReactDOM from "react-dom/client";
+import "./styles/index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Login from "./components/Login";
+import Register from "./components/Register";
+import AuthLayout from "./components/AuthLayout";
+import Profile from "./components/Profile";
+import EditDetails from "./components/EditDetails";
+import Landing from "./components/Landing";
+import Committee from "./components/Committee";
+import Contacts from "./components/Contacts";
+import Guide from "./components/Guide";
+import WorldMap from "./components/WorldMap";
+import Gallery from "./components/Gallery";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const router = createBrowserRouter([
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
+  },
+  {
+    path: "/",
+    element: (
+      <AuthLayout>
+        <App />
+      </AuthLayout>
+    ),
+    Children: [
+      {
+        path: "/",
+        element: (
+          <AuthLayout>
+            <Profile />
+          </AuthLayout>
+        ),
+      },
+      {
+        path: "/edit",
+        element: (
+          <AuthLayout>
+            <EditDetails />
+          </AuthLayout>
+        ),
+      },
+    ],
+  },
+  {
+    path: "/landing",
+    element: <Landing />,
+  },
+  {
+    path: "/committee/:id",
+    element: <Committee />,
+  },
+  {
+    path: "/contact",
+    element: <Contacts />,
+  },
+  {
+    path: "/guide",
+    element: <Guide />,
+  },
+  {
+    path: "/worldmap",
+    element: <WorldMap />,
+  },
+  {
+    path: "/gallery",
+    element: <Gallery />,
+  },
+]);
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router}/>
   </React.StrictMode>
 );
 

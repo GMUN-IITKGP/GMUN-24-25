@@ -7,7 +7,6 @@ import GuidePage from "./components/Guide";
 import { useState } from "react";
 import EditProfile from "./components/EditDetails";
 import Committee from "./components/Committee";
-// import Committe from "./components/Committe";
 import Gallery from "./components/Gallery";
 import WorldMap from "./components/WorldMap";
 const App = () => {
@@ -16,7 +15,6 @@ const App = () => {
     <>
       <BrowserRouter>
         <NavBar />
-
         <Routes>
 
           <Route path="/" element={<Landing />} />

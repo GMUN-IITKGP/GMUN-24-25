@@ -8,13 +8,13 @@ const UNHRC = () => (
       <WorldMap title="UNHRC" mapDataFile="mapdata.js" />
     </div>
     <div className="committee-content">
-      <h2>UNHRC</h2>
-      <p>Lorem</p>
+      <h2>DISEC</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       <p>Chair: Maria Garcia</p>
       <p>Vice Chair: Ahmed Khan</p>
-      {/* Add more unique content for UNHRC if needed */}
     </div>
   </div>
 );
 
 export default UNHRC;
+

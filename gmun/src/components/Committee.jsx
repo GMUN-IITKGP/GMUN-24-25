@@ -20,12 +20,9 @@ const Committee = () => {
     }
   };
 
-  return (
-    <div>
-      {renderCommittee()}
-    </div>
-  );
+  return <div>{renderCommittee()}</div>;
 };
 
 export default Committee;
+
 

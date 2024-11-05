@@ -1,28 +1,24 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const WorldMap = ({ title, mapDataFile }) => {
+  const [mapData, setMapData] = useState(null);
+
   useEffect(() => {
-    const mapDataScript = document.createElement('script');
-    mapDataScript.src = `${process.env.PUBLIC_URL}/${mapDataFile}`;
-    mapDataScript.async = true;
-
-    const worldMapScript = document.createElement('script');
-    worldMapScript.src = `${process.env.PUBLIC_URL}/worldmap.js`;
-    worldMapScript.async = true;
-
-    document.body.appendChild(mapDataScript);
-    document.body.appendChild(worldMapScript);
-
-    return () => {
-      document.body.removeChild(mapDataScript);
-      document.body.removeChild(worldMapScript);
-    };
+    // Fetch the map data from the public folder
+    fetch(`/${mapDataFile}`)
+      .then(response => response.json())
+      .then(data => setMapData(data))
+      .catch(error => console.error("Error loading map data:", error));
   }, [mapDataFile]);
 
   return (
     <div>
-      <h1>{title}</h1>
-      <div id="map" style={{ width: '100%', height: '600px' }}></div>
+      <h2>{title}</h2>
+      {mapData ? (
+        <div>{/* Render map data here */}</div>
+      ) : (
+        <p>Loading map data...</p>
+      )}
     </div>
   );
 };

@@ -9,7 +9,7 @@ import Register from "./components/Register";
 import AuthLayout from "./components/AuthLayout";
 import Profile from "./components/Profile";
 import EditDetails from "./components/EditDetails";
-import Landing from "./components/Landing";
+import Landing from "./pages/Landing";
 import Committee from "./components/Committee";
 import Contacts from "./components/Contacts";
 import Guide from "./components/Guide";

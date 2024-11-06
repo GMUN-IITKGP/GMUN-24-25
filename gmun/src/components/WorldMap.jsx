@@ -1,28 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
-const WorldMap = ({ title, mapDataFile }) => {
-  const [mapData, setMapData] = useState(null);
-
+const WorldMap = ({ title }) => {
   useEffect(() => {
-    // Fetch the map data from the public folder
-    fetch(`/${mapDataFile}`)
-      .then(response => response.json())
-      .then(data => setMapData(data))
-      .catch(error => console.error("Error loading map data:", error));
-  }, [mapDataFile]);
+    if (window.simplemaps_worldmap) {
+      // Initialize the map once the component mounts
+      window.simplemaps_worldmap.load();
+    } else {
+      console.error("World map script not loaded");
+    }
+  }, []);
 
   return (
     <div>
       <h2>{title}</h2>
-      {mapData ? (
-        <div>{/* Render map data here */}</div>
-      ) : (
-        <p>Loading map data...</p>
-      )}
+      <div id="map" style={{ width: '100%', height: '500px' }}></div> {/* Adjust size as needed */}
     </div>
   );
 };
 
 export default WorldMap;
-
-

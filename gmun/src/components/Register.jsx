@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../styles/Register.css";
 import { BASE_URL } from "../constants.js";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Register() {
   const navigate = useNavigate();
@@ -12,19 +13,18 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${BASE_URL}/users/register`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
+      const response = await axios.post(
+        `${BASE_URL}/users/register`,
+        {
           fullName,
           email,
           password,
-        }),
-      });
-      const data = await response.json();
-      console.log(data);
+        },
+        {
+          withCredentials: true,
+        }
+      )
+      console.log(response);
       navigate("/login");
     } catch (error) {
       console.log(error);

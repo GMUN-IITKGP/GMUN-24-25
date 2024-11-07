@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { BASE_URL } from "../constants";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function AuthLayout({ children }) {
   const [loader, setLoader] = useState(true);
@@ -8,16 +9,11 @@ export default function AuthLayout({ children }) {
 
   const getCurrentUser = async () => {
     try {
-      const response = await fetch(`${BASE_URL}/users/profile`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${document.cookie.accessToken}`,
-        },
+      const response = await axios.get(`${BASE_URL}/users/profile`, {
+        withCredentials: true,
       });
-      const data = await response.json();
       setLoader(false);
-      console.log(data);
+      console.log(response);
     } catch (error) {
       navigate("/landing");
       console.log(error);

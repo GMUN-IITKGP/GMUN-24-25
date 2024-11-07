@@ -12,7 +12,7 @@ export default function AuthLayout({ children }) {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+          Authorization: `Bearer ${document.cookie.accessToken}`,
         },
       });
       const data = await response.json();

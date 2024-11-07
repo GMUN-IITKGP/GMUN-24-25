@@ -15,6 +15,7 @@ import Contacts from "./components/Contacts";
 import Guide from "./components/Guide";
 import WorldMap from "./components/WorldMap";
 import Gallery from "./components/Gallery";
+import LogoutBtn from "./components/LogoutBtn";
 
 const router = createBrowserRouter([
   {
@@ -22,16 +23,20 @@ const router = createBrowserRouter([
     element: <Login />,
   },
   {
+    path: "/logout",
+    element: (
+      <AuthLayout>
+        <LogoutBtn />
+      </AuthLayout>
+    ),
+  },
+  {
     path: "/register",
     element: <Register />,
   },
   {
     path: "/",
-    element: (
-      <AuthLayout>
-        <App />
-      </AuthLayout>
-    ),
+    element: <App />,
     children: [
       {
         path: "/",
@@ -49,38 +54,38 @@ const router = createBrowserRouter([
           </AuthLayout>
         ),
       },
+      {
+        path: "/landing",
+        element: <Landing />,
+      },
+      {
+        path: "/committee/:id",
+        element: <Committee />,
+      },
+      {
+        path: "/contact",
+        element: <Contacts />,
+      },
+      {
+        path: "/guide",
+        element: <Guide />,
+      },
+      {
+        path: "/worldmap",
+        element: <WorldMap />,
+      },
+      {
+        path: "/gallery",
+        element: <Gallery />,
+      },
     ],
-  },
-  {
-    path: "/landing",
-    element: <Landing />,
-  },
-  {
-    path: "/committee/:id",
-    element: <Committee />,
-  },
-  {
-    path: "/contact",
-    element: <Contacts />,
-  },
-  {
-    path: "/guide",
-    element: <Guide />,
-  },
-  {
-    path: "/worldmap",
-    element: <WorldMap />,
-  },
-  {
-    path: "/gallery",
-    element: <Gallery />,
   },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
@@ -88,4 +93,3 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
-

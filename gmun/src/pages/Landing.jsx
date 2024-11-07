@@ -1,6 +1,7 @@
 import React from 'react'
 import Countdown from '../components/Countdown'
 import Announcements from '../components/Announcements'
+import Navbar from '../components/Navbar'
 
 const Landing = () => {
     return (

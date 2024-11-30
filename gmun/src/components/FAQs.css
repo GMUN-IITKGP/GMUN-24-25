@@ -1,0 +1,125 @@
+.bodiy {
+    margin: 0;
+    padding: 0;
+    width: 100%; /* Change to percentage for responsiveness */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .announcements-container {
+    background-color: #e7b676;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 20px; /* Rounded container edges */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: auto;
+    width: 80vw;
+  }
+  
+  /* Make text smaller on smaller screens */
+  .announcements-container h2 {
+    color: white;
+    font-weight: 600;
+    font-size: 2rem; /* Adjusted for smaller screens */
+  }
+  
+  .announcements:hover {
+    color: white;
+  }
+  
+  .announcements.active:hover {
+    color: white;
+  }
+  
+  .announcement {
+    margin: 10px 0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 15px; /* Rounded edges for announcements */
+    background-color: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    justify-content: space-between;
+    color: black; /* Default text color */
+    transition: transform 0.8s ease, background-color 0.8s ease, color 0.8s ease;
+  }
+  
+  .announcement:hover {
+    transform: scale(1.01);
+    background-color: #131a25;
+    cursor: pointer;
+    color: white; /* Change text color to white on hover */
+  }
+  
+  .announcement:hover .infoPart {
+    color: white; /* Make .infoPart text white on hover */
+  }
+  
+  .announcement .Arroww {
+    transform: scale(3);
+    rotate: 270deg;
+    justify-content: flex-end;
+  }
+  
+  .announcement.active {
+    height: auto;
+    margin-top: 10px;
+  }
+  
+  .announcement.active .Arroww {
+    rotate: 90deg;
+    position: fixed;
+    right: 27px;
+    top: 13px;
+  }
+  
+  .outer-faq {
+    height: auto; /* Adjust for better responsiveness */
+    transform: none; /* Remove fixed positioning */
+  }
+  
+  /* Adjust infoPart styling for smaller screens */
+  .infoPart {
+    margin-top: 10px;
+    font-size: 1.4rem; /* Increased font size */
+    color: black; /* Default color */
+    transition: color 0.5s ease; /* Smooth transition for color change */
+  }
+  
+  /* FAQ Header Styling */
+  .faq-header {
+    font-size: 2rem; /* Adjusted for smaller screens */
+    font-weight: 600; /* Bold text */
+    color: white; /* White text color */
+    text-align: center; /* Center the text */
+    margin-bottom: 20px; /* Space below the FAQ header */
+  }
+  
+  @media (max-width: 600px) {
+    .bodiy {
+      width: 100%;
+      flex-direction: column; /* Adjust layout for smaller screens */
+    }
+  
+    .announcements-container {
+      width: 90vw; /* Adjust width for better fit */
+    }
+  
+    .announcements-container h2 {
+      font-size: 2.5rem; /* Adjust font size for better readability */
+    }
+  
+    .announcement {
+      font-size: 1.2rem; /* Adjust font size for better readability */
+    }
+  
+    .infoPart {
+      font-size: 1.2rem; /* Adjust font size for better readability */
+    }
+  
+    .faq-header {
+      font-size: 2.5rem; /* Adjust font size for better readability */
+    }
+  }
+  

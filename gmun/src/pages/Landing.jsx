@@ -1,5 +1,7 @@
 import React from 'react'
-import Countdown from './Countdown'
+import Countdown from '../components/Countdown'
+import Announcements from '../components/Announcements'
+import Navbar from '../components/Navbar'
 
 const Landing = () => {
     return (
@@ -39,6 +41,9 @@ const Landing = () => {
                 </section>
             </div>
 
+            <div className="announcements">
+                <Announcements />
+            </div>
             <footer>
                 <p>&copy; 2024 Communique. All Rights Reserved.</p>
             </footer>

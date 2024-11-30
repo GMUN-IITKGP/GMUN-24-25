@@ -1,35 +1,28 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import UNSC from './UNSC';
+import UNHRC from './UNHRC';
+import DISEC from './DISEC';
 
 const Committee = () => {
-  useEffect(() => {
-    // Load mapdata.js dynamically
-    const mapDataScript = document.createElement('script');
-    mapDataScript.src = `${process.env.PUBLIC_URL}/mapdata.js`;
-    mapDataScript.async = true;
+  const { id } = useParams();
 
-    // Load worldmap.js dynamically
-    const worldMapScript = document.createElement('script');
-    worldMapScript.src = `${process.env.PUBLIC_URL}/worldmap.js`;
-    worldMapScript.async = true;
+  const renderCommittee = () => {
+    switch (id) {
+      case '1':
+        return <UNSC />;
+      case '2':
+        return <UNHRC />;
+      case '3':
+        return <DISEC />;
+      default:
+        return <h1>Committee Not Found</h1>;
+    }
+  };
 
-    // Append the scripts to the body
-    document.body.appendChild(mapDataScript);
-    document.body.appendChild(worldMapScript);
-
-    // Cleanup: Remove the scripts when the component unmounts
-    return () => {
-      document.body.removeChild(mapDataScript);
-      document.body.removeChild(worldMapScript);
-    };
-  }, []);
-
-  return (
-    <div>
-      <h1>World Map Example</h1>
-      <div id="map" style={{ width: '100%', height: '600px' }}></div>
-    </div>
-  );
+  return <div>{renderCommittee()}</div>;
 };
 
 export default Committee;
+
 

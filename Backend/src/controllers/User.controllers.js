@@ -25,89 +25,90 @@ const generateAccessandRefreshToken = async (userId) => {
 const registerUser = asyncHandler(async (req, res) => {
   const { fullName, email, password } = req.body;
 
-  if (!fullName) {
-    throw new Error("Full name is required");
-  }
+    if (!fullName) {
+      throw new Error("Full name is required");
+    }
 
-  if (!email) {
-    throw new Error("Email is required");
-  }
+    if (!email) {
+      throw new Error("Email is required");
+    }
 
-  if (!password) {
-    throw new Error("Password is required");
-  }
+    if (!password) {
+      throw new Error("Password is required");
+    }
 
-  const existingUser = await User.findOne({ email });
+    const existingUser = await User.findOne({email});
+    if (existingUser) {
+      throw new Error(400, "User already exists with this username or email");
+    }
 
-  if (existingUser) {
-    throw new Error(400, "User already exists with this username or email");
-  }
+    const user = await User.create({ fullName, email, password });
 
-  const user = await User.create({ fullName, email, password });
+    const createdUser = await User.findById(user._id).select(
+      "-password -refreshToken"
+    );
 
-  const createdUser = await User.findById(user._id).select(
-    "-password -refreshToken"
-  );
+    //checking if User is Created or Not
+    if (!createdUser) {
+      throw new Error(
+        500,
+        "Something went wrong while registering the User"
+      );
+    }
 
-  //checking if User is Created or Not
-  if (!createdUser) {
-    throw new Error(500, "Something went wrong while registering the User");
-  }
-
-  res.status(201).json(createdUser);
+    res.status(201).json(createdUser);
 });
 
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
-  if (!email) {
-    throw new Error("Email is required");
-  }
+    if (!email) {
+      throw new Error("Email is required");
+    }
 
-  if (!password) {
-    throw new Error("Password is required");
-  }
+    if (!password) {
+      throw new Error("Password is required");
+    }
 
-  const user = await User.findOne({ email });
+    const user = await User.findOne({ email });
 
-  if (!user) {
-    throw new Error("User not found");
-  }
+    if (!user) {
+      throw new Error("User not found");
+    }
 
-  const isMatch = await user.checkPassword(password);
+    const isMatch = await user.checkPassword(password);
 
-  if (!isMatch) {
-    throw new Error("Invalid credentials");
-  }
+    if (!isMatch) {
+      throw new Error("Invalid credentials");
+    }
 
-  const { accessToken, refreshToken } = await generateAccessandRefreshToken(
-    user._id
-  );
+    const { accessToken, refreshToken } = await generateAccessandRefreshToken(
+      user._id
+    );
 
-  const loggedInUser = await User.findById(user._id).select(
-    "-password -refreshToken"
-  );
+    const loggedInUser = await User.findById(user._id).select(
+      "-password -refreshToken"
+    );
 
-  if (!loggedInUser) {
-    res.status(500);
-    throw new Error("Couldn't login user");
-  }
+    if (!loggedInUser) {
+      res.status(500);
+      throw new Error("Couldn't login user");
+    }
 
-  const options = {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    samesite: "none",
-  };
+    const options = {
+      httpOnly: false,
+      secure: true,
+    };
 
-  res
-    .status(200)
-    .cookie("accessToken", accessToken, options)
-    .cookie("refreshToken", refreshToken, options)
-    .json({
-      loggedInUser,
-      accessToken,
-      refreshToken,
-    });
+    res
+      .status(200)
+      .cookie("accessToken", accessToken, options)
+      .cookie("refreshToken", refreshToken, options)
+      .json({
+        loggedInUser,
+        accessToken,
+        refreshToken,
+      });
 });
 
 const logoutUser = asyncHandler(async (req, res, next) => {
@@ -124,8 +125,8 @@ const logoutUser = asyncHandler(async (req, res, next) => {
   );
 
   const options = {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
+    httpOnly: false,
+    secure: true,
     samesite: "none",
   };
 
@@ -139,15 +140,13 @@ const logoutUser = asyncHandler(async (req, res, next) => {
 });
 
 const getUserProfile = asyncHandler(async (req, res) => {
-  const user = await User.findById(req.user._id).select(
-    "-password -refreshToken"
-  );
+  const user = await User.findById(req.user._id).select("-password -refreshToken");
 
   if (!user) {
     throw new Error("User not found");
   }
 
   res.status(200).json(user);
-});
+})
 
 export { registerUser, loginUser, logoutUser, getUserProfile };

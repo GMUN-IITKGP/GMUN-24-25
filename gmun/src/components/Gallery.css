@@ -1,0 +1,85 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .gallery-container {
+    position: absolute;
+    top: 510px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 500px;
+    background-color: transparent;
+  }
+  
+  .logo {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+    background-color: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+  }
+  
+  .gallery {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .gallery-item {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    transform-origin: 50% 50%;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+  }
+  
+  /* Highlighted item */
+  .gallery-item.highlight {
+    transform: scale(1.5); /* Slight zoom */
+    box-shadow: 0 0 20px 5px rgba(255, 215, 0, 0.8); /* Golden glow */
+    z-index: 5; /* Bring highlighted item above others */
+  }
+  
+  /* Hover effect for all items */
+  .gallery-item:hover {
+    transform: scale(1.5); /* Slight zoom on hover */
+    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.5); /* Add a subtle shadow */
+    z-index: 4; /* Bring hovered item above others but below highlighted */
+  }
+  
+  /* Image container for rounded cropping */
+  .image-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  

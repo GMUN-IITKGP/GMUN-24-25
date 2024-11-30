@@ -11,6 +11,9 @@
     width: 100%;
     height: 600px;
     margin-bottom: 20px;
+    position: relative; /* Ensure it doesn’t get overlaid */
+    z-index: 1;
+  
   }
   
   /* Content container for agenda and other information */

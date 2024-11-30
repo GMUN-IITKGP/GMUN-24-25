@@ -1,8 +1,11 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import {createServer} from "node:http";
 
 const app = express();
+
+const server = createServer(app);
 
 app.use(
   cors({
@@ -21,4 +24,4 @@ import userRoutes from "./routes/User.routes.js";
 
 app.use("/api/v1/users", userRoutes);
 
-export { app };
+export { server };

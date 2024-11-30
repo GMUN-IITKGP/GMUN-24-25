@@ -6,7 +6,7 @@ import ContactForm from "./components/Contacts";
 import GuidePage from "./components/Guide";
 import { useState } from "react";
 import EditProfile from "./components/EditDetails";
-import Committe from "./components/Committe";
+import Committe from "./components/Committee";
 import Gallery from "./components/Gallery";
 import Committee from "./components/Committee";
 const App = () => {
@@ -27,7 +27,7 @@ const App = () => {
           <Route path="/guide" element={<GuidePage />} />
 
           <Route path="/EditDetails" element={<EditProfile />} />
-          <Route path="/Committe" element={<Committe />} />
+          
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/committees" element={<Committee />} />
         </Routes>

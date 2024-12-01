@@ -16,6 +16,7 @@ import Guide from "./components/Guide";
 import WorldMap from "./components/WorldMap";
 import Gallery from "./components/Gallery";
 import LogoutBtn from "./components/LogoutBtn";
+import FAQs from "./components/FAQs";
 
 const router = createBrowserRouter([
   {
@@ -73,6 +74,10 @@ const router = createBrowserRouter([
       {
         path: "/worldmap",
         element: <WorldMap />,
+      },
+      {
+        path: "/FAQs",
+        element: <FAQs/>,
       },
       {
         path: "/gallery",

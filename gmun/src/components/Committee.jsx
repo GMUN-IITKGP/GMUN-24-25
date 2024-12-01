@@ -4,6 +4,7 @@ import UNSC from './UNSC';
 import UNHRC from './UNHRC';
 import DISEC from './DISEC';
 import Cards from './Cards'; // Assuming Cards.jsx exports the 3D card component
+import './committee.css'; // Import the CSS styles (defined below)
 
 const Committee = () => {
   const { id } = useParams();
@@ -18,17 +19,17 @@ const Committee = () => {
       case '3':
         return <DISEC />;
       default:
-        return <h1>Committee Not Found</h1>;
+        return <h1 className="error">Committee Not Found</h1>;
     }
   };
 
   return (
-    <div>
-      {/* Render the committee-specific component */}
-      {renderCommittee()}
+    <div className="committee-page">
+      {/* Render the committee-specific content */}
+      <div className="committee-content-wrapper">{renderCommittee()}</div>
 
-      {/* Include the Cards component, common for all committees */}
-      <div style={{ marginTop: '2rem' }}>
+      {/* 3D Cards Section */}
+      <div className="cards-section">
         <Cards />
       </div>
     </div>

@@ -1,85 +1,186 @@
 body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-  }
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
   
+}
+
+.gallery-container {
+  position: absolute;
+  top: 30.50vw;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 25%;
+  height: 32.5vw;
+  background-color: transparent;
+  background-image: url("../images/9.png");
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.logo {
+  position: absolute;
+  width: 20vw; 
+  height: 20vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2vw;
+  color: #333;
+  font-weight: bold;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.gallery {
+  position: relative;
+  width: 20vw; 
+  height: 20vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-item {
+  position: absolute;
+  width: 18vw; 
+  height: 18vw;
+  border-radius: 50%;
+  overflow: hidden;
+  transform-origin: 50% 50%;
+  transition: transform 0.7s ease, box-shadow 0.7s ease;
+}
+
+
+.gallery-item.highlight {
+  transform: scale(1.5);
+  box-shadow: 0 0 20px 5px rgba(255, 215, 0, 0.8);
+  z-index: 5;
+}
+
+
+.gallery-item:hover {
+  transform: scale(1.5); 
+  width: 21vw; 
+  height: 21vw; 
+  box-shadow: 0 0 15px 3px rgba(0, 0, 0, 0.5); 
+  z-index: 4; 
+}
+
+
+
+.image-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+@media (max-width: 1250px) {
   .gallery-container {
-    position: absolute;
-    top: 510px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 500px;
-    background-color: transparent;
+    top: 70%; 
   }
   
   .logo {
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    color: #333;
-    font-weight: bold;
-    background-color: #ffffff;
-    border-radius: 50%;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    z-index: 10;
+    width: 20vw;
+    height: 20vw;
+    font-size: 2.5vw;
   }
-  
+
   .gallery {
-    position: relative;
-    width: 400px;
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 25vw;
+    height: 25vw;
   }
-  
+
   .gallery-item {
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    overflow: hidden;
-    transform-origin: 50% 50%;
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    width: 20vw;
+    height: 20vw;
+  }
+}
+
+
+@media (max-width: 1024px) {
+  .gallery-container {
+    top: 76%; 
   }
   
-  /* Highlighted item */
-  .gallery-item.highlight {
-    transform: scale(1.5); /* Slight zoom */
-    box-shadow: 0 0 20px 5px rgba(255, 215, 0, 0.8); /* Golden glow */
-    z-index: 5; /* Bring highlighted item above others */
+  .logo {
+    width: 20vw;
+    height: 20vw;
+    font-size: 2.5vw;
   }
-  
-  /* Hover effect for all items */
-  .gallery-item:hover {
-    transform: scale(1.5); /* Slight zoom on hover */
-    box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.5); /* Add a subtle shadow */
-    z-index: 4; /* Bring hovered item above others but below highlighted */
+
+  .gallery {
+    width: 25vw;
+    height: 25vw;
   }
-  
-  /* Image container for rounded cropping */
-  .image-container {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    overflow: hidden;
+
+  .gallery-item {
+    width: 20vw;
+    height: 20vw;
   }
-  
-  .gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .gallery-container {
+    top: 98%;
+    transform: translate(-50%, -50%);
+    height: auto;
+    flex-direction: column;
   }
-  
+
+  .logo {
+    width: 24vw;
+    height: 24vw;
+    font-size: 2.8vw;
+  }
+
+  .gallery {
+    width: 30vw;
+    height: 30vw;
+  }
+
+  .gallery-item {
+    width: 22vw;
+    height: 22vw;
+  }
+}
+
+@media (max-width: 430px) {
+  .gallery-container {
+    top: 99%;
+    height: auto;
+    flex-direction: column;
+  }
+
+  .logo {
+    width: 25vw;
+    height: 25vw;
+    font-size: 2vw;
+  }
+
+  .gallery {
+    width: 40vw;
+    height: 40vw;
+  }
+
+  .gallery-item {
+    width: 27vw;
+    height: 27vw;
+  }
+}

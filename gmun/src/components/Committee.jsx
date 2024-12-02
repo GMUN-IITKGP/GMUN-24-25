@@ -2,9 +2,8 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import UNSC from './UNSC';
 import UNHRC from './UNHRC';
-import DISEC from './DISEC';
-import Cards from './Cards'; // Assuming Cards.jsx exports the 3D card component
-import './committee.css'; // Import the CSS styles (defined below)
+import DISEC from './DISEC'; // DISEC now contains the card rendering
+import './committee.css'; // Ensure styles are consistent across all components
 
 const Committee = () => {
   const { id } = useParams();
@@ -27,14 +26,10 @@ const Committee = () => {
     <div className="committee-page">
       {/* Render the committee-specific content */}
       <div className="committee-content-wrapper">{renderCommittee()}</div>
-
-      {/* 3D Cards Section */}
-      <div className="cards-section">
-        <Cards />
-      </div>
     </div>
   );
 };
 
 export default Committee;
+
 

@@ -1,4 +1,5 @@
 .nav {
+    padding: 7px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -69,6 +70,7 @@
 .nav-list:hover::after {
     width: 100%;
 }
+
 /* Dropdown menu styling */
 .nav-list.dropdown {
     position: relative;
@@ -87,9 +89,11 @@
 .dropdown-content {
     display: none;
     position: absolute;
-    top: 100%; /* Position dropdown below the Committees button */
+    top: 100%;
+    /* Position dropdown below the Committees button */
     left: 0;
-    background-color: #333; /* Matches the navbar background */
+    background-color: #333;
+    /* Matches the navbar background */
     min-width: 160px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
@@ -110,7 +114,8 @@
 }
 
 .dropdown-content li a:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Light hover effect */
+    background-color: rgba(255, 255, 255, 0.2);
+    /* Light hover effect */
 }
 
 /* Show dropdown on hover */

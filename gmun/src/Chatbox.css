@@ -1,0 +1,145 @@
+/* Chatbox container styling */
+.chatbox {
+  width: 320px;
+  height: 480px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  overflow: hidden;
+  position: fixed;
+  bottom: 80px;
+  right: -320px; /* Start off-screen */
+  background: linear-gradient(145deg, #ffffff, #e6e6e6);
+  z-index: 1000;
+  animation: slideInFromRight 0.8s ease-out forwards; /* Animation to slide in */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Slight shadow around chatbox */
+}
+
+/* Hover effect for the chatbox */
+.chatbox:hover {
+  transform: scale(1.02) translateY(-5px);
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2); /* Slight increase in shadow on hover */
+}
+
+/* Chat area styling */
+.chat-area {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background-color: #f5f5f5;
+  border-top: 1px solid #ddd;
+}
+
+/* Message styling */
+.message {
+  margin: 5px 0;
+  padding: 10px 15px;
+  border-radius: 20px;
+  max-width: 70%;
+  font-size: 14px;
+  opacity: 0;
+  animation: fadeInMessage 0.5s forwards;
+}
+
+/* Styling for sent messages */
+.message.sent {
+  align-self: flex-end;
+  background-color: #007bff;
+  color: white;
+}
+
+/* Styling for received messages */
+.message.received {
+  align-self: flex-start;
+  background-color: #e5e5ea;
+  color: black;
+}
+
+/* Input area styling */
+.input-area {
+  display: flex;
+  padding: 10px;
+  background-color: #ffffff;
+  border-top: 1px solid #ccc;
+}
+
+/* Input field styling */
+.input-area input {
+  flex: 1;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 10px 15px;
+  margin-right: 10px;
+}
+
+/* Send button styling */
+.input-area button {
+  background: linear-gradient(145deg, #007bff, #0056b3);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+/* Hover effect for the send button */
+.chatbox-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(145deg, #007bff, #0056b3);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+
+/* Hover effect for the chat icon button */
+.chatbox-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* Press effect for the chat icon button */
+.chatbox-toggle:active {
+  transform: scale(0.9);
+}
+
+/* Slide-in animation from right */
+@keyframes slideInFromRight {
+  from {
+    right: -320px;
+  }
+  to {
+    right: 20px;
+  }
+}
+
+/* Slide-out animation to left */
+@keyframes slideOutToLeft {
+  from {
+    right: 20px;
+  }
+  to {
+    right: -320px;
+  }
+}
+
+/* Fade-in effect for the messages */
+@keyframes fadeInMessage {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

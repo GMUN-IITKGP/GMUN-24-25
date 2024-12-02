@@ -1,3 +1,15 @@
+body,
+html {
+  margin: 0;
+  /* Reset body margins */
+  padding: 0;
+  /* Reset body paddings */
+  height: 100%;
+  /* Ensure height is fully covered */
+  overflow-x: hidden;
+  /* Prevent horizontal scroll */
+}
+
 body {
   margin: 0;
   padding-top: 70px;

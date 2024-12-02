@@ -37,6 +37,7 @@ const Cards = () => {
   }, []);
 
   return (
+    <body>
     <div className="page-container">
       <div className="cards">
         <h3>DISEC</h3>
@@ -77,6 +78,7 @@ const Cards = () => {
       </div>
       <span className="notice">View on desktop for mouse movement</span>
     </div>
+    </body>
   );
 };
 

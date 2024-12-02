@@ -24,8 +24,32 @@ const texts = [
 
 const Gallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [radius, setRadius] = useState(200); // Default initial radius
+
   const numberOfImages = images.length;
-  const radius = 450; // Adjust radius for spacing
+
+  // Function to calculate radius based on viewport width
+  const calculateRadius = () => {
+    const width = window.innerWidth;
+    // Reduce radius proportionally to the viewport width
+    return Math.max(100, width * 0.3); // Min radius: 100px, scales at 20% of viewport width
+  };
+
+  useEffect(() => {
+    // Set initial radius
+    setRadius(calculateRadius());
+
+    // Update radius dynamically on window resize
+    const handleResize = () => {
+      setRadius(calculateRadius());
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   const handleKeyDown = (e) => {
     if (e.key === "ArrowRight") {
@@ -53,9 +77,7 @@ const Gallery = () => {
 
   return (
     <div className="gallery-container">
-      {/* Center Circle */}
       <div className="logo">{texts[currentIndex]}</div>
-
       <div className="gallery">
         {images.map((image, index) => {
           const angle = (360 / numberOfImages) * (index - currentIndex);

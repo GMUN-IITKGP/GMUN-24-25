@@ -6,12 +6,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background:#363537;
+  background: #363537;
   perspective: 1800px;
   overflow: hidden;
 }
 
-h1, h3 {
+h1,
+h3 {
   margin: 0;
 }
 
@@ -22,6 +23,7 @@ h1 {
   letter-spacing: -1px;
   margin-bottom: 30px;
   transform: translateZ(35px);
+  margin-top: 15px;
 }
 
 h3 {
@@ -81,18 +83,15 @@ h3 {
 }
 
 .card__one .card__bg {
-  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_monobg.jpg")
-    center / cover no-repeat;
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_monobg.jpg") center / cover no-repeat;
 }
 
 .card__two .card__bg {
-  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_spirited.jpg")
-    center / cover no-repeat;
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_spirited.jpg") center / cover no-repeat;
 }
 
 .card__three .card__bg {
-  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_howlbg.jpg")
-    center / cover no-repeat;
+  background: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_howlbg.jpg") center / cover no-repeat;
 }
 
 .card__text {

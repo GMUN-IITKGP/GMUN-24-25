@@ -2,6 +2,7 @@ import React from 'react'
 import Countdown from '../components/Countdown'
 import Announcements from '../components/Announcements'
 import Navbar from '../components/Navbar'
+import Footer from "../components/Footer";
 
 const Landing = () => {
     return (
@@ -45,7 +46,7 @@ const Landing = () => {
                 <Announcements />
             </div>
             <footer>
-                <p>&copy; 2024 Communique. All Rights Reserved.</p>
+                <Footer />
             </footer>
         </div>
     )

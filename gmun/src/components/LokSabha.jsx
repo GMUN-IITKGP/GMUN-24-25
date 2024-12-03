@@ -3,7 +3,7 @@ import WorldMap from "./WorldMap";
 import "./committee.css"; // General styles
 
 
-const DISEC = () => {
+const LokSabha = () => {
   useEffect(() => {
     const cards = document.querySelector(".cards");
     const images = document.querySelectorAll(".card__img");
@@ -60,19 +60,19 @@ const DISEC = () => {
 
       {/* World Map Section */}
       <div className="committee-map">
-        <WorldMap title="DISARMAMENT AND INTERNATIONAL SECURITY COMMITTEE" mapDataFile="mapdata.js" />
+        <WorldMap title="Lok Sabha" mapDataFile="mapdata.js" />
       </div>
 
       {/* Committee Content Section */}
       <div className="committee-content">
-        <h2>DISEC</h2>
+        <h2>LokSabha</h2>
         <p>AGENDA</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       </div>
 
       {/* 3D Cards Section */}
       <div className="cards">
-        <h3>DISEC</h3>
+        <h3>LokSabha</h3>
         <h1>Executive Board</h1>
 
         {/* Card 1 */}
@@ -119,4 +119,4 @@ const DISEC = () => {
   );
 };
 
-export default DISEC;
+export default LokSabha;

@@ -21,6 +21,8 @@ const Navbar = () => {
         <li><Link to="/committee/1">UNSC</Link></li>
         <li><Link to="/committee/2">UNHRC</Link></li>
         <li><Link to="/committee/3">DISEC</Link></li>
+        <li><Link to="/committee/4">LokSabha</Link></li>
+        <li><Link to="/committee/5">G20</Link></li>
         {/* Add more committees as needed */}
         </ul>
         </li>

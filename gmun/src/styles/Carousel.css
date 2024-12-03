@@ -1,0 +1,69 @@
+/* Wrapper container for the carousel */
+#wrapper {
+  perspective: 2500px;
+  width: 350px;
+  margin: 50px auto 100px;
+}
+
+
+/* Main rotating container */
+#image {
+  position: relative; /* Ensure relative positioning */
+  transform-style: preserve-3d;
+  animation: spin 24s infinite linear;
+}
+
+
+/* Spin animation */
+@keyframes spin {
+  from {
+    transform: rotateY(0);
+  }
+  to {
+    transform: rotateY(-360deg);
+  }
+}
+
+
+/* Black containers with Glassmorphism effect */
+.image {
+  position: absolute;
+  height: 300px; /* Keeps black box size fixed */
+  width: 350px; /* Keeps black box size fixed */
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.85); /* Darker opaque black background */
+  backdrop-filter: blur(10px); /* Apply blur effect to the background */
+  border: 5px solid #a67c52; /* Duller golden border (hex code for a more subtle gold) */
+  text-align: center;
+  font-size: 15em;
+  color: #fff;
+  overflow: hidden; /* Ensures images stay within the container */
+}
+
+
+/* Enlarged individual images inside the containers */
+.image img {
+  width: 95%; /* Slightly larger than before */
+  height: auto; /* Maintain aspect ratio */
+  margin: auto; /* Center the image */
+  display: block; /* Ensure the image centers properly */
+  transform: scale(1); /* Makes the image slightly larger */
+}
+
+
+/* Adjusted positioning for each image container */
+#image > .i1 {
+  transform: translateZ(320px); /* Position remains unchanged */
+}
+#image > .i2 {
+  transform: rotateY(72deg) translateZ(320px); /* Position remains unchanged */
+}
+#image > .i3 {
+  transform: rotateY(144deg) translateZ(320px); /* Position remains unchanged */
+}
+#image > .i4 {
+  transform: rotateY(216deg) translateZ(320px); /* Position remains unchanged */
+}
+#image > .i5 {
+  transform: rotateY(288deg) translateZ(320px); /* Position remains unchanged */
+}

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';      
+import React, { useState } from 'react';
 import './FAQs.css';
 import Headingall from './Headingall.jsx';
 
@@ -32,7 +32,7 @@ const Announcements = () => {
     },
     {
       title: 'What committees are being simulated?',
-      content: 'Our conference presents a variety of committees namely United Nations Human Rights Council(UNHRC), "United Nations Security Council(UNSC), Disarmament and Security Council(DISEC), G20 and International Press. ' ,
+      content: 'Our conference presents a variety of committees namely United Nations Human Rights Council(UNHRC), "United Nations Security Council(UNSC), Disarmament and Security Council(DISEC), G20 and International Press. ',
     },
     {
       title: 'What is the dress code for the conference?',
@@ -46,28 +46,28 @@ const Announcements = () => {
 
   return (
     <>
-    <div className='outer-faq'>
-    <Headingall headingname="FAQs"/>
-    <div className="bodiy">
-    
-      <div className="announcements-container">
-        
-        {announcements.length > 0 ? (
-          announcements.map((announcement, index) => (
-            <div className={`announcement ${expandedIndex === index ? 'active' : ''}`} key={index} onClick={() => toggleContent(index)}>
-              <div className="topFAQ" ><h3>{announcement.title}</h3>
-   </div>
-               
-              <div className="infoPart">{expandedIndex === index && <h5>{announcement.content}</h5>}</div>
-              
-            </div>
-          ))
-        ) : (
-          <p>No Announcements Yet</p>
-        )}
+      <div className='outer-faq'>
+        <Headingall headingname="FAQs" />
+        <div className="bodiy">
+
+          <div className="announcements-container">
+
+            {announcements.length > 0 ? (
+              announcements.map((announcement, index) => (
+                <div className={`announcement ${expandedIndex === index ? 'active' : ''}`} key={index} onClick={() => toggleContent(index)}>
+                  <div className="topFAQ" ><h3>{announcement.title}</h3>
+                  </div>
+
+                  <div className="infoPart">{expandedIndex === index && <h5>{announcement.content}</h5>}</div>
+
+                </div>
+              ))
+            ) : (
+              <p>No Announcements Yet</p>
+            )}
+          </div>
+        </div>
       </div>
-    </div>
-    </div>
     </>
   );
 };

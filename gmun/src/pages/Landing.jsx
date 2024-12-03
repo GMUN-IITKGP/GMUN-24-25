@@ -1,7 +1,9 @@
-import React from 'react'
-import Countdown from '../components/Countdown'
-import Announcements from '../components/Announcements'
-import Navbar from '../components/Navbar'
+import React from 'react';
+import Countdown from '../components/Countdown';
+import Announcements from '../components/Announcements';
+import Navbar from '../components/Navbar';
+import Footer from "../components/Footer";
+import Carousel from '../components/carousel'; // Import the Carousel component
 
 const Landing = () => {
     return (
@@ -10,20 +12,23 @@ const Landing = () => {
                 <h1>GMUN 2025</h1>
             </header>
 
-            <div>
+            <section id="carousel" style={{ marginBottom: '50px' }}>
+                <Carousel />
+            </section>
+
+            <div className="countdown-section" style={{ marginTop: '500px' }}>
                 <Countdown />
+
                 <section id="about">
                     <h2>Welcome to GMUN 2025 IIT KGP</h2>
-                    <p>
-                        "Today's students... to tomorrow's leaders "
-                    </p>
+                    <p>"Today's students... to tomorrow's leaders"</p>
                 </section>
 
                 <section id="events">
                     <h2>Event Timeline</h2>
                     <ul>
                         <li>GMUN Conference</li>
-                        <li>Workshops on Public Speaking </li>
+                        <li>Workshops on Public Speaking</li>
                         <li>Networking Gala</li>
                     </ul>
                 </section>
@@ -44,11 +49,12 @@ const Landing = () => {
             <div className="announcements">
                 <Announcements />
             </div>
+
             <footer>
-                <p>&copy; 2024 Communique. All Rights Reserved.</p>
+                <Footer />
             </footer>
         </div>
-    )
-}
+    );
+};
 
-export default Landing
+export default Landing;

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap');
 
-/* body, html {
+/* /* body, html {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -22,14 +22,14 @@ body.no-scroll {
 
 
 .page-container {
-  position: fixed; /* Ensures it's tied to the viewport */
-  top: 0; /* Start at the top of the screen */
-  left: 0; /* Start at the left edge of the screen */
-  width: 100vw; /* Cover the full width of the screen */
-  height: 100vh; /* Cover the full height of the screen */
-  background-color: #cdc9e3; /* Optional background color */
-  z-index: 1; /* Ensures it appears at the correct layer */
-}
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100vw; 
+  height: 100vh; 
+  background-color: #cdc9e3; 
+  z-index: 1; 
+} */
 
 
 

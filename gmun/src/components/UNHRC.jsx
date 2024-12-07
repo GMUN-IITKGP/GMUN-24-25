@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
-import WorldMap from './WorldMap';
-import './committee.css';
+import React, { useEffect } from "react";
+import WorldMap from "./WorldMap";
+import "./committee.css"; // General styles
+
 
 const UNHRC = () => {
   useEffect(() => {
@@ -11,7 +12,8 @@ const UNHRC = () => {
 
     const calcValue = (a, b) => ((a / b) * range - range / 2).toFixed(1);
 
-    const handleMouseMove = ({ x, y }) => {
+    const handleMouseMove = (event) => {
+      const { clientX: x, clientY: y } = event;
       const yValue = calcValue(y, window.innerHeight);
       const xValue = calcValue(x, window.innerWidth);
 
@@ -39,9 +41,29 @@ const UNHRC = () => {
 
   return (
     <div className="committee-container">
-      <div className="committee-map">
-        <WorldMap title="UNHRC" mapDataFile="mapdata.js" />
+      <body>
+      {/* Spinning UN Emblem */}
+      <div className="emblem">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
+          className="spinning-logo"
+        >
+          <image
+            href="https://upload.wikimedia.org/wikipedia/commons/5/52/Emblem_of_the_United_Nations.svg"
+            width="100%"
+            height="100%"
+            alt="UN Emblem"
+          />
+        </svg>
       </div>
+
+      {/* World Map Section */}
+      <div className="committee-map">
+        <WorldMap title="UNITED NATIONS HUMAN RIGHTS COUNCIL" mapDataFile="mapdata.js" />
+      </div>
+
+      {/* Committee Content Section */}
       <div className="committee-content">
         <h2>UNHRC</h2>
         <p>AGENDA</p>
@@ -92,10 +114,10 @@ const UNHRC = () => {
           </div>
         </div>
       </div>
+      </body>
     </div>
   );
 };
 
 export default UNHRC;
-
 

@@ -1,11 +1,11 @@
 .footer {
-
   margin-top: 100px;
-  background-color: #000000;
-  color: #fff;
+  background-color: #363537;
+  /* Darkest background color */
+  color: #F3EDE3;
+  /* Lighter text color */
   text-align: center;
   padding: 30px 0;
-  /* Vertical padding only */
   font-family: Arial, sans-serif;
   font-size: 14px;
   width: 100vw;
@@ -13,49 +13,54 @@
   box-sizing: border-box;
   /* Includes padding in the total width */
   overflow-x: hidden;
-  /* Prevent any horizontal overflow */
+  /* Prevent horizontal overflow */
 }
 
-/* Social Media Icons Section */
 .footer-icons {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .icon-link {
   margin: 0 10px;
-  color: #fff;
-  font-size: 18px;
+  color: #F3EDE3;
+  /* Lighter text color for links */
+  font-size: 20px;
+  /* Slightly larger for prominence */
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .icon-link:hover {
-  color: #b8881e;
-  ;
+  color: #B69354;
+  /* Gold for hover effect */
+  transform: scale(1.1);
+  /* Subtle hover animation */
 }
 
-Footer Links Section .footer-links {
-  margin-top: 30px;
+.footer-links {
+  margin-top: 25px;
 }
 
 .footer-links a {
-  margin: 0 10px;
-  color: #fff;
+  margin: 0 12px;
+  color: #F3EDE3;
+  /* Lighter text color for links */
   text-decoration: none;
   font-size: 14px;
   transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
-  /* color: #00aaff; */
-  color: #b8881e;
+  color: #B69354;
+  /* Gold for hover effect */
 }
 
-Divider Line .footer::before {
+.footer::before {
   content: "";
   display: block;
-  width: 90%;
+  width: 80%;
   height: 1px;
-  background-color: #555;
+  background-color: #B69354;
+  /* Gold divider for elegance */
   margin: 0 auto 15px auto;
 }

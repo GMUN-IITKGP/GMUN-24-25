@@ -1,26 +1,39 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
-html, body {
-  margin: 0;
-  padding: 0 px;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+US+Trad:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+#Committee {
   width: 100%;
-  height: 100%;
-  
+  height: 100%; 
+ 
 }
-.committee-container {
+
+
+.committee-container body{
   width: 100%; 
   height: 100%; 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 50px;
+  padding:20px;
   box-sizing: border-box;
   margin: 0; 
   overflow-x: hidden;
-  background-color: #ad90e0a8;
+  background-color: #574A73;
+}
+#World-Map h2{
+font-size: 48px;
+    color: #F3EDE3;
+    
+ padding-left:70px;
+ padding-bottom:50px;
+ font-family: 'Montserrat',sans-serif;
+ font-weight: 700;
+
 }
 
 .committee-map {
+  padding-bottom:50px;
   width: 100%;  
   height: 80%;  
   position: relative;
@@ -34,30 +47,47 @@ html, body {
   text-align: center;
   max-width: 1200px;
   width: 80%;
-  padding: 50px;
-  background-color: #ffffff;
-  border: 1px solid #ddd;
+  padding: 100px;
+  background-color: #36353767;
+  border: 5px solid #B69354;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   position: relative;
   z-index: 2;
-  margin-top: -100px; /* Adjust this value to move it down */
+  margin-top: 70px; /* Adjust this value to move it down */
   flex: 1 1 auto;
-  margin-bottom:100px; 
+  margin-bottom: 100px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+/* Outer glow on hover or touch */
+.committee-content:hover,
+.committee-content:active {
+  box-shadow: 0 0 20px 5px #574A73, 0 4px 10px rgba(0, 0, 0, 0.1); /* Glow effect */
+  transform: scale(1.02); /* Slight scale effect for emphasis */
 }
 
 .committee-content h2 {
+  font-family: 'Montserrat',sans-serif;
+  text-align: left;
   font-size: 36px;
-  margin: 20px 0;
   font-weight: 700;
-  color: #333;
+  color: #F3EDE3;
+}
+.committee-content h3 {
+  font-size: 20px;
+  text-align: left;
+  line-height: 1.8;
+  color: #B69354;
 }
 
 .committee-content p {
   font-size: 20px;
+  text-align: left;
   margin: 15px 0;
   line-height: 1.8;
-  color: #555;
+  color: #B69354;
+
 }
 
 @media (max-width: 768px) {
@@ -79,7 +109,8 @@ html, body {
 }
 .page-container {
 
-  width: 100vw; 
+  width: 100%; 
+  max-width:100%;
   min-height: 100vh; 
   display: flex;
   flex-direction: column;
@@ -94,7 +125,8 @@ html, body {
 
 
 .cards {
-  background: #fff;
+  background-color: #36353767;
+  border: 5px solid #B69354;
   flex-shrink:1;
   max-width: 100%; /* Ensure it doesn't exceed parent width */
   margin: auto;
@@ -110,8 +142,9 @@ html, body {
   min-width: 595px;
 }
 
-h1 {
-  color: #3e3e42;
+.cards h1 {
+  font-family: 'Montserrat',sans-serif;
+  color: #F3EDE3;
   font-size:32px;
   font-weight: 800;
   letter-spacing: -1px;
@@ -120,7 +153,8 @@ h1 {
 }
 
 h3 {
-  color: #eb285d;
+  font-family: 'Montserrat',sans-serif;
+  color: #B69354;
   font-size: 16px;
   margin-bottom: 6px;
   transform: translateZ(25px);
@@ -231,6 +265,14 @@ h3 {
   padding: 0 10px;
   margin-bottom: 3px;
 }
+.emblem {
+  position: relative;
+  top:60 px; /* Adjust the spacing from the top */
+  width: 120px;
+  height: 120px;
+}
+
+
 
 @media (max-width: 768px) {
   .cards {

@@ -3,7 +3,7 @@ import WorldMap from "./WorldMap";
 import "./committee.css"; // General styles
 
 
-const UNSC = () => {
+const LokSabha = () => {
   useEffect(() => {
     const cards = document.querySelector(".cards");
     const images = document.querySelectorAll(".card__img");
@@ -42,6 +42,7 @@ const UNSC = () => {
   return (
     <div className="committee-container">
       <body>
+      {/* Spinning UN Emblem */}
       <div className="emblem">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -59,19 +60,19 @@ const UNSC = () => {
 
       {/* World Map Section */}
       <div className="committee-map">
-        <WorldMap title="UNITED NATIONS SECURITY COUNCIL" mapDataFile="mapdata.js" />
+        <WorldMap title="Lok Sabha" mapDataFile="mapdata.js" />
       </div>
 
       {/* Committee Content Section */}
       <div className="committee-content">
-        <h2>AGENDA</h2>
-        <h3>AGENDA TITLE</h3>
+        <h2>LokSabha</h2>
+        <p>AGENDA</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       </div>
 
       {/* 3D Cards Section */}
       <div className="cards">
-        <h3>UNSC</h3>
+        <h3>LokSabha</h3>
         <h1>Executive Board</h1>
 
         {/* Card 1 */}
@@ -118,4 +119,4 @@ const UNSC = () => {
   );
 };
 
-export default UNSC;
+export default LokSabha;

@@ -2,15 +2,15 @@ var simplemaps_worldmap_mapdata={
     main_settings: {
      //General settings
       width: "responsive", //'700' or 'responsive'
-      background_color: "#FFFFFF",
+      background_color: "#CDC9E3",
       background_transparent: "yes",
-      border_color: "#ffffff",
+      border_color: "#574a73",
       popups: "detect",
       
       //State defaults
 
-      state_color: "#fedd77",
-      state_hover_color: "#fae7aa ",
+      state_color: "#CDC9E3",
+      state_hover_color: "#F3EDE3 ",
       state_url: "",
       border_size: 1.5,
       all_states_inactive: "no",
@@ -18,7 +18,7 @@ var simplemaps_worldmap_mapdata={
       
       //Location defaults
       location_description: "Location description",
-      location_color: "#e49a17",
+      location_color: "#B69354",
       location_opacity: 0.8,
       location_hover_opacity: 1,
       location_url: "",

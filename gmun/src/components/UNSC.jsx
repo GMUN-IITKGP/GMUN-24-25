@@ -42,7 +42,6 @@ const UNSC = () => {
   return (
     <div className="committee-container">
       <body>
-      {/* Spinning UN Emblem */}
       <div className="emblem">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -65,8 +64,8 @@ const UNSC = () => {
 
       {/* Committee Content Section */}
       <div className="committee-content">
-        <h2>UNSC</h2>
-        <p>AGENDA</p>
+        <h2>AGENDA</h2>
+        <h3>AGENDA TITLE</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
       </div>
 

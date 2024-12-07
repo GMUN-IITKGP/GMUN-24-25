@@ -2,11 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+US+Trad:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 #Committee {
-  margin: 0;
-  padding: 0 px;
   width: 100%;
   height: 100%; 
+ 
 }
+
 
 .committee-container body{
   width: 100%; 
@@ -19,16 +19,12 @@
   box-sizing: border-box;
   margin: 0; 
   overflow-x: hidden;
-  background-color: #ad90e0a8;
+  background-color: #574A73;
 }
 #World-Map h2{
 font-size: 48px;
-    color: #363537;
-    text-shadow: 
-        1px 1px 0px #F3EDE3, 
-        2px 2px 0px #ddd, 
-        3px 3px 0px #bbb, 
-        4px 4px 0px #B69354;
+    color: #F3EDE3;
+    
  padding-left:70px;
  padding-bottom:50px;
  font-family: 'Montserrat',sans-serif;
@@ -52,8 +48,8 @@ font-size: 48px;
   max-width: 1200px;
   width: 80%;
   padding: 100px;
-  background-color: #ffffff;
-  border: 1px solid #ddd;
+  background-color: #36353767;
+  border: 5px solid #B69354;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   position: relative;
@@ -73,17 +69,25 @@ font-size: 48px;
 
 .committee-content h2 {
   font-family: 'Montserrat',sans-serif;
+  text-align: left;
   font-size: 36px;
-  margin: 20px 0;
   font-weight: 700;
-  color: #333;
+  color: #F3EDE3;
+}
+.committee-content h3 {
+  font-size: 20px;
+  text-align: left;
+  line-height: 1.8;
+  color: #B69354;
 }
 
 .committee-content p {
   font-size: 20px;
+  text-align: left;
   margin: 15px 0;
   line-height: 1.8;
-  color: #555;
+  color: #B69354;
+
 }
 
 @media (max-width: 768px) {
@@ -105,7 +109,8 @@ font-size: 48px;
 }
 .page-container {
 
-  width: 100vw; 
+  width: 100%; 
+  max-width:100%;
   min-height: 100vh; 
   display: flex;
   flex-direction: column;
@@ -120,7 +125,8 @@ font-size: 48px;
 
 
 .cards {
-  background: #fff;
+  background-color: #36353767;
+  border: 5px solid #B69354;
   flex-shrink:1;
   max-width: 100%; /* Ensure it doesn't exceed parent width */
   margin: auto;
@@ -136,9 +142,9 @@ font-size: 48px;
   min-width: 595px;
 }
 
-h1 {
+.cards h1 {
   font-family: 'Montserrat',sans-serif;
-  color: #3e3e42;
+  color: #F3EDE3;
   font-size:32px;
   font-weight: 800;
   letter-spacing: -1px;
@@ -148,7 +154,7 @@ h1 {
 
 h3 {
   font-family: 'Montserrat',sans-serif;
-  color: #d191d6;
+  color: #B69354;
   font-size: 16px;
   margin-bottom: 6px;
   transform: translateZ(25px);
@@ -260,25 +266,13 @@ h3 {
   margin-bottom: 3px;
 }
 .emblem {
-  position: fixed;
-  top: 85px; /* Adjust the spacing from the top */
-  left: 165px; /* Adjust the spacing from the left */
-  width: 100px;
-  height: 100px;
+  position: relative;
+  top:60 px; /* Adjust the spacing from the top */
+  width: 120px;
+  height: 120px;
 }
 
-.spinning-logo {
-  width: 100%;
-  height: 100%;
-  animation: rotate 10s linear infinite;
-  filter: saturate(-1.5);
-}
 
-@keyframes rotate {
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 @media (max-width: 768px) {
   .cards {

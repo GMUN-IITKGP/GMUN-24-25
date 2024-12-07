@@ -34,7 +34,9 @@ const Committee = () => {
       {/* Render the committee-specific content */}
       <div className="committee-content-wrapper">{renderCommittee()}</div>
     </div>
+  
     </div>
+    
   );
 };
 

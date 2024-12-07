@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import "./Gallery.css";
 
 import image1 from "../images/1.JPG";
@@ -12,48 +12,26 @@ import image8 from "../images/8.JPG";
 
 const images = [image1, image2, image3, image4, image5, image6, image7, image8];
 const texts = [
-  "Text for Image 1",
-  "Text for Image 2",
-  "Text for Image 3",
-  "Text for Image 4",
-  "Text for Image 5",
-  "Text for Image 6",
-  "Text for Image 7",
-  "Text for Image 8",
+  "Opening Ceremony",
+  "Opening Ceremony",
+  "Day 1",
+  "Day 1",
+  "Day 2",
+  "Day 2",
+  "Award Distributions",
+  "Award Distribution",
 ];
 
 const Gallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [radius, setRadius] = useState(200); // Default initial radius
-
+  const [radius, setRadius] = useState(450); 
+  const [translation, setTranslation] = useState(0); 
   const numberOfImages = images.length;
-
-  // Function to calculate radius based on viewport width
-  const calculateRadius = () => {
-    const width = window.innerWidth;
-    // Reduce radius proportionally to the viewport width
-    return Math.max(100, width * 0.3); // Min radius: 100px, scales at 20% of viewport width
-  };
-
-  useEffect(() => {
-    // Set initial radius
-    setRadius(calculateRadius());
-
-    // Update radius dynamically on window resize
-    const handleResize = () => {
-      setRadius(calculateRadius());
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   const handleKeyDown = (e) => {
     if (e.key === "ArrowRight") {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % numberOfImages);
+      
     } else if (e.key === "ArrowLeft") {
       setCurrentIndex((prevIndex) =>
         (prevIndex - 1 + numberOfImages) % numberOfImages
@@ -62,46 +40,82 @@ const Gallery = () => {
   };
 
   useEffect(() => {
+    
+    document.body.classList.add("no-scroll");
+
+    
     window.addEventListener("keydown", handleKeyDown);
 
+    
     return () => {
+      document.body.classList.remove("no-scroll");
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [numberOfImages]);
+  }, []);
 
-  const isTopmostImage = (angle) => {
-    const normalizedAngle = (angle + 360) % 360;
-    const tolerance = 5;
-    return Math.abs(normalizedAngle - 270) < tolerance;
+  useEffect(() => {
+    
+    const updateRadius = () => {
+      if (window.innerWidth < 430) {
+        setRadius(150); 
+      } else {
+        setRadius(450); 
+      }
+    };
+
+    
+    window.addEventListener("resize", updateRadius);
+    updateRadius();
+
+    
+    return () => {
+      window.removeEventListener("resize", updateRadius);
+    };
+  }, []);
+
+  
+  const galleryItems = useMemo(() => {
+    return images.map((image, index) => {
+      const angle = (360 / numberOfImages) * (index - currentIndex);
+      const isTopmost = Math.abs((angle + 360) % 360 - 270) < 5;
+
+      return {
+        image,
+        angle,
+        isTopmost,
+        style: {
+          transform: `translateX(${translation}px) rotate(${angle}deg) translate(${radius}px)`,
+        },
+        containerStyle: {
+          transform: `rotate(${-angle}deg)`,
+        },
+      };
+    });
+  }, [currentIndex, radius, translation]);
+
+  const handleLogoClick = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % numberOfImages);
   };
 
   return (
-    <div className="gallery-container">
-      <div className="logo">{texts[currentIndex]}</div>
-      <div className="gallery">
-        {images.map((image, index) => {
-          const angle = (360 / numberOfImages) * (index - currentIndex);
-          const isTopmost = isTopmostImage(angle);
-
-          return (
+    <div className="page-container">
+      <div className="gallery-container">
+        <div className="logo" onClick={handleLogoClick}>
+          {texts[currentIndex]}
+        </div>
+        <div className="gallery">
+          {galleryItems.map((item, index) => (
             <div
               key={index}
-              className={`gallery-item ${isTopmost ? "highlight" : ""}`}
-              style={{
-                transform: `rotate(${angle}deg) translate(${radius}px)`,
-              }}
+              className={`gallery-item ${item.isTopmost ? "highlight" : ""}`}
+              style={item.style}
             >
-              <div
-                className="image-container"
-                style={{
-                  transform: `rotate(${-angle}deg)`,
-                }}
-              >
-                <img src={image} alt={`Image ${index + 1}`} />
+              <div className="image-container" style={item.containerStyle}>
+                <img src={item.image} alt={`Image ${index + 1}`} />
               </div>
             </div>
-          );
-        })}
+          ))}
+        </div>
       </div>
     </div>
   );

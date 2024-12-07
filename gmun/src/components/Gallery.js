@@ -1,16 +1,32 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState } from "react";
 import "./Gallery.css";
 
-import image1 from "../images/1.JPG";
-import image2 from "../images/2.jpg";
-import image3 from "../images/3.JPG";
-import image4 from "../images/4.JPG";
-import image5 from "../images/5.JPG";
+import image1 from "../images/1.webp";
+import image2 from "../images/2.webp";
+import image3 from "../images/3.webp";
+import image4 from "../images/4.webp";
+import image5 from "../images/5.webp";
 import image6 from "../images/6.JPG";
 import image7 from "../images/7.JPG";
 import image8 from "../images/8.JPG";
+import image9 from "../images/9.JPG";
+import image10 from "../images/10.JPG";
+import image11 from "../images/11.JPG";
 
-const images = [image1, image2, image3, image4, image5, image6, image7, image8];
+const images = [
+  image1,
+  image2,
+  image3,
+  image4,
+  image5,
+  image6,
+  image7,
+  image8,
+  image9,
+  image10,
+  image11,
+];
+
 const texts = [
   "Opening Ceremony",
   "Opening Ceremony",
@@ -20,33 +36,31 @@ const texts = [
   "Day 2",
   "Award Distributions",
   "Award Distribution",
+  "Celebration",
+  "Closing Remarks",
+  "hey boy",
 ];
 
 const Gallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [radius, setRadius] = useState(450); 
-  const [translation, setTranslation] = useState(0); 
-  const numberOfImages = images.length;
+  const [radius, setRadius] = useState(450);
+  const [selectedImage, setSelectedImage] = useState(null); // Modal state
+  const visibleCount = 8;
 
   const handleKeyDown = (e) => {
     if (e.key === "ArrowRight") {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % numberOfImages);
-      
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     } else if (e.key === "ArrowLeft") {
       setCurrentIndex((prevIndex) =>
-        (prevIndex - 1 + numberOfImages) % numberOfImages
+        (prevIndex - 1 + images.length) % images.length
       );
     }
   };
 
   useEffect(() => {
-    
     document.body.classList.add("no-scroll");
-
-    
     window.addEventListener("keydown", handleKeyDown);
 
-    
     return () => {
       document.body.classList.remove("no-scroll");
       window.removeEventListener("keydown", handleKeyDown);
@@ -54,47 +68,32 @@ const Gallery = () => {
   }, []);
 
   useEffect(() => {
-    
     const updateRadius = () => {
       if (window.innerWidth < 430) {
-        setRadius(150); 
+        setRadius(150);
       } else {
-        setRadius(450); 
+        setRadius(450);
       }
     };
 
-    
     window.addEventListener("resize", updateRadius);
     updateRadius();
 
-    
     return () => {
       window.removeEventListener("resize", updateRadius);
     };
   }, []);
 
-  
-  const galleryItems = useMemo(() => {
-    return images.map((image, index) => {
-      const angle = (360 / numberOfImages) * (index - currentIndex);
-      const isTopmost = Math.abs((angle + 360) % 360 - 270) < 5;
-
-      return {
-        image,
-        angle,
-        isTopmost,
-        style: {
-          transform: `translateX(${translation}px) rotate(${angle}deg) translate(${radius}px)`,
-        },
-        containerStyle: {
-          transform: `rotate(${-angle}deg)`,
-        },
-      };
-    });
-  }, [currentIndex, radius, translation]);
-
   const handleLogoClick = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % numberOfImages);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const handleImageClick = (image) => {
+    setSelectedImage(image); // Open the modal
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null); // Close the modal
   };
 
   return (
@@ -104,18 +103,49 @@ const Gallery = () => {
           {texts[currentIndex]}
         </div>
         <div className="gallery">
-          {galleryItems.map((item, index) => (
-            <div
-              key={index}
-              className={`gallery-item ${item.isTopmost ? "highlight" : ""}`}
-              style={item.style}
-            >
-              <div className="image-container" style={item.containerStyle}>
-                <img src={item.image} alt={`Image ${index + 1}`} />
-              </div>
-            </div>
-          ))}
+          {(() => {
+            const elements = [];
+            for (let i = 0; i < visibleCount; i++) {
+              const index = (currentIndex + i) % images.length;
+              const angle = (360 / visibleCount) * i+45;
+              const isTopmost = Math.abs((angle + 360) % 360 - 270) < 5;
+
+              elements.push(
+                <div
+                  key={index}
+                  className={`gallery-item ${isTopmost ? "highlight" : ""}`}
+                  style={{
+                    transform: `rotate(${angle}deg) translate(${radius}px)`,
+                    transition: "transform 0.8s ease",
+                  }}
+                >
+                  <div
+                    className="image-container"
+                    style={{
+                      transform: `rotate(-${angle}deg)`,
+                      transition: "transform 1s ease",
+                    }}
+                    onClick={() => handleImageClick(images[index])} 
+                  >
+                    <img src={images[index]} alt={`Image ${index + 1}`} />
+                  </div>
+                </div>
+              );
+            }
+            return elements;
+          })()}
         </div>
+        
+        {selectedImage && (
+          <div className="modal" onClick={closeModal}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <img src={selectedImage} alt="Enlarged view" />
+              <button className="close-button" onClick={closeModal}>
+                ✖
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -1,20 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap');
 
-/* body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  overflow-y: hidden;
-  background-color: #CDC9E3; 
-  color: #574A73; 
-} 
-
-* {
-  transition: all 0.4s ease-in-out;
-}
-
 
 body.no-scroll {
   overflow: hidden;
@@ -22,13 +7,18 @@ body.no-scroll {
 
 
 .page-container {
-  position: fixed; /* Ensures it's tied to the viewport */
-  top: 0; /* Start at the top of the screen */
-  left: 0; /* Start at the left edge of the screen */
-  width: 100vw; /* Cover the full width of the screen */
-  height: 100vh; /* Cover the full height of the screen */
-  background-color: #cdc9e3; /* Optional background color */
-  z-index: 1; /* Ensures it appears at the correct layer */
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100vw; 
+  height: 100vh; 
+  background-color: #b69354; 
+  z-index: 1; 
+  overflow-y: hidden;
+  background-image: url('../images/bg.png');
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-position: center; 
 }
 
 
@@ -58,7 +48,7 @@ body.no-scroll {
   font-size: 2vw;
   color: #F3EDE3;
   font-weight: bold;
-  background: linear-gradient(135deg, #574A73, #363537);
+  background-color: #2b2847;
   border-radius: 50%;
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
   z-index: 10;
@@ -89,7 +79,7 @@ body.no-scroll {
   border-radius: 50%;
   overflow: hidden;
   transform-origin: 50% 50%;
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  transition: transform 1s ease, box-shadow 0.5s ease;
   background-color: #B69354;
   transform-origin: center center;
 }
@@ -97,7 +87,7 @@ body.no-scroll {
 .gallery-item.highlight {
   transform: scale(1.5);
   box-shadow: 0 0 30px 10px rgba(183, 147, 84, 0.8);
-  z-index: 5;
+  z-index: 9;
 }
 
 .gallery-item:hover {
@@ -126,7 +116,51 @@ body.no-scroll {
 .gallery-item img:hover {
   filter: brightness(1.1); 
 }
-@media (min-width: 1250px) {
+
+.modal {
+  position: absolute;
+  top: -31.25vw;
+  left: -110%;
+  width: 80vw;
+  height: 91vh;
+  background: linear-gradient(to right, #cdc9e3,#574a73,#363537);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  position: relative;
+  max-width: 80%; /* Width relative to the screen */
+  max-height: 100%; /* Height relative to the screen */ /* Shift the modal upwards */
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.modal-content img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #574A73;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+
+
+/* @media (min-width: 1250px) {
   .gallery-container {
     top: 73%;
   }
@@ -146,7 +180,28 @@ body.no-scroll {
     width: 20vw;
     height: 20vw;
   }
+  .modal {
+  position: absolute;
+  top: -31.25vw;
+  left: -110%;
+  width: 80vw;
+  height: 91vh;
+  background: #363537;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
+
+.modal-content {
+  position: relative;
+  max-width: 80%;
+  max-height: 100%; 
+  border-radius: 10px;
+  overflow: hidden;
+} 
+
+}*/
 
 @media (max-height: 1030px) {
   .gallery-container {
@@ -172,7 +227,7 @@ body.no-scroll {
 
 @media (max-width: 1250px) {
   .gallery-container {
-    top: 71.5%;
+    top: 84%;
   }
 
   .logo {
@@ -189,12 +244,34 @@ body.no-scroll {
   .gallery-item {
     width: 20vw;
     height: 20vw;
+  }
+  .modal {
+    position: absolute;
+    top: -74.5vw;
+    left: -151%;
+    width: 101vw;
+    height: 94vh;
+    background: #363537;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 1;
+  }
+  
+  .modal-content {
+    position: relative;
+    max-width: 80%;
+    max-height: 100%; 
+    border-radius: 10x;
+    overflow: hidden;
+    
   }
 }
 
 @media (max-width: 1024px) {
   .gallery-container {
-    top: 78%;
+    top: 85%;
   }
 
   .logo {
@@ -211,6 +288,28 @@ body.no-scroll {
   .gallery-item {
     width: 20vw;
     height: 20vw;
+  }
+  .modal {
+    position: absolute;
+    top: -85vw;
+    left: -110%;
+    width: 80vw;
+    height: 30vh;
+    background: #363537;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0.95;
+  }
+  
+  .modal-content {
+    position: relative;
+    max-width: 80%;
+    max-height: 100%; 
+    border-radius: 10x;
+    overflow: hidden;
+    opacity: 1;
   }
 }
 
@@ -237,6 +336,28 @@ body.no-scroll {
     width: 22vw;
     height: 22vw;
   }
+  .modal {
+    position: absolute;
+    top: -110vw;
+    left: -110%;
+    width: 80vw;
+    height: 30vh;
+    background: #363537;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0.95;
+  }
+  
+  .modal-content {
+    position: relative;
+    max-width: 80%;
+    max-height: 100%; 
+    border-radius: 10x;
+    overflow: hidden;
+    opacity: 1;
+  }
 }
 
 @media (max-width: 430px) {
@@ -261,4 +382,27 @@ body.no-scroll {
     width: 27vw;
     height: 27vw;
   }
+  .modal {
+    position: absolute;
+    top: -10vw;
+    left: -110%;
+    width: 80vw;
+    height: 30vh;
+    background: #363537;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0.95;
+  }
+  
+  .modal-content {
+    position: relative;
+    max-width: 80%;
+    max-height: 100%; 
+    border-radius: 10x;
+    overflow: hidden;
+    opacity: 1;
+  }
+  
 }

@@ -13,7 +13,7 @@ var simplemaps_worldmap_mapdata={
       state_hover_color: "#F3EDE3 ",
       state_url: "",
       border_size: 1.5,
-      all_states_inactive: "no",
+      all_states_inactive: "yes",
       all_states_zoomable: "no",
       
       //Location defaults

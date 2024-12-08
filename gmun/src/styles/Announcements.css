@@ -78,6 +78,9 @@ body {
   border-radius: 40px;
   
 }
+.dark{
+  border-radius: 20px;
+}
 .slide .item:nth-child(2) .dark{
   position: absolute;
   top: 0;
@@ -188,4 +191,141 @@ body {
   top: 3px;
 }
 
+/*Making responsive*/
+@media (max-width: 840px) {
+  .container {
+    position: relative;
+    margin: 20px auto;
+    width: 600px;
+    height: 500px;
+    background: #f5f5f5;
+    box-shadow: 0 30px 50px #dbdbdb;
+    border-radius: 40px;
+    
+  }
+  
+  .contain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
 
+  .item {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    transform: translate(80%, -30%);
+    border-radius: 20px;
+    box-shadow: 0 30px 50px #505050;
+    background-position:50% 50%;
+    background-size: cover;
+    display: inline-block;
+    transition: 0.5s;
+  
+  }
+  .dark{
+    border-radius: 20px;
+  }
+  .overlay{
+    border-radius: 20px;
+  }
+  
+
+  .content .name {
+    font-size: 25px;
+  }
+  .content .des {
+    font-size: 16px;
+  }
+
+  .content button {
+    font-size: 12px;
+  }
+
+  .slide .item:nth-child(3) {
+    left: 40%;
+    top: 90%;
+  }
+  
+  .slide .item:nth-child(4) {
+    left: calc(40% + 110px);
+    top: 90%;
+  }
+  
+  .slide .item:nth-child(5) {
+    left: calc(40% + 220px);
+    top: 90%;
+  }
+  
+  .slide .item:nth-child(n + 6) {
+    left: calc(40% + 660px);
+    top: 90%;
+    opacity: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .container {
+    position: relative;
+    margin: 20px auto;
+    width: 450px;
+    height: 400px;
+    background: #f5f5f5;
+    box-shadow: 0 30px 50px #dbdbdb;
+    border-radius: 40px;
+    
+  }
+  
+  .contain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+
+  .item {
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    top: 50%;
+    transform: translate(80%, -30%);
+    border-radius: 20px;
+    box-shadow: 0 30px 50px #505050;
+    background-position:50% 50%;
+    background-size: cover;
+    display: inline-block;
+    transition: 0.5s;
+  
+  }
+  .dark{
+    border-radius: 20px;
+  }
+  .overlay{
+    border-radius: 20px;
+  }
+  
+  .content .name {
+    font-size: 20px;
+  }
+  .content .des {
+    font-size: 13px;
+  }
+
+  .slide .item:nth-child(3) {
+    left: 40%;
+    top: 90%;
+  }
+  
+  .slide .item:nth-child(4) {
+    left: calc(40% + 110px);
+    top: 90%;
+  }
+  
+  .slide .item:nth-child(n + 5) {
+    left: calc(40% + 660px);
+    top: 90%;
+    opacity: 0;
+  }
+}

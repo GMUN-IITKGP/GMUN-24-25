@@ -39,6 +39,8 @@
   font-size: 2rem;
   text-shadow: 1px 1px 5px rgba(54, 53, 55, 0.3);
   transition: transform 0.5s ease, text-shadow 0.5s ease;
+  margin-bottom: 40px; /* Increased space below heading */
+  padding-top: 40px; /* Increased space above heading */
 }
 
 .announcement {
@@ -89,6 +91,11 @@
   transform: none;
 }
 
+.outer-faq .heading-all{
+  padding-top: 30px;
+  padding-bottom: 12px;
+}
+
 .question {
   font-size: 1.5rem; /* Slightly decreased font size */
   font-weight: bold;
@@ -110,12 +117,13 @@
 }
 
 .faq-header {
-  font-size: 2rem;
+  font-size: 2.5rem; /* Increased font size for FAQ header */
   font-weight: 600;
   color: #574A73; /* Dark Purple */
   text-shadow: 2px 2px 5px rgba(54, 53, 55, 0.4);
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 40px; /* Increased space below FAQ header */
+  padding-top: 40px; /* Increased space above FAQ header */
 }
 
 @media (max-width: 600px) {
@@ -141,6 +149,6 @@
   }
 
   .faq-header {
-    font-size: 2.5rem;
+    font-size: 3rem; /* Increased font size for FAQ header on small screens */
   }
 }

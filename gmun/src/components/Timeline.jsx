@@ -67,7 +67,6 @@ const Timeline = () => {
     >
       <div className="timeline-header">
         <h2 className="timeline-header__title">Timeline of GMUN 2025</h2>
-        <h3 className="timeline-header__subtitle">Schedule</h3>
       </div>
       <div className="timeline">
         {timelineItems.map((item, index) => (

@@ -51,9 +51,10 @@ const Landing = () => {
                 <Announcements />
             </div>
 
-            <h1>TIMELINE</h1>
-            <div className="timeline">
-                <Timeline/>
+            <div style={{marginTop:'150px'}}>
+                <div className="timeline">
+                    <Timeline/>
+                </div>
             </div>
 
             <footer>

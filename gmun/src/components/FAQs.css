@@ -12,16 +12,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #f3f4f7, #e0e0e0);
+  background: #CDC9E3; /* Light Lavender */
 }
 
 .announcements-container {
-  background: linear-gradient(145deg, #e7b676, #d8a469);
+  background: linear-gradient(145deg, #B69354, #D8A469); /* Medium Brown */
   margin: 10px;
   padding: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #363537; /* Dark Gray */
   border-radius: 20px;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.5);
+  box-shadow: 5px 5px 15px rgba(54, 53, 55, 0.5), -5px -5px 15px rgba(255, 255, 255, 0.5);
   height: auto;
   width: 74vw;
   transition: transform 0.5s ease, box-shadow 0.5s ease, background 0.5s ease;
@@ -29,16 +29,18 @@
 
 .announcements-container:hover {
   transform: translateY(-10px) scale(1.02);
-  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4), -10px -10px 20px rgba(255, 255, 255, 0.6);
-  background: linear-gradient(145deg, #d8a469, #e7b676);
+  box-shadow: 10px 10px 20px rgba(54, 53, 55, 0.5), -10px -10px 20px rgba(255, 255, 255, 0.6);
+  background: linear-gradient(145deg, #D8A469, #B69354);
 }
 
 .announcements-container h2 {
-  color: white;
+  color: #574A73; /* Dark Purple */
   font-weight: 600;
   font-size: 2rem;
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  text-shadow: 1px 1px 5px rgba(54, 53, 55, 0.3);
   transition: transform 0.5s ease, text-shadow 0.5s ease;
+  margin-bottom: 40px; /* Increased space below heading */
+  padding-top: 40px; /* Increased space above heading */
 }
 
 .announcement {
@@ -46,21 +48,22 @@
   padding: 15px;
   border: 1px solid #ddd;
   border-radius: 15px;
-  background: linear-gradient(145deg, #ffffff, #f0f0f0);
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1), -5px -5px 15px rgba(255, 255, 255, 0.6);
+  background: #ffffff; /* White background for questions */
+  box-shadow: 5px 5px 15px rgba(54, 53, 55, 0.1), -5px -5px 15px rgba(255, 255, 255, 0.6);
   transition: transform 0.4s ease, background 0.4s ease, box-shadow 0.4s ease;
-  color: black;
+  color: #574A73; /* Dark Purple */
 }
 
 .announcement:hover {
   transform: scale(1.1) rotate(2deg);
   background: linear-gradient(145deg, #1e2a38, #2a3b4d);
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5), -5px -5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 5px 5px 15px rgba(54, 53, 55, 0.5), -5px -5px 15px rgba(54, 53, 55, 0.3);
   cursor: pointer;
   color: white;
 }
 
-.announcement:hover .infoPart {
+.announcement:hover .infoPart,
+.announcement:hover .question {
   color: white;
 }
 
@@ -88,10 +91,23 @@
   transform: none;
 }
 
+.outer-faq .heading-all{
+  padding-top: 30px;
+  padding-bottom: 12px;
+}
+
+.question {
+  font-size: 1.5rem; /* Slightly decreased font size */
+  font-weight: bold;
+  color: #574A73; /* Dark Purple */
+  transition: color 0.5s ease, transform 0.5s ease;
+}
+
 .infoPart {
   margin-top: 10px;
   font-size: 1.4rem;
-  color: black;
+  font-weight: normal;
+  color: #574A73; /* Dark Purple */
   transition: color 0.5s ease, transform 0.5s ease;
 }
 
@@ -101,12 +117,13 @@
 }
 
 .faq-header {
-  font-size: 2rem;
+  font-size: 2.5rem; /* Increased font size for FAQ header */
   font-weight: 600;
-  color: white;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  color: #574A73; /* Dark Purple */
+  text-shadow: 2px 2px 5px rgba(54, 53, 55, 0.4);
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 40px; /* Increased space below FAQ header */
+  padding-top: 40px; /* Increased space above FAQ header */
 }
 
 @media (max-width: 600px) {
@@ -132,6 +149,6 @@
   }
 
   .faq-header {
-    font-size: 2.5rem;
+    font-size: 3rem; /* Increased font size for FAQ header on small screens */
   }
 }

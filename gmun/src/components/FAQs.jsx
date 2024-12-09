@@ -55,7 +55,7 @@ const Announcements = () => {
             {announcements.length > 0 ? (
               announcements.map((announcement, index) => (
                 <div className={`announcement ${expandedIndex === index ? 'active' : ''}`} key={index} onClick={() => toggleContent(index)}>
-                  <div className="topFAQ" ><h3>{announcement.title}</h3>
+                  <div className="topFAQ" ><h3 className="question">{announcement.title}</h3>
                   </div>
 
                   <div className="infoPart">{expandedIndex === index && <h5>{announcement.content}</h5>}</div>

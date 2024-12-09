@@ -12,11 +12,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #CDC9E3; /* Light Lavender */
 }
 
 .announcements-container {
-  background: linear-gradient(145deg, #B69354, #D8A469); /* Medium Brown */
+  background: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
   margin: 10px;
   padding: 20px;
   border: 1px solid #363537; /* Dark Gray */
@@ -30,7 +29,6 @@
 .announcements-container:hover {
   transform: translateY(-10px) scale(1.02);
   box-shadow: 10px 10px 20px rgba(54, 53, 55, 0.5), -10px -10px 20px rgba(255, 255, 255, 0.6);
-  background: linear-gradient(145deg, #D8A469, #B69354);
 }
 
 .announcements-container h2 {
@@ -94,6 +92,7 @@
 .outer-faq .heading-all{
   padding-top: 30px;
   padding-bottom: 12px;
+  color: #CDC9E3;
 }
 
 .question {

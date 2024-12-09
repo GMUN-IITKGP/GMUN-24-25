@@ -1,6 +1,5 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0;
-  text-align: center;
+body {
+  background: url('http://localhost:3000/static/media/bg.bf8786e815a2d1fdc6f3.png') no-repeat center center fixed;
+  background-size: cover;
+  font-family: "Poppins", sans-serif;
 }

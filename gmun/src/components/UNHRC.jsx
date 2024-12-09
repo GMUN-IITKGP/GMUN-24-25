@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import WorldMap from "./WorldMap";
 import "./committee.css"; // General styles
+import { ReactComponent as UNHRCLogo } from "../images/committee_img/United_Nations_Human_Rights_Council_Logo.svg";
+
 
 
 const UNHRC = () => {
@@ -43,20 +45,11 @@ const UNHRC = () => {
     <div className="committee-container">
       <body>
       {/* Spinning UN Emblem */}
+      
       <div className="emblem">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 512 512"
-          className="spinning-logo"
-        >
-          <image
-            href="https://upload.wikimedia.org/wikipedia/commons/5/52/Emblem_of_the_United_Nations.svg"
-            width="100%"
-            height="100%"
-            alt="UN Emblem"
-          />
-        </svg>
+      <UNHRCLogo className="unhrcLogo" />
       </div>
+    
 
       {/* World Map Section */}
       <div className="committee-map">

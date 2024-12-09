@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import WorldMap from "./WorldMap";
 import "./committee.css"; // General styles
-
+import { ReactComponent as G20Logo } from "../images/committee_img/G20.svg";
 
 const G20 = () => {
   useEffect(() => {
@@ -43,20 +43,11 @@ const G20 = () => {
     <div className="committee-container">
       <body>
       {/* Spinning UN Emblem */}
+     
       <div className="emblem">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 512 512"
-          className="spinning-logo"
-        >
-          <image
-            href="https://upload.wikimedia.org/wikipedia/commons/5/52/Emblem_of_the_United_Nations.svg"
-            width="100%"
-            height="100%"
-            alt="UN Emblem"
-          />
-        </svg>
+      <G20Logo className="unhrcLogo" />
       </div>
+    
 
       {/* World Map Section */}
       <div className="committee-map">

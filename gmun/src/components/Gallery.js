@@ -89,17 +89,17 @@ const Gallery = () => {
   };
 
   const handleImageClick = (image) => {
-    setSelectedImage(image); // Open the modal
+    setSelectedImage(image);
   };
 
   const closeModal = () => {
-    setSelectedImage(null); // Close the modal
+    setSelectedImage(null); 
   };
 
   return (
     <div
       className="page-container"
-      onClick={closeModal} // Close modal when anywhere in page-container is clicked
+      onClick={closeModal} 
     >
       <div className="gallery-container" onClick={(e) => e.stopPropagation()}>
         <div className="logo" onClick={handleLogoClick}>

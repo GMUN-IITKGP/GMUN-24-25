@@ -6,11 +6,14 @@
   align-items: center;
   height: 100%;
   background-color: #574A73;
-  
 }
 
+.committee-container{
+  background-color: #574A73;
+}
 .committee-container body{
-  width: 100%; 
+  width: 100vw; 
+  transform: translateX(-6vw);
   height: 100%; 
   display: flex;
   flex-direction: column;
@@ -92,6 +95,9 @@ text-align:center;
 }
 
 @media (max-width: 768px) {
+  /* .committee-container body{
+    transform: translateX(100vw);
+  } */
   .committee-map {
     max-height: 50vh; 
   }

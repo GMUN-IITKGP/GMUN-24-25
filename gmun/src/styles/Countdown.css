@@ -1,4 +1,4 @@
-#countdown {
+/* #countdown {
     font-family: Arial, sans-serif;
     text-align: center;
     margin-top: 20px;
@@ -6,6 +6,7 @@
     border: 2px solid #007BFF;
     border-radius: 8px;
     background-color: #f9f9f9;
+    margin-top: 20px;
 
 }
 
@@ -13,4 +14,104 @@
     font-size: 36px;
     color: #007BFF;
 
+} */
+
+.countdown-wrapper {
+    font-family: 'Outfit', sans-serif;
+    /* Modern, clean font */
+    color: #F3EDE3;
+    /* Lightest color from the palette */
+    background-color: #363537;
+    /* Darkest color for the background */
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+    max-width: 500px;
+    /* Smaller max width for compactness */
+}
+
+.countdown-heading {
+    font-size: 24px;
+    /* Smaller heading size */
+    font-weight: 400;
+    /* Lighter weight for a soft feel */
+    margin-bottom: 15px;
+    color: #B69354;
+    /* Gold shade for the heading */
+}
+
+.countdown-card {
+    background-color: #574A73;
+    /* Purple shade for the card background */
+    padding: 15px 25px;
+    /* Reduced padding for compactness */
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+}
+
+.countdown-number {
+    font-size: 40px;
+    /* Reduced size for balance */
+    font-weight: 300;
+    /* Lighter weight for elegance */
+    color: #F3EDE3;
+    /* Lightest color */
+    margin: 0;
+}
+
+.countdown-label {
+    display: block;
+    font-size: 16px;
+    /* Smaller font size for labels */
+    font-weight: 400;
+    margin-top: 6px;
+    color: #CDC9E3;
+    /* Soft lavender shade for contrast */
+}
+
+.fun-fact {
+    font-size: 16px;
+    /* Smaller font size */
+    font-weight: 300;
+    /* Soft font weight for readability */
+    line-height: 1.4;
+    color: #F3EDE3;
+    /* Lightest color for text */
+    margin: 15px 0;
+}
+
+.interaction-button {
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    /* Smaller button font */
+    font-weight: 500;
+    padding: 8px 18px;
+    /* Reduced padding for compactness */
+    color: #363537;
+    /* Dark text for contrast */
+    background-color: #B69354;
+    /* Gold shade for the button */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.interaction-button:hover {
+    background-color: #F3EDE3;
+    /* Light shade on hover */
+    color: #363537;
+    /* Dark text on hover */
+    scale: 1.05;
+    /* Slight scale for interaction */
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    padding-top: 20px;
 }

@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
-import "./Cards.css";
+import WorldMap from "./WorldMap";
+import "./committee.css"; // General styles
 
-const Cards = () => {
+
+const G20 = () => {
   useEffect(() => {
     const cards = document.querySelector(".cards");
     const images = document.querySelectorAll(".card__img");
@@ -10,7 +12,8 @@ const Cards = () => {
 
     const calcValue = (a, b) => ((a / b) * range - range / 2).toFixed(1);
 
-    const handleMouseMove = ({ x, y }) => {
+    const handleMouseMove = (event) => {
+      const { clientX: x, clientY: y } = event;
       const yValue = calcValue(y, window.innerHeight);
       const xValue = calcValue(x, window.innerWidth);
 
@@ -37,11 +40,42 @@ const Cards = () => {
   }, []);
 
   return (
-    <body>
-    <div className="page-container">
+    <div className="committee-container">
+      <body>
+      {/* Spinning UN Emblem */}
+      <div className="emblem">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
+          className="spinning-logo"
+        >
+          <image
+            href="https://upload.wikimedia.org/wikipedia/commons/5/52/Emblem_of_the_United_Nations.svg"
+            width="100%"
+            height="100%"
+            alt="UN Emblem"
+          />
+        </svg>
+      </div>
+
+      {/* World Map Section */}
+      <div className="committee-map">
+        <WorldMap title="G20" mapDataFile="mapdata.js" />
+      </div>
+
+      {/* Committee Content Section */}
+      <div className="committee-content">
+        <h2>G20</h2>
+        <p>AGENDA</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+
+      {/* 3D Cards Section */}
       <div className="cards">
-        <h3>DISEC</h3>
+        <h3>G20</h3>
         <h1>Executive Board</h1>
+
+        {/* Card 1 */}
         <div className="card card__one">
           <div className="card__bg"></div>
           <img
@@ -53,6 +87,8 @@ const Cards = () => {
             <p className="card__title">Princess Mononoke</p>
           </div>
         </div>
+
+        {/* Card 2 */}
         <div className="card card__two">
           <div className="card__bg"></div>
           <img
@@ -64,6 +100,8 @@ const Cards = () => {
             <p className="card__title">Spirited Away</p>
           </div>
         </div>
+
+        {/* Card 3 */}
         <div className="card card__three">
           <div className="card__bg"></div>
           <img
@@ -76,10 +114,9 @@ const Cards = () => {
           </div>
         </div>
       </div>
-      <span className="notice">View on desktop for mouse movement</span>
+      </body>
     </div>
-    </body>
   );
 };
 
-export default Cards;
+export default G20;

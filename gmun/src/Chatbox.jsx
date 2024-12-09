@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import "./Chatbox.css";
 
-const Chatbox = ({ socket }) => {
-  const [messages, setMessages] = useState([]);
+const Chatbox = ({ socket, messages, setMessages }) => {
   const [input, setInput] = useState("");
-
   const handleSend = () => {
     if (input.trim() !== "") {
       const newMessage = { text: input, sender: "sent" };
@@ -15,14 +13,22 @@ const Chatbox = ({ socket }) => {
   };
 
   useEffect(() => {
+    console.log("Chatbox mounted");
+
     // Listen for messages from the server
-    socket.on("receive-message", (data) => {
+    const handleMessage = (data) => {
       const newMessage = { text: data, sender: "received" };
+      console.log("Received:", data);
       setMessages((prev) => [...prev, newMessage]);
-    });
+    };
+
+    socket.on("receive-message", handleMessage);
 
     return () => {
-      socket.off("receive-message"); // Clean up listener
+      // Properly clean up all listeners
+      socket.off("receive-message", handleMessage); // Remove only this specific handler
+      socket.off("connect");
+      socket.off("disconnect");
     };
   }, [socket]);
 

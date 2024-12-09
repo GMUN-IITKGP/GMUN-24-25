@@ -1,55 +1,103 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+US+Trad:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
-.committee-container {
-  width: 100vw; /* Full viewport width */
-  min-height: 100vh; /* Full viewport height */
+#Committee {
+  width: 100%;
+  align-items: center;
+  height: 100%;
+  background-color: #574A73;
+}
+
+.committee-container{
+  background-color: #574A73;
+}
+.committee-container body{
+  width: 100vw; 
+  transform: translateX(-6vw);
+  height: 100%; 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px; 
-  margin: 0 auto; /* Center the content */
-  background-color: white; /* Match intended background color */
+  padding:20px;
+  box-sizing: border-box;
+  margin: 0; 
+  overflow-x: hidden;
+  background-color: #574A73;
+}
+#World-Map h2{
+font-size: 48px;
+    color: #F3EDE3;
+    
+text-align:center;
+ padding-bottom:50px;
+ font-family: 'Montserrat',sans-serif;
+ font-weight: 700;
+
 }
 
 .committee-map {
-  padding:20px;
-  width: 100vw;
-  max-height: 70vh; 
-  height: auto; 
-  margin-bottom: 70px;
+  padding-bottom:50px;
+  width: 100%;  
+  height: 80%;  
   position: relative;
   z-index: 1; 
+  flex: 1 1 auto; 
+  margin-top: 20px; 
 }
 
 .committee-content {
+  max-width: 100%;
   text-align: center;
   max-width: 1200px;
   width: 80%;
-  padding: 50px;
-  background-color: #ffffff;
-  border: 1px solid #ddd;
+  padding: 100px;
+  background-color: #36353767;
+  border: 5px solid #B69354;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   position: relative;
   z-index: 2;
-  margin-top: 100px; /* Adjust this value to move it down */
+  margin-top: 70px; /* Adjust this value to move it down */
+  flex: 1 1 auto;
+  margin-bottom: 100px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+/* Outer glow on hover or touch */
+.committee-content:hover,
+.committee-content:active {
+  box-shadow: 0 0 20px 5px #574A73, 0 4px 10px rgba(0, 0, 0, 0.1); /* Glow effect */
+  transform: scale(1.02); /* Slight scale effect for emphasis */
 }
 
 .committee-content h2 {
+  font-family: 'Montserrat',sans-serif;
+  text-align: left;
   font-size: 36px;
-  margin: 20px 0;
   font-weight: 700;
-  color: #333;
+  color: #F3EDE3;
+}
+.committee-content h3 {
+  font-size: 20px;
+  text-align: left;
+  line-height: 1.8;
+  color: #B69354;
 }
 
 .committee-content p {
   font-size: 20px;
+  text-align: left;
   margin: 15px 0;
   line-height: 1.8;
-  color: #555;
+  color: #B69354;
+
 }
 
 @media (max-width: 768px) {
+  /* .committee-container body{
+    transform: translateX(100vw);
+  } */
   .committee-map {
     max-height: 50vh; 
   }
@@ -64,5 +112,178 @@
 
   .committee-content p {
     font-size: 16px;
+  }
+}
+.page-container {
+
+  width: 100%; 
+  max-width:100%;
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0 auto; 
+  background-color: white;
+   box-sizing: border-box;
+   overflow-x: hidden;
+}
+
+
+.cards {
+  background-color: #36353767;
+  border: 5px solid #B69354;
+  flex-shrink:1;
+  max-width: 100%; /* Ensure it doesn't exceed parent width */
+  margin: auto;
+  border-radius: 15px;
+  box-shadow: 0px 10px 20px 20px rgba(0, 0, 0, 0.17);
+  display: inline-block;
+  padding: 30px 35px;
+  perspective: 1800px;
+  text-align: center;
+  transform-origin: 50% 50%;
+  transform-style: preserve-3d;
+  transform: rotateX(11deg) rotateY(16.5deg);
+  min-width: 595px;
+}
+
+.cards h1 {
+  font-family: 'Montserrat',sans-serif;
+  color: #F3EDE3;
+  font-size:32px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  transform: translateZ(35px);
+}
+
+.cards h3{
+  font-family: 'Montserrat',sans-serif;
+  color: #B69354;
+  font-size: 16px;
+  margin-bottom: 6px;
+  transform: translateZ(25px);
+}
+
+
+
+.card {
+  border-radius: 15px;
+  box-shadow: 5px 5px 20px -5px rgba(0,0,0,0.6);
+  cursor: pointer;
+  display: inline-block;
+  height: 250px;
+  overflow: hidden;
+  perspective: 1200px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: translatez(35px);
+  transition: transform 200ms ease-out;
+  width: 175px;
+  text-align: center;
+  
+   &:hover {
+     box-shadow: 5px 5px 20px -7px rgba(0,0,0,0.5);
+     transform: translatez(60px);
+    }
+  
+  &:not(:last-child) {
+    margin-right: 30px;
+  }
+}
+
+.card__img {
+  position: relative;
+  height: 100%;
+}
+
+.card__bg {
+  bottom: -50px;
+  left: -50px;
+  position: absolute;
+  right: -50px;
+  top: -50px;
+  transform-origin: 50% 50%;
+  transform: translateZ(-50px);
+  z-index: 0;
+}
+
+.card__one {
+  .card__img {
+    top: 14px;
+    right: -10px;
+    height: 110%;
+  }
+  .card__bg {
+    background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_monobg.jpg') center / cover no-repeat;
+  }
+  .card__text {
+    /*background-color: #254b60;*/
+    position:relative;
+    
+  }
+}
+
+.card__two {
+  .card__img {
+    top: 25px;
+  }
+  .card__bg {
+    background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_spirited.jpg') center / cover no-repeat;
+  }
+  .card__text {
+    /*background-color: #274a2e;*/
+  }
+}
+
+.card__three {
+  .card__img {
+    top: 5px;
+    left: -4px;
+    height: 110%;
+  }
+  .card__bg {
+    background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_howlbg.jpg') center / cover no-repeat;
+  }
+  .card__text {
+    /*background-color: #3e2222;*/
+  }
+}
+
+.card__text {
+  align-items: center;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.55) 100%);
+  bottom: 0;
+  display: flex;
+  flex-direction: column; 
+  height: 70px;
+  justify-content: center;
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+}
+
+.card__title {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 0 10px;
+  margin-bottom: 3px;
+}
+.emblem {
+  position: relative;
+  top:60 px; /* Adjust the spacing from the top */
+  width: 120px;
+  height: 120px;
+}
+
+
+
+@media (max-width: 768px) {
+  .cards {
+      min-width: auto; /* Adjust width for small screens */
+      width: 90%;
   }
 }

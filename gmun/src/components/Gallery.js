@@ -1,107 +1,151 @@
 import React, { useEffect, useState } from "react";
 import "./Gallery.css";
 
-import image1 from "../images/1.JPG";
-import image2 from "../images/2.jpg";
-import image3 from "../images/3.JPG";
-import image4 from "../images/4.JPG";
-import image5 from "../images/5.JPG";
+import image1 from "../images/1.webp";
+import image2 from "../images/2.webp";
+import image3 from "../images/3.webp";
+import image4 from "../images/4.webp";
+import image5 from "../images/5.webp";
 import image6 from "../images/6.JPG";
 import image7 from "../images/7.JPG";
 import image8 from "../images/8.JPG";
+import image9 from "../images/9.JPG";
+import image10 from "../images/10.JPG";
+import image11 from "../images/11.JPG";
 
-const images = [image1, image2, image3, image4, image5, image6, image7, image8];
+const images = [
+  image1,
+  image2,
+  image3,
+  image4,
+  image5,
+  image6,
+  image7,
+  image8,
+  image9,
+  image10,
+  image11,
+];
+
 const texts = [
-  "Text for Image 1",
-  "Text for Image 2",
-  "Text for Image 3",
-  "Text for Image 4",
-  "Text for Image 5",
-  "Text for Image 6",
-  "Text for Image 7",
-  "Text for Image 8",
+  "Opening Ceremony",
+  "Opening Ceremony",
+  "Day 1",
+  "Day 1",
+  "Day 2",
+  "Day 2",
+  "Award Distributions",
+  "Award Distribution",
+  "Celebration",
+  "Closing Remarks",
+  "hey boy",
 ];
 
 const Gallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [radius, setRadius] = useState(200); // Default initial radius
-
-  const numberOfImages = images.length;
-
-  // Function to calculate radius based on viewport width
-  const calculateRadius = () => {
-    const width = window.innerWidth;
-    // Reduce radius proportionally to the viewport width
-    return Math.max(100, width * 0.3); // Min radius: 100px, scales at 20% of viewport width
-  };
-
-  useEffect(() => {
-    // Set initial radius
-    setRadius(calculateRadius());
-
-    // Update radius dynamically on window resize
-    const handleResize = () => {
-      setRadius(calculateRadius());
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const [radius, setRadius] = useState(450);
+  const [selectedImage, setSelectedImage] = useState(null); // Modal state
+  const visibleCount = 8;
 
   const handleKeyDown = (e) => {
     if (e.key === "ArrowRight") {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % numberOfImages);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     } else if (e.key === "ArrowLeft") {
       setCurrentIndex((prevIndex) =>
-        (prevIndex - 1 + numberOfImages) % numberOfImages
+        (prevIndex - 1 + images.length) % images.length
       );
     }
   };
 
   useEffect(() => {
+    document.body.classList.add("no-scroll");
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {
+      document.body.classList.remove("no-scroll");
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [numberOfImages]);
+  }, []);
 
-  const isTopmostImage = (angle) => {
-    const normalizedAngle = (angle + 360) % 360;
-    const tolerance = 5;
-    return Math.abs(normalizedAngle - 270) < tolerance;
+  useEffect(() => {
+    const updateRadius = () => {
+      if (window.innerWidth < 430) {
+        setRadius(150);
+      } else {
+        setRadius(450);
+      }
+    };
+
+    window.addEventListener("resize", updateRadius);
+    updateRadius();
+
+    return () => {
+      window.removeEventListener("resize", updateRadius);
+    };
+  }, []);
+
+  const handleLogoClick = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const handleImageClick = (image) => {
+    setSelectedImage(image); // Open the modal
+  };
+
+  const closeModal = () => {
+    setSelectedImage(null); // Close the modal
   };
 
   return (
-    <div className="gallery-container">
-      <div className="logo">{texts[currentIndex]}</div>
-      <div className="gallery">
-        {images.map((image, index) => {
-          const angle = (360 / numberOfImages) * (index - currentIndex);
-          const isTopmost = isTopmostImage(angle);
+    <div className="page-container">
+      <div className="gallery-container">
+        <div className="logo" onClick={handleLogoClick}>
+          {texts[currentIndex]}
+        </div>
+        <div className="gallery">
+          {(() => {
+            const elements = [];
+            for (let i = 0; i < visibleCount; i++) {
+              const index = (currentIndex + i) % images.length;
+              const angle = (360 / visibleCount) * i+45;
+              const isTopmost = Math.abs((angle + 360) % 360 - 270) < 5;
 
-          return (
-            <div
-              key={index}
-              className={`gallery-item ${isTopmost ? "highlight" : ""}`}
-              style={{
-                transform: `rotate(${angle}deg) translate(${radius}px)`,
-              }}
-            >
-              <div
-                className="image-container"
-                style={{
-                  transform: `rotate(${-angle}deg)`,
-                }}
-              >
-                <img src={image} alt={`Image ${index + 1}`} />
-              </div>
+              elements.push(
+                <div
+                  key={index}
+                  className={`gallery-item ${isTopmost ? "highlight" : ""}`}
+                  style={{
+                    transform: `rotate(${angle}deg) translate(${radius}px)`,
+                    transition: "transform 0.8s ease",
+                  }}
+                >
+                  <div
+                    className="image-container"
+                    style={{
+                      transform: `rotate(-${angle}deg)`,
+                      transition: "transform 1s ease",
+                    }}
+                    onClick={() => handleImageClick(images[index])} 
+                  >
+                    <img src={images[index]} alt={`Image ${index + 1}`} />
+                  </div>
+                </div>
+              );
+            }
+            return elements;
+          })()}
+        </div>
+        
+        {selectedImage && (
+          <div className="modal" onClick={closeModal}>
+            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              <img src={selectedImage} alt="Enlarged view" />
+              <button className="close-button" onClick={closeModal}>
+                ✖
+              </button>
             </div>
-          );
-        })}
+          </div>
+        )}
       </div>
     </div>
   );

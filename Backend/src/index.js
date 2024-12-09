@@ -1,12 +1,22 @@
 import connectDB from "./db/index.js";
 import { server } from "./app.js";
-import {Server} from "socket.io";
+import { Server } from "socket.io";
 
-const io = new Server(server)
+const io = new Server(server, {
+  cors: {
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"],
+    credentials: true,
+  },
+});
 
 io.on("connection", (socket) => {
-  console.log("New Connection")
-})
+  console.log("New User Connected", socket.id);
+  socket.on("message", (msg) => {
+    console.log(msg);
+    socket.broadcast.emit("receive-message", msg);
+  });
+});
 
 connectDB()
   .then(() => {

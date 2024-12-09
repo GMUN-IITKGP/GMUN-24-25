@@ -4,18 +4,16 @@ import Chatbox from "./Chatbox";
 import ChatIcon from "./ChatIcon";
 import { Outlet } from "react-router-dom";
 import NavBar from "./components/Navbar";
-import '@fortawesome/fontawesome-free/css/all.min.css';
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const App = () => {
   const [isChatOpen, setIsChatOpen] = useState(false); // Toggle Chatbox visibility
-  const socket = useMemo(() => io("http://localhost:3000", { withCredentials: true }), []);
+  const [messages, setMessages] = useState([]);
 
-  useEffect(() => {
-    // Clean up the socket connection on unmount
-    return () => {
-      socket.disconnect();
-    };
-  }, [socket]);
+  const socket = useMemo(
+    () => io("http://localhost:8000", { withCredentials: true }),
+    []
+  );
 
   const toggleChat = () => {
     setIsChatOpen(!isChatOpen);
@@ -30,10 +28,15 @@ const App = () => {
         <Outlet />
       </div>
       <div className="App">
-        {isChatOpen && <Chatbox socket={socket} />}
+        {isChatOpen && (
+          <Chatbox
+            socket={socket}
+            messages={messages}
+            setMessages={setMessages}
+          />
+        )}
         <ChatIcon onClick={toggleChat} />
       </div>
-
     </div>
   );
 };

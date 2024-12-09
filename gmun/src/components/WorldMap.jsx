@@ -11,7 +11,7 @@ const WorldMap = ({ title }) => {
   }, []);
 
   return (
-    <div>
+    <div id="World-Map">
       <h2>{title}</h2>
       <div id="map" style={{ width: '100%', height: '500px' }}></div> {/* Adjust size as needed */}
     </div>

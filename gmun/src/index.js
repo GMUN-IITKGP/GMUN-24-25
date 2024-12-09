@@ -17,6 +17,7 @@ import WorldMap from "./components/WorldMap";
 import Gallery from "./components/Gallery";
 import LogoutBtn from "./components/LogoutBtn";
 import FAQs from "./components/FAQs";
+import Discuss from "./components/Discuss";
 
 const router = createBrowserRouter([
   {
@@ -78,6 +79,10 @@ const router = createBrowserRouter([
       {
         path: "/FAQs",
         element: <FAQs/>,
+      },
+      {
+        path: "/Discuss",
+        element: <Discuss/>,
       },
       {
         path: "/gallery",

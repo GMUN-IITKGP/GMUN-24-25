@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../styles/Login.css";
 import { BASE_URL } from "../constants.js";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -12,22 +13,18 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${BASE_URL}/users/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
+      const response = await axios.post(
+        `${BASE_URL}/users/login`,
+        {
           password,
           email,
-        }),
-      });
-      const data = await response.json();
-      console.log(data);
-      if (data.accessToken) {
-        document.cookie = `accessToken=${data.accessToken}`;
-        navigate("/");
-      }
+        },
+        {
+          withCredentials: true,
+        }
+      );
+      console.log(response);
+      navigate("/");
     } catch (error) {
       console.log(error);
     }

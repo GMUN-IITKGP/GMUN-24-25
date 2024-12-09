@@ -382,7 +382,7 @@ body.no-scroll {
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 450px) {
   .gallery-container {
     top: 50%;
     height: auto;

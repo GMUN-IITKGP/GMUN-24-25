@@ -55,7 +55,6 @@ const Timeline = () => {
     };
 
     // Set the initial background image
-    setBackgroundImage("https://i.ibb.co/6XGLVm5/GMUN-Logo-gold-f289779a-removebg-preview.png");
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);

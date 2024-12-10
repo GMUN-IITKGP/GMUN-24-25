@@ -38,27 +38,35 @@ const Timeline = () => {
   ];
 
   useEffect(() => {
-    const handleScroll = () => {
-      const timelineElements = document.querySelectorAll(".timeline-item");
-      let foundActive = false;
+  const handleScroll = () => {
+    const timelineElements = document.querySelectorAll(".timeline-item");
 
-      timelineElements.forEach((el, index) => {
-        const rect = el.getBoundingClientRect();
-        const isActive = rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2;
+    timelineElements.forEach((el, index) => {
+      const rect = el.getBoundingClientRect();
+      console.log(rect);
+      
+      // Check if the element is in the viewport
+      const isActive =
+        (rect.top <= window.innerHeight / 2) && (rect.bottom >= window.innerHeight / 2);
 
-        if (isActive && !foundActive) {
-          setActiveIndex(index);
-          setBackgroundImage(timelineItems[index].img);
-          foundActive = true;
-        }
-      });
-    };
+      // Add or remove the active class based on visibility
+      if (isActive) {
+        el.classList.add("timeline-item--active");
+      } else {
+        el.classList.remove("timeline-item--active");
+      }
+    });
+  };
 
-    // Set the initial background image
+  // Attach the scroll event listener
+  window.addEventListener("scroll", handleScroll);
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [timelineItems]);
+  // Trigger the scroll handler on initial render to handle pre-loaded elements
+  handleScroll();
+
+  // Cleanup event listener
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
 
   return (
     <div

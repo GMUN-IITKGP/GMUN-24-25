@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Cardo|Pathway+Gothic+One');
+
 
 .timeline {
     display: flex;
@@ -16,7 +16,6 @@
     transition: 0.4s;
     padding: 0 10px;
     box-sizing: border-box;
-    font-family: 'Pathway Gothic One', sans-serif;
     color: #B69354;
 }
 
@@ -36,7 +35,7 @@
     width: 2px;
     height: 80%;
     margin-left: -1px;
-    top:270px;
+    top:200px;
     content: "";
     background: rgba(255, 255, 255, 0.07);
 }
@@ -51,7 +50,7 @@
     padding: 40px 0;
     opacity: 0.3;
     filter: blur(2px);
-    transition: 0.5s;
+    transition: opacity 0.5s, filter 0.5s;
     box-sizing: border-box;
     width: calc(50% - 40px);
     display: flex;
@@ -92,7 +91,7 @@
 .timeline-item--active {
     opacity: 1;
     transform: translateY(0);
-    filter: blur(0px);
+    filter: blur(0);
 }
 
 .timeline-item--active:before {

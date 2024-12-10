@@ -17,6 +17,8 @@ import WorldMap from "./components/WorldMap";
 import Gallery from "./components/Gallery";
 import LogoutBtn from "./components/LogoutBtn";
 import FAQs from "./components/FAQs";
+import Discuss from "./components/Discuss";
+import AboutUs from "./pages/aboutUs";
 
 const router = createBrowserRouter([
   {
@@ -60,6 +62,10 @@ const router = createBrowserRouter([
         element: <Landing />,
       },
       {
+        path: "/AboutUs",
+        element: <AboutUs />,
+      },
+      {
         path: "/committee/:id",
         element: <Committee />,
       },
@@ -78,6 +84,10 @@ const router = createBrowserRouter([
       {
         path: "/FAQs",
         element: <FAQs/>,
+      },
+      {
+        path: "/Discuss",
+        element: <Discuss/>,
       },
       {
         path: "/gallery",

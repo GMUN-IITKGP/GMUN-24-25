@@ -69,8 +69,8 @@ const Gallery = () => {
 
   useEffect(() => {
     const updateRadius = () => {
-      if (window.innerWidth < 430) {
-        setRadius(150);
+      if (window.innerWidth < 450) {
+        setRadius(160);
       } else {
         setRadius(450);
       }
@@ -89,16 +89,19 @@ const Gallery = () => {
   };
 
   const handleImageClick = (image) => {
-    setSelectedImage(image); // Open the modal
+    setSelectedImage(image);
   };
 
   const closeModal = () => {
-    setSelectedImage(null); // Close the modal
+    setSelectedImage(null); 
   };
 
   return (
-    <div className="page-container">
-      <div className="gallery-container">
+    <div
+      className="page-container"
+      onClick={closeModal} 
+    >
+      <div className="gallery-container" onClick={(e) => e.stopPropagation()}>
         <div className="logo" onClick={handleLogoClick}>
           {texts[currentIndex]}
         </div>
@@ -107,7 +110,7 @@ const Gallery = () => {
             const elements = [];
             for (let i = 0; i < visibleCount; i++) {
               const index = (currentIndex + i) % images.length;
-              const angle = (360 / visibleCount) * i+45;
+              const angle = (360 / visibleCount) * i + 90;
               const isTopmost = Math.abs((angle + 360) % 360 - 270) < 5;
 
               elements.push(
@@ -125,7 +128,7 @@ const Gallery = () => {
                       transform: `rotate(-${angle}deg)`,
                       transition: "transform 1s ease",
                     }}
-                    onClick={() => handleImageClick(images[index])} 
+                    onClick={() => handleImageClick(images[index])}
                   >
                     <img src={images[index]} alt={`Image ${index + 1}`} />
                   </div>
@@ -135,10 +138,10 @@ const Gallery = () => {
             return elements;
           })()}
         </div>
-        
+
         {selectedImage && (
-          <div className="modal" onClick={closeModal}>
-            <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-content">
               <img src={selectedImage} alt="Enlarged view" />
               <button className="close-button" onClick={closeModal}>
                 ✖

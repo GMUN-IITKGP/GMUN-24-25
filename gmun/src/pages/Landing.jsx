@@ -4,6 +4,7 @@ import Announcements from '../components/Announcements';
 import Navbar from '../components/Navbar';
 import Footer from "../components/Footer";
 import Carousel from '../components/carousel'; // Import the Carousel component
+import Timeline from '../components/Timeline';
 
 const Landing = () => {
     return (
@@ -48,6 +49,12 @@ const Landing = () => {
 
             <div className="announcements">
                 <Announcements />
+            </div>
+
+            <div style={{marginTop:'150px'}}>
+                <div className="timeline">
+                    <Timeline/>
+                </div>
             </div>
 
             <footer>

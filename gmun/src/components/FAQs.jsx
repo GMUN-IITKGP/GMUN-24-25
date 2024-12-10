@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './FAQs.css';
+import './App.css';
 import Headingall from './Headingall.jsx';
 
 const Announcements = () => {

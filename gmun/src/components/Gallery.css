@@ -120,7 +120,7 @@ body.no-scroll {
 
 .modal {
   position: absolute;
-  top: -31.25vw;
+  top: -30vw;
   left: -110%;
   width: 80vw;
   height: 91vh;
@@ -203,6 +203,27 @@ body.no-scroll {
 } 
 
 }*/
+@media (min-height: 1030px) {
+  .gallery-container {
+    top: 50%;
+  }
+
+  .logo {
+    width: 20vw;
+    height: 20vw;
+    font-size: 2.0vw;
+  }
+
+  .gallery {
+    width: 25vw;
+    height: 25vw;
+  }
+
+  .gallery-item {
+    width: 20vw;
+    height: 20vw;
+  }
+}
 
 @media (max-height: 1030px) {
   .gallery-container {
@@ -361,7 +382,7 @@ body.no-scroll {
   }
 }
 
-@media (max-width: 430px) {
+@media (max-width: 450px) {
   .gallery-container {
     top: 50%;
     height: auto;

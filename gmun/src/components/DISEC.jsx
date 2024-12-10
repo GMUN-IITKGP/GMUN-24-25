@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import WorldMap from "./WorldMap";
 import "./committee.css"; // General styles
-import { ReactComponent as DISECLogo } from "../images/committee_img/DISEC_LOGO.svg";
 
 
 const DISEC = () => {
@@ -45,9 +44,20 @@ const DISEC = () => {
       <body>
       {/* Spinning UN Emblem */}
       <div className="emblem">
-      <DISECLogo className="DISECLogo" />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
+          className="spinning-logo"
+        >
+          <image
+            href="https://upload.wikimedia.org/wikipedia/commons/5/52/Emblem_of_the_United_Nations.svg"
+            width="100%"
+            height="100%"
+            alt="UN Emblem"
+          />
+        </svg>
       </div>
-
+      
       {/* World Map Section */}
       <div className="committee-map">
         <WorldMap title="DISARMAMENT AND INTERNATIONAL SECURITY COMMITTEE" mapDataFile="mapdata.js" />

@@ -4,12 +4,14 @@ var simplemaps_worldmap_mapdata={
       width: "responsive", //'700' or 'responsive'
       background_color: "#CDC9E3",
       background_transparent: "yes",
-      border_color: "#574a73",
+      border_color: "#383249",
+      border_opacity:0,
       popups: "detect",
       
       //State defaults
 
-      state_color: "#CDC9E3",
+      state_color: "#B69354",
+      state_opacity:"0.8",
       state_hover_color: "#F3EDE3 ",
       state_url: "",
       border_size: 1.5,

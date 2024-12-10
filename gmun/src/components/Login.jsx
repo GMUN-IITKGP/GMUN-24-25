@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/Login.css";
+import "../styles/Register.css";
 import { BASE_URL } from "../constants.js";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -31,41 +31,46 @@ function Login() {
   };
 
   return (
-    <div class="login-box">
-      <p>Login</p>
-      <form onSubmit={handleSubmit}>
-        <div class="user-box">
-          <input
-            required=""
-            name=""
-            type="text"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <label>Email</label>
-        </div>
-        <div class="user-box">
-          <input
-            required=""
-            name=""
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <label>Password</label>
-        </div>
-        <button type="submit">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          Submit
-        </button>
-      </form>
-      <p>
-        Don't have an account?{" "}
-        <a href="/register" class="a2">
-          Sign up!
-        </a>
-      </p>
+    <div class="container">
+      <div class="form_area">
+        <p class="title">LOGIN</p>
+        <form onSubmit={handleSubmit}>
+          <div class="form_group">
+            <label class="sub_title" for="name">
+              Email
+            </label>
+            <input
+              placeholder="Enter your Email name"
+              class="form_style"
+              type="text"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div class="form_group">
+            <label class="sub_title" for="password">
+              Password
+            </label>
+            <input
+              placeholder="Enter your password"
+              id="password"
+              class="form_style"
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div>
+            <button class="btnr" type="submit">
+              Login
+            </button>
+            <p>
+              Don't Have an Account?{" "}
+              <a class="link" href="/register">
+                Register Here!
+              </a>
+            </p>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

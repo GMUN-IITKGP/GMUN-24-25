@@ -73,7 +73,7 @@ function Register() {
             />
           </div>
           <div>
-            <button class="btn" type="submit">
+            <button class="btnr" type="submit">
               SIGN UP
             </button>
             <p>

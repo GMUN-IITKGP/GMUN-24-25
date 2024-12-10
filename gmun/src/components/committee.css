@@ -10,10 +10,12 @@
 
 .committee-container{
   background-color: #574A73;
+
 }
 .committee-container body{
+  
   width: 100vw; 
-  transform: translateX(-6vw);
+  transform: translateX(-12vw);
   height: 100%; 
   display: flex;
   flex-direction: column;
@@ -24,6 +26,7 @@
   margin: 0; 
   overflow-x: hidden;
   background-color: #574A73;
+  min-height:100vh;
 }
 #World-Map h2{
 font-size: 48px;
@@ -40,25 +43,24 @@ text-align:center;
   padding-bottom:50px;
   width: 100%;  
   height: 80%;  
+  max-height:60vh;
   position: relative;
   z-index: 1; 
   flex: 1 1 auto; 
   margin-top: 20px; 
+  margin: 0 auto; /* Center the map */
 }
 
 .committee-content {
-  max-width: 100%;
-  text-align: center;
-  max-width: 1200px;
   width: 80%;
-  padding: 100px;
-  background-color: #36353767;
+  padding: 50px; /* Default padding for larger screens */
+  background-color: #363537a8;
   border: 5px solid #B69354;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   position: relative;
   z-index: 2;
-  margin-top: 70px; /* Adjust this value to move it down */
+  margin-top: 400px; /* Default margin for large screens */
   flex: 1 1 auto;
   margin-bottom: 100px;
   transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transition */
@@ -94,41 +96,7 @@ text-align:center;
 
 }
 
-@media (max-width: 768px) {
-  /* .committee-container body{
-    transform: translateX(100vw);
-  } */
-  .committee-map {
-    max-height: 50vh; 
-  }
 
-  .committee-content {
-    width: 90%;
-  }
-
-  .committee-content h2 {
-    font-size: 28px;
-  }
-
-  .committee-content p {
-    font-size: 16px;
-  }
-}
-.page-container {
-
-  width: 100%; 
-  max-width:100%;
-  min-height: 100vh; 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  margin: 0 auto; 
-  background-color: white;
-   box-sizing: border-box;
-   overflow-x: hidden;
-}
 
 
 .cards {
@@ -277,13 +245,166 @@ text-align:center;
   top:60 px; /* Adjust the spacing from the top */
   width: 120px;
   height: 120px;
+
+}
+.unhrcLogo{
+  width: 120px;
+  height: 120px;
+  align-items: center;
+
+}
+.DISECLogo{
+  width: 200px;
+  height: 200px;
+  align-items: center;
+  margin-top: -25px;
+
+ 
+
+}
+.loksabhaLogo{
+  width: 180px;
+  height: 180px;
+  margin-left:-20px;
+  align-items: center;
+  margin-top: -25px;
+
 }
 
-
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+ 
+  .committee-map {
+    height: 50vh; /* Scale down for medium screens */
+  }
+  #World-Map h2 {
+    font-size: 32px; /* Smaller title */
+    margin-bottom: 20px;
+  }
+  .committee-content {
+    width: 90%; /* Slightly narrower on medium screens */
+    padding: 30px; /* Reduced padding for medium screens */
+    margin-top: 50px; /* Adjust spacing for medium screens */
+    margin-bottom: 50px;
+  }
+  .committee-container body {
+    transform: translateX(-6vw); /* Adjust translation for medium screens */
+  }
+  
+  .cards {
+    transform: none; /* Remove 3D rotation on smaller screens */
+    margin: 20px auto;
+    padding: 20px;
+  }
+  
+  .cards h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .card {
+    width: 150px;
+    height: 200px;
+  }
+}
 
 @media (max-width: 768px) {
+  .committee-map {
+    height: 40vh;
+  }
+
+  .committee-container {
+    
+    padding: 10px;
+  }
+  .committee-container body {
+    transform: translateX(-6vw); /* Adjust translation for medium screens */
+  }
+
+  #World-Map h2 {
+    font-size: 28px;
+  }
+ 
+
+  .committee-content {
+    width: 95%; /* Almost full width */
+    padding: 20px; /* Compact padding for smaller screens */
+    margin-top: 30px; /* Reduced spacing for small screens */
+    margin-bottom: 30px;
+    font-size: 14px; /* Adjust font size for readability */
+  }
+
+  .committee-content h2 {
+    font-size: 28px;
+  }
+
+  .committee-content p {
+    font-size: 16px;
+  }
+
   .cards {
-      min-width: auto; /* Adjust width for small screens */
-      width: 90%;
+    width: 100%;
+    padding: 15px;
+  }
+
+  .card {
+    width: 130px;
+    height: 180px;
+    margin: 10px;
+  }
+
+  .card__title {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .committee-map {
+    height: 30vh;
+  }
+  .committee-container body {
+    transform: translateX(0); /* No horizontal translation for smaller screens */
+  }
+
+  #World-Map h2 {
+    font-size: 24px;
+  }
+
+  .committee-content {
+    width: 95%; /* Almost full width */
+    padding: 20px; /* Compact padding for smaller screens */
+    margin-top: 20px; /* Reduced spacing for small screens */
+    margin-bottom: 30px;
+    font-size: 14px; /* Adjust font size for readability */
+  }
+  
+
+  .committee-content h2 {
+    font-size: 24px;
+  }
+
+  .committee-content h3,
+  .committee-content p {
+    font-size: 14px;
+  }
+
+  .cards {
+    padding: 10px;
+    margin: 0;
+    box-shadow: none; /* Remove shadow for a cleaner look */
+  }
+
+  .card {
+    width: 100px;
+    height: 150px;
+  }
+
+  .card__title {
+    font-size: 12px;
+  }
+
+  .emblem {
+    width: 90px;
+    height: 90px;
   }
 }

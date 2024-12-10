@@ -57,7 +57,7 @@ const DISEC = () => {
           />
         </svg>
       </div>
-
+      
       {/* World Map Section */}
       <div className="committee-map">
         <WorldMap title="DISARMAMENT AND INTERNATIONAL SECURITY COMMITTEE" mapDataFile="mapdata.js" />

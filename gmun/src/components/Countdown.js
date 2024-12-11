@@ -1,49 +1,18 @@
-// import React, { useState, useEffect } from 'react';
-// import '../styles/Countdown.css';
-
-// const Countdown = () => {
-//     const [daysRemaining, setDaysRemaining] = useState(0);
-
-//     useEffect(() => {
-//         const eventDate = new Date("2025-01-14T00:00:00").getTime();
-
-//         const updateCountdown = () => {
-//             const now = new Date().getTime();
-//             const remainingTime = eventDate - now;
-//             const days = Math.ceil(remainingTime / (1000 * 60 * 60 * 24));
-//             setDaysRemaining(days >= 0 ? days : 0);
-//         };
-
-//         updateCountdown();
-//         const interval = setInterval(updateCountdown, 1000 * 60 * 60 * 24);
-//         return () => clearInterval(interval);
-//     }, []);
-
-//     return (
-//         <div>
-//             <h1>Countdown to MUN Event</h1>
-//             <div id="countdown">
-//                 <span className="countdown-number" id="days-remaining">
-//                     {daysRemaining}
-//                 </span>{' '}
-//                 days remaining!
-//             </div>
-//         </div>
-
-//     );
-// };
-
-// export default Countdown;
-
-import React, { useState, useEffect } from 'react';
-import '../styles/Countdown.css';
+import React, { useState, useEffect } from "react";
+import "../styles/Countdown.css";
 
 const Countdown = () => {
-    const [daysRemaining, setDaysRemaining] = useState(0);
-    const [funFact, setFunFact] = useState("");
-    const [showAnimation, setShowAnimation] = useState(false);
+    const [timeLeft, setTimeLeft] = useState({});
+    const [fact, setFact] = useState("");
+    const [usedFacts, setUsedFacts] = useState([]);
+
+    const targetDate = new Date("January 10, 2025 10:00:00").getTime();
 
     const funFacts = [
+
+        "Debating fosters critical thinking and diplomacy skills.",
+        "The UN’s first official language was French.",
+        "Model UN started in the 1920s as League of Nations simulations.",
         "Over 400,000 students participate in MUN conferences worldwide every year!",
         "The first-ever MUN conference was organized at Harvard University in 1947.",
         "Many professional diplomats credit MUN for sparking their interest in international relations.",
@@ -66,44 +35,67 @@ const Countdown = () => {
         "Snack trades during unmoderated caucuses are the real secret to building alliances!",
         "The real reward is the confidence and skills you gain, not just awards.",
         "Everyone was a nervous first-timer once. It only gets better!"
+
     ];
 
+    // Timer logic
     useEffect(() => {
-        const eventDate = new Date("2025-01-14T00:00:00").getTime();
-
-        const updateCountdown = () => {
+        const updateTimer = () => {
             const now = new Date().getTime();
-            const remainingTime = eventDate - now;
-            const days = Math.ceil(remainingTime / (1000 * 60 * 60 * 24));
-            setDaysRemaining(days >= 0 ? days : 0);
+            const timeRemaining = targetDate - now;
+
+            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+            setTimeLeft({ days, hours, minutes, seconds });
         };
 
-        const randomFact = funFacts[Math.floor(Math.random() * funFacts.length)];
-        setFunFact(randomFact);
+        const timer = setInterval(updateTimer, 1000);
+        updateTimer();
 
-        updateCountdown();
-        const interval = setInterval(updateCountdown, 1000 * 60 * 60 * 24);
+        return () => clearInterval(timer);
+    }, [targetDate]);
 
-        return () => clearInterval(interval);
-    }, [funFacts]);
+    // Handle fact change on button click
+    const changeFact = () => {
+        if (usedFacts.length === funFacts.length) {
+            setUsedFacts([]);
+        }
 
-    const handleButtonClick = () => {
-        const randomFact = funFacts[Math.floor(Math.random() * funFacts.length)];
-        setFunFact(randomFact);
-        setShowAnimation(true);
-        setTimeout(() => setShowAnimation(false), 1000);
+        const remainingFacts = funFacts.filter((fact) => !usedFacts.includes(fact));
+        const randomFact = remainingFacts[Math.floor(Math.random() * remainingFacts.length)];
+        setUsedFacts((prev) => [...prev, randomFact]);
+        setFact(randomFact);
     };
 
     return (
-        <div className="countdown-wrapper">
-            <h1 className="countdown-heading">Countdown to MUN Event</h1>
-            <div className={`countdown-card ${showAnimation ? "bounce" : ""}`}>
-                <span className="countdown-number">{daysRemaining}</span>
-                <span className="countdown-label">Days Remaining</span>
+        <div className="countdown-container">
+            <h1 className="countdown-heading">
+                Countdown to <span>GMUN 2025</span>
+            </h1>
+            <div className="countdown-wrapper">
+                <div className="countdown-card">
+                    <div className="countdown-number">{timeLeft.days || "00"}</div>
+                    <div className="countdown-label">Days</div>
+                </div>
+                <div className="countdown-card">
+                    <div className="countdown-number">{timeLeft.hours || "00"}</div>
+                    <div className="countdown-label">Hours</div>
+                </div>
+                <div className="countdown-card">
+                    <div className="countdown-number">{timeLeft.minutes || "00"}</div>
+                    <div className="countdown-label">Minutes</div>
+                </div>
+                <div className="countdown-card">
+                    <div className="countdown-number">{timeLeft.seconds || "00"}</div>
+                    <div className="countdown-label">Seconds</div>
+                </div>
             </div>
-            <p className="fun-fact">{funFact}</p>
-            <button onClick={handleButtonClick} className="interaction-button">
-                Give Me Another Fact!
+            <p className="fun-fact">{fact || "Click below to reveal a fun fact about GMUN!"}</p>
+            <button className="fact-button" onClick={changeFact}>
+                Show Fun Fact
             </button>
         </div>
     );

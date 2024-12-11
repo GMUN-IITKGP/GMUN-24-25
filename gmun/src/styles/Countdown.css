@@ -1,117 +1,144 @@
-/* #countdown {
-    font-family: Arial, sans-serif;
+.countdown-container {
+    width: 100%;
+
+    max-width: 100%;
+
+    padding: 30px;
+    background: #524768;
+
+    border-radius: 15px;
+
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.6);
+
     text-align: center;
-    margin-top: 20px;
-    padding: 20px;
-    border: 2px solid #007BFF;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    margin-top: 20px;
+    animation: fadeIn 1s ease-in-out;
+    box-sizing: border-box;
 
 }
 
-.countdown-number {
-    font-size: 36px;
-    color: #007BFF;
-
-} */
-
-.countdown-wrapper {
-    font-family: 'Outfit', sans-serif;
-    /* Modern, clean font */
-    color: #F3EDE3;
-    /* Lightest color from the palette */
-    background-color: #363537;
-    /* Darkest color for the background */
-    padding: 20px;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    margin: 20px auto;
-    max-width: 500px;
-    /* Smaller max width for compactness */
-}
 
 .countdown-heading {
-    font-size: 24px;
-    /* Smaller heading size */
-    font-weight: 400;
-    /* Lighter weight for a soft feel */
-    margin-bottom: 15px;
+    font-size: 28px;
+    font-weight: 700;
     color: #B69354;
-    /* Gold shade for the heading */
+
+    margin-bottom: 20px;
+}
+
+.countdown-heading span {
+    color: #F3EDE3;
+
+}
+
+
+.countdown-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
 }
 
 .countdown-card {
-    background-color: #574A73;
-    /* Purple shade for the card background */
-    padding: 15px 25px;
-    /* Reduced padding for compactness */
-    border-radius: 8px;
-    margin-bottom: 15px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    display: inline-block;
+    background-color: #CDC9E3;
+
+    padding: 15px;
+    border-radius: 15px;
+
+    text-align: center;
+    width: 80px;
+
+    height: 75px;
+
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .countdown-number {
-    font-size: 40px;
-    /* Reduced size for balance */
-    font-weight: 300;
-    /* Lighter weight for elegance */
-    color: #F3EDE3;
-    /* Lightest color */
-    margin: 0;
+    font-size: 32px;
+
+    font-weight: 800;
+    color: #363537;
+
+}
+
+.countdown-number.fade-in {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.countdown-number.fade-out {
+    opacity: 0;
+    transform: scale(0.8);
 }
 
 .countdown-label {
-    display: block;
-    font-size: 16px;
-    /* Smaller font size for labels */
-    font-weight: 400;
-    margin-top: 6px;
-    color: #CDC9E3;
-    /* Soft lavender shade for contrast */
+    font-size: 12px;
+
+    font-weight: 600;
+    color: #574A73;
+
+    margin-top: 5px;
+
+    word-wrap: break-word;
+    text-align: center;
 }
+
 
 .fun-fact {
+    margin-top: 20px;
     font-size: 16px;
-    /* Smaller font size */
-    font-weight: 300;
-    /* Soft font weight for readability */
-    line-height: 1.4;
-    color: #F3EDE3;
-    /* Lightest color for text */
-    margin: 15px 0;
+    color: #CDC9E3;
+
+    font-style: italic;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.4);
+
+    border-radius: 8px;
+    border: none;
+
 }
 
-.interaction-button {
-    font-family: 'Outfit', sans-serif;
-    font-size: 14px;
-    /* Smaller button font */
-    font-weight: 500;
-    padding: 8px 18px;
-    /* Reduced padding for compactness */
+
+.fact-button {
+    font-size: 13px;
+    font-weight: 700;
+    padding: 5px 15px;
+    margin-top: 20px;
+    background: #B69354;
+
     color: #363537;
-    /* Dark text for contrast */
-    background-color: #B69354;
-    /* Gold shade for the button */
+
     border: none;
     border-radius: 8px;
+
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+
 }
 
-.interaction-button:hover {
-    background-color: #F3EDE3;
-    /* Light shade on hover */
-    color: #363537;
-    /* Dark text on hover */
-    scale: 1.05;
-    /* Slight scale for interaction */
-    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+.fact-button:hover {
+    background: #F3EDE3;
+
+    color: #B69354;
+
+    transform: scale(1.05);
+
 }
 
-h1 {
-    padding-top: 20px;
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

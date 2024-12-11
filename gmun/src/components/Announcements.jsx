@@ -48,7 +48,7 @@ const Announcements = () => {
                     <div className="content">
                         <div className="name">Delegate Applications Live</div>
                         <div className="des">Attention Fellow Delegates Delegate registrations for the 3rd edition of Global Model United Nations (GMUN) are now open. Join us at IIT Kharagpur from 12 to 14 January 2025, for a informative and rich experience in diplomacy and leadership.Organized by Communiqué IIT Kharagpur, this is your chance to engage, debate, and make a global impact.To secure your spot, Register now (For Non KGPians)</div>
-                        <button onClick={() => window.open('https://bit.ly/GMUN_2024', '_blank', 'noopener noreferrer')}>
+                        <button onClick={() => window.open('https://bit.ly/gmuniitkgp2025', '_blank', 'noopener noreferrer')}>
                             Register Here
                         </button>
                     </div>
@@ -80,7 +80,7 @@ const Announcements = () => {
                     <div className="content">
                         <div className="name">Delegate Applications Live</div>
                         <div className="des">Attention Fellow Delegates Delegate registrations for the 3rd edition of Global Model United Nations (GMUN) are now open. Join us at IIT Kharagpur from 12 to 14 January 2025, for a informative and rich experience in diplomacy and leadership.Organized by Communiqué IIT Kharagpur, this is your chance to engage, debate, and make a global impact.To secure your spot, Register now (For Non KGPians)</div>
-                        <button onClick={() => window.open('https://bit.ly/GMUN_2024', '_blank', 'noopener noreferrer')}>
+                        <button onClick={() => window.open('https://bit.ly/gmuniitkgp2025', '_blank', 'noopener noreferrer')}>
                             Register Here
                         </button>
                     </div>

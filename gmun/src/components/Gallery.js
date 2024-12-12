@@ -34,11 +34,11 @@ const texts = [
   "Day 1",
   "Day 2",
   "Day 2",
+  "day 2",
   "Award Distributions",
   "Award Distribution",
   "Celebration",
   "Closing Remarks",
-  "hey boy",
 ];
 
 const Gallery = () => {
@@ -103,7 +103,7 @@ const Gallery = () => {
     >
       <div className="gallery-container" onClick={(e) => e.stopPropagation()}>
         <div className="logo" onClick={handleLogoClick}>
-          {texts[currentIndex]}
+          <div className="logo-text">{texts[currentIndex]}</div>
         </div>
         <div className="gallery">
           {(() => {
@@ -141,11 +141,14 @@ const Gallery = () => {
 
         {selectedImage && (
           <div className="modal" onClick={(e) => e.stopPropagation()}>
-            <div className="modal-content">
-              <img src={selectedImage} alt="Enlarged view" />
-              <button className="close-button" onClick={closeModal}>
+          <button className="close-button" onClick={closeModal}>
                 ✖
               </button>
+            <div className="modal-content">
+              <img src={selectedImage} alt="Enlarged view" />
+              {/* <button className="close-button" onClick={closeModal}>
+                ✖
+              </button> */}
             </div>
           </div>
         )}

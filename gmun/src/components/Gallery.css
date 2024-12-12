@@ -26,7 +26,7 @@ body.no-scroll {
 
 .gallery-container {
   position: absolute;
-  top: 32.5vw;
+  top: 36vw;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -46,7 +46,7 @@ body.no-scroll {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2vw;
+  /* font-size: 2vw; */
   color: #F3EDE3;
   font-weight: bold;
   background-color: #2b2847;
@@ -55,6 +55,11 @@ body.no-scroll {
   z-index: 10;
   cursor: pointer;
   font-family: 'Libre Baskerville', serif;
+}
+.logo-text{
+  font-size: 2vw;
+  position: absolute;
+  top:40%;
 }
 
 .logo:hover {
@@ -89,6 +94,7 @@ body.no-scroll {
   transform: scale(1.5);
   box-shadow: 0 0 30px 10px rgba(183, 147, 84, 0.8);
   z-index: 9;
+  transition: 0ms;
 }
 
 .gallery-item:hover {
@@ -123,7 +129,7 @@ body.no-scroll {
   top: -30vw;
   left: -110%;
   width: 80vw;
-  height: 91vh;
+  height: 45vw;
   background: linear-gradient(to right, #cdc9e3,#574a73,#363537);
   display: flex;
   justify-content: center;
@@ -203,7 +209,7 @@ body.no-scroll {
 } 
 
 }*/
-@media (min-height: 1030px) {
+/* @media (min-height: 1030px) {
   .gallery-container {
     top: 50%;
   }
@@ -245,11 +251,11 @@ body.no-scroll {
     width: 20vw;
     height: 20vw;
   }
-}
+} */
 
-@media (max-width: 1250px) {
+@media (max-width: 1300px) {
   .gallery-container {
-    top: 84%;
+    top: 45.5vw;
   }
 
   .logo {
@@ -269,16 +275,17 @@ body.no-scroll {
   }
   .modal {
     position: absolute;
-    top: -74.5vw;
-    left: -151%;
-    width: 101vw;
-    height: 94vh;
-    background: #363537;
+    top: -38vw;
+    left: -130%;
+    width: 90vw;
+    height: 55vw;
+    background: linear-gradient(to right, #cdc9e3,#574a73,#363537);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
     opacity: 1;
+    
   }
   
   .modal-content {
@@ -291,9 +298,9 @@ body.no-scroll {
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1150px) {
   .gallery-container {
-    top: 85%;
+    top: 80%;
   }
 
   .logo {
@@ -313,11 +320,11 @@ body.no-scroll {
   }
   .modal {
     position: absolute;
-    top: -85vw;
+    top: -50vw;
     left: -110%;
     width: 80vw;
-    height: 30vh;
-    background: #363537;
+    height: 50vh;
+    background: linear-gradient(to right, #cdc9e3,#574a73,#363537);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -360,11 +367,11 @@ body.no-scroll {
   }
   .modal {
     position: absolute;
-    top: -110vw;
+    top: -70vw;
     left: -110%;
     width: 80vw;
-    height: 30vh;
-    background: #363537;
+    height: 40vh;
+    background: linear-gradient(to right, #cdc9e3,#574a73,#363537);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -394,6 +401,11 @@ body.no-scroll {
     height: 25vw;
     font-size: 2vw;
   }
+  .logo-text{
+    font-size: 2vw;
+    position: absolute;
+    top:50%;
+  }
 
   .gallery {
     width: 45vw;
@@ -410,7 +422,7 @@ body.no-scroll {
     left: -110%;
     width: 80vw;
     height: 30vh;
-    background: #363537;
+    background: linear-gradient(to right, #cdc9e3,#574a73,#363537);
     display: flex;
     justify-content: center;
     align-items: center;

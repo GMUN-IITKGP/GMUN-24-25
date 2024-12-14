@@ -20,7 +20,7 @@ const Landing = () => {
             <div className="countdown-section" style={{ marginTop: '500px' }}>
                 <Countdown />
 
-                <section id="about" style={{ color: '#B69354' }}>
+                {/* <section id="about" style={{ color: '#B69354' }}>
                     <h2
                         style={{
                             color: '#B69354',
@@ -202,12 +202,13 @@ const Landing = () => {
                     >
                         Email: <a href="mailto:info@communique.org" style={{ color: '#0000FF' }}>communique</a>
                     </p>
-                </section>
+                </section> */}
 
 
             </div>
 
-            <div className="announcements">
+            
+            <div className="announcements" style={{marginTop:"120px"}}>
                 <Announcements />
             </div>
 

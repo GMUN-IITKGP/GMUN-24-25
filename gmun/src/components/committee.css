@@ -15,7 +15,7 @@
 .committee-container body{
   
   width: 100vw; 
-  transform: translateX(-12vw);
+  transform: translateX(-9vw);
   height: 100%; 
   display: flex;
   flex-direction: column;
@@ -314,11 +314,13 @@ text-align:center;
   }
 
   .committee-container {
-    
     padding: 10px;
   }
   .committee-container body {
-    transform: translateX(-6vw); /* Adjust translation for medium screens */
+    transform: translateX(0vw); /* Adjust translation for medium screens */
+  }
+  .committee-content {
+    padding:5vh;
   }
 
   #World-Map h2 {
@@ -361,9 +363,10 @@ text-align:center;
 @media (max-width: 480px) {
   .committee-map {
     height: 30vh;
+    margin-bottom:20vh;
   }
   .committee-container body {
-    transform: translateX(0); /* No horizontal translation for smaller screens */
+    transform: translateX(0vw); /* No horizontal translation for smaller screens */
   }
 
   #World-Map h2 {

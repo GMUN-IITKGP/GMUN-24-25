@@ -3,23 +3,23 @@
 
 
 body.no-scroll {
-  overflow: hidden;
+  overflow: auto;
 }
 
 
 .page-container {
-  position: fixed; 
-  top: 0; 
-  left: 0; 
-  width: 100vw; 
-  height: 100vh; 
-  background-color: #b69354; 
-  z-index: 1; 
-  overflow-y: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #b69354;
+  z-index: 1;
+  overflow-y: auto;
   background-image: url('../images/bg.png');
-  background-size: cover; 
-  background-repeat: no-repeat; 
-  background-position: center; 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 
@@ -34,7 +34,7 @@ body.no-scroll {
   justify-content: center;
   width: 25%;
   height: 26vw;
-  background-color: transparent; 
+  background-color: transparent;
   flex-direction: column;
 }
 
@@ -56,10 +56,11 @@ body.no-scroll {
   cursor: pointer;
   font-family: 'Libre Baskerville', serif;
 }
-.logo-text{
+
+.logo-text {
   font-size: 2vw;
   position: absolute;
-  top:40%;
+  top: 40%;
 }
 
 .logo:hover {
@@ -101,7 +102,7 @@ body.no-scroll {
   transform: scale(1.5);
   width: 21vw;
   height: 21vw;
-  box-shadow: 0 0 20px 10px rgba(54, 53, 55, 0.5); 
+  box-shadow: 0 0 20px 10px rgba(54, 53, 55, 0.5);
   z-index: 9;
 }
 
@@ -117,11 +118,11 @@ body.no-scroll {
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
-  filter: brightness(1); 
+  filter: brightness(1);
 }
 
 .gallery-item img:hover {
-  filter: brightness(1.1); 
+  filter: brightness(1.1);
 }
 
 .modal {
@@ -130,7 +131,7 @@ body.no-scroll {
   left: -110%;
   width: 80vw;
   height: 45vw;
-  background: linear-gradient(to right, #cdc9e3,#574a73,#363537);
+  background: linear-gradient(to right, #cdc9e3, #574a73, #363537);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -139,8 +140,11 @@ body.no-scroll {
 
 .modal-content {
   position: relative;
-  max-width: 80%; /* Width relative to the screen */
-  max-height: 100%; /* Height relative to the screen */ /* Shift the modal upwards */
+  max-width: 80%;
+  /* Width relative to the screen */
+  max-height: 100%;
+  /* Height relative to the screen */
+  /* Shift the modal upwards */
   border-radius: 10px;
   overflow: hidden;
 }
@@ -273,28 +277,29 @@ body.no-scroll {
     width: 20vw;
     height: 20vw;
   }
+
   .modal {
     position: absolute;
     top: -38vw;
     left: -130%;
     width: 90vw;
     height: 55vw;
-    background: linear-gradient(to right, #cdc9e3,#574a73,#363537);
+    background: linear-gradient(to right, #cdc9e3, #574a73, #363537);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
     opacity: 1;
-    
+
   }
-  
+
   .modal-content {
     position: relative;
     max-width: 80%;
-    max-height: 100%; 
+    max-height: 100%;
     border-radius: 10x;
     overflow: hidden;
-    
+
   }
 }
 
@@ -318,24 +323,25 @@ body.no-scroll {
     width: 20vw;
     height: 20vw;
   }
+
   .modal {
     position: absolute;
     top: -50vw;
     left: -110%;
     width: 80vw;
     height: 50vh;
-    background: linear-gradient(to right, #cdc9e3,#574a73,#363537);
+    background: linear-gradient(to right, #cdc9e3, #574a73, #363537);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
     opacity: 0.95;
   }
-  
+
   .modal-content {
     position: relative;
     max-width: 80%;
-    max-height: 100%; 
+    max-height: 100%;
     border-radius: 10x;
     overflow: hidden;
     opacity: 1;
@@ -365,24 +371,25 @@ body.no-scroll {
     width: 22vw;
     height: 22vw;
   }
+
   .modal {
     position: absolute;
     top: -70vw;
     left: -110%;
     width: 80vw;
     height: 40vh;
-    background: linear-gradient(to right, #cdc9e3,#574a73,#363537);
+    background: linear-gradient(to right, #cdc9e3, #574a73, #363537);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
     opacity: 0.95;
   }
-  
+
   .modal-content {
     position: relative;
     max-width: 80%;
-    max-height: 100%; 
+    max-height: 100%;
     border-radius: 10x;
     overflow: hidden;
     opacity: 1;
@@ -401,10 +408,11 @@ body.no-scroll {
     height: 25vw;
     font-size: 2vw;
   }
-  .logo-text{
+
+  .logo-text {
     font-size: 2vw;
     position: absolute;
-    top:50%;
+    top: 50%;
   }
 
   .gallery {
@@ -416,27 +424,28 @@ body.no-scroll {
     width: 27vw;
     height: 27vw;
   }
+
   .modal {
     position: absolute;
     top: -10vw;
     left: -110%;
     width: 80vw;
     height: 30vh;
-    background: linear-gradient(to right, #cdc9e3,#574a73,#363537);
+    background: linear-gradient(to right, #cdc9e3, #574a73, #363537);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
     opacity: 0.95;
   }
-  
+
   .modal-content {
     position: relative;
     max-width: 80%;
-    max-height: 100%; 
+    max-height: 100%;
     border-radius: 10x;
     overflow: hidden;
     opacity: 1;
   }
-  
+
 }

@@ -13,7 +13,7 @@ const Navbar = () => {
           <Link to="/">Home</Link>
         </li>
         <li className="nav-list">
-          <Link to="/secretariat">Secretariat</Link>
+          <Link to="/sec">Secretariat</Link>
         </li>
 
         {/* Dropdown for Committees */}

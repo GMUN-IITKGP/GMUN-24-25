@@ -25,6 +25,7 @@
     margin-bottom: 20px;
 }
 
+
 .countdown-heading span {
     color: #F3EDE3;
 
@@ -142,5 +143,5 @@
         transform: translateY(0);
     }
 
-    
+
 }

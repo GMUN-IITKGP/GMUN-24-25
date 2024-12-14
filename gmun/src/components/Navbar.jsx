@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Navbar.css';
-
+import gmunlogo from '../images/GMUN Gold.png';
+import edition from '../images/3rd.png';
 const Navbar = () => {
   return (
     <div className="nav">
-      <div className="nav-logo">GMUN</div>
+      <div className="nav-logo"><img src={gmunlogo} alt="GmunLogo" className='front-face' /><img src={edition} alt="3rd edition" className='back-face' />
+      </div>
       <ul className="nav-menu">
         <li className="nav-list">
           <Link to="/">Home</Link>

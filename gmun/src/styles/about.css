@@ -1,4 +1,4 @@
-.contain {
+.contain1 {
     display: flex;
     flex-direction: column;
     gap: 100px;
@@ -16,7 +16,7 @@
     transition: transform 0.2s ease, box-shadow 0.2s ease; 
   }
   
-  .contain .box:first-child {
+  .contain1 .box:first-child {
     margin-top: 60px;
   }
 
@@ -31,7 +31,7 @@
     color: #B69354;
   }
   
-  .content {
+  .content1 {
     font-size: 1.3rem;
     line-height: 1.6;
     color: #F3EDE3;

@@ -1,0 +1,39 @@
+.contain {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    margin: 10px 10px;
+    padding: 20px;
+    overflow: hidden;
+  }
+  
+  .box {
+    border: 8px solid #B69354;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #574A73;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; 
+  }
+  
+  .contain .box:first-child {
+    margin-top: 60px;
+  }
+
+  .box:hover {
+    transform: translateY(-10px); 
+  }
+  
+  .head {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #B69354;
+  }
+  
+  .content {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: #F3EDE3;
+  }
+  

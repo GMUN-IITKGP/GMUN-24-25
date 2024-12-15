@@ -26,14 +26,14 @@ body.no-scroll {
 
 .gallery-container {
   position: absolute;
-  top: 36vw;
+  top: 97.5%;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   align-items: center;
   justify-content: center;
   width: 25%;
-  height: 26vw;
+  height: 2vh;
   background-color: transparent; 
   flex-direction: column;
 }
@@ -126,10 +126,10 @@ body.no-scroll {
 
 .modal {
   position: absolute;
-  top: -30vw;
+  top: -4250%;
   left: -110%;
   width: 80vw;
-  height: 45vw;
+  height: 89vh;
   background: linear-gradient(to right, #cdc9e3,#574a73,#363537);
   display: flex;
   justify-content: center;
@@ -140,7 +140,7 @@ body.no-scroll {
 .modal-content {
   position: relative;
   max-width: 80%; /* Width relative to the screen */
-  max-height: 100%; /* Height relative to the screen */ /* Shift the modal upwards */
+  max-height: 92%; /* Height relative to the screen */ /* Shift the modal upwards */
   border-radius: 10px;
   overflow: hidden;
 }
@@ -253,7 +253,7 @@ body.no-scroll {
   }
 } */
 
-@media (max-width: 1300px) {
+/* @media (max-width: 1300px) {
   .gallery-container {
     top: 45.5vw;
   }
@@ -286,7 +286,7 @@ body.no-scroll {
     z-index: 1000;
     opacity: 1;
     
-  }
+  } 
   
   .modal-content {
     position: relative;
@@ -296,9 +296,9 @@ body.no-scroll {
     overflow: hidden;
     
   }
-}
+}*/
 
-@media (max-width: 1150px) {
+/* @media (max-width: 1150px) {
   .gallery-container {
     top: 80%;
   }
@@ -340,12 +340,12 @@ body.no-scroll {
     overflow: hidden;
     opacity: 1;
   }
-}
+} */
 
 @media (max-width: 768px) {
   .gallery-container {
-    top: 97%;
-    transform: translate(-50%, -50%);
+    top: 84%;
+    /* transform: translate(-50%, -50%); */
     height: auto;
     flex-direction: column;
   }
@@ -367,10 +367,10 @@ body.no-scroll {
   }
   .modal {
     position: absolute;
-    top: -70vw;
+    top: -160%;
     left: -110%;
     width: 80vw;
-    height: 40vh;
+    height: 45vh;
     background: linear-gradient(to right, #cdc9e3,#574a73,#363537);
     display: flex;
     justify-content: center;
@@ -391,7 +391,7 @@ body.no-scroll {
 
 @media (max-width: 450px) {
   .gallery-container {
-    top: 50%;
+    top: 43%;
     height: auto;
     flex-direction: column;
   }

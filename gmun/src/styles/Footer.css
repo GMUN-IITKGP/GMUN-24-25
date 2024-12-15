@@ -1,66 +1,96 @@
 .footer {
   margin-top: 100px;
-  background-color: #363537;
-  /* Darkest background color */
+  background: linear-gradient(135deg, #1C1C1C, #2A2A2A);
+  /* Subtle gradient for depth */
   color: #F3EDE3;
-  /* Lighter text color */
+  /* Light text color */
   text-align: center;
-  padding: 30px 0;
-  font-family: Arial, sans-serif;
+  padding: 40px 20px;
+  font-family: 'Arial', sans-serif;
   font-size: 14px;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   box-sizing: border-box;
-  /* Includes padding in the total width */
   overflow-x: hidden;
-  /* Prevent horizontal overflow */
-}
-
-.footer-icons {
-  margin-bottom: 20px;
-}
-
-.icon-link {
-  margin: 0 10px;
-  color: #F3EDE3;
-  /* Lighter text color for links */
-  font-size: 20px;
-  /* Slightly larger for prominence */
-  text-decoration: none;
-  transition: color 0.3s ease, transform 0.2s ease;
-}
-
-.icon-link:hover {
-  color: #B69354;
-  /* Gold for hover effect */
-  transform: scale(1.1);
-  /* Subtle hover animation */
-}
-
-.footer-links {
-  margin-top: 25px;
-}
-
-.footer-links a {
-  margin: 0 12px;
-  color: #F3EDE3;
-  /* Lighter text color for links */
-  text-decoration: none;
-  font-size: 14px;
-  transition: color 0.3s ease;
-}
-
-.footer-links a:hover {
-  color: #B69354;
-  /* Gold for hover effect */
+  position: relative;
+  /* For potential overlays */
 }
 
 .footer::before {
   content: "";
   display: block;
-  width: 80%;
-  height: 1px;
-  background-color: #B69354;
-  /* Gold divider for elegance */
-  margin: 0 auto 15px auto;
+  width: 90%;
+  height: 2px;
+  background: linear-gradient(90deg, #B69354, transparent);
+  /* Elegant fade effect */
+  margin: 0 auto 20px auto;
+  opacity: 0.8;
+}
+
+.footer-icons {
+  margin-bottom: 25px;
+}
+
+.icon-link {
+  margin: 0 12px;
+  color: #F3EDE3;
+  font-size: 22px;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+  position: relative;
+}
+
+.icon-link::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0%;
+  height: 2px;
+  background: #B69354;
+  /* Gold underline effect */
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.icon-link:hover {
+  color: #B69354;
+  transform: scale(1.15);
+}
+
+.icon-link:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+.footer-links {
+  margin-top: 30px;
+}
+
+.footer-links a {
+  margin: 0 15px;
+  color: #F3EDE3;
+  text-decoration: none;
+  font-size: 15px;
+  transition: color 0.3s ease, transform 0.2s ease;
+  position: relative;
+}
+
+.footer-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  width: 0%;
+  height: 2px;
+  background: #B69354;
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #B69354;
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+  left: 0;
 }

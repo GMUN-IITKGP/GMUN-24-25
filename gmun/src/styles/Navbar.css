@@ -1,42 +1,158 @@
 .nav {
-    padding: 4px;
+    padding: 0 24px;
+    /* Increased horizontal padding for spaciousness */
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: fixed;
     width: 100%;
+    height: 80px;
+    /* Taller navbar for a sleek look */
     top: 0;
     left: 0;
     z-index: 999;
-    transition: top 0.3s;
-    background-color: #363537;
-    /* Darkest color for navbar background */
+    transition: all 0.3s ease;
+    background-color: #1C1C1C;
+    /* Dark gray background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Soft shadow for depth */
     font-family: 'Poppins', sans-serif;
-    /* Use Poppins font for the navbar */
 }
 
 .nav-logo {
-    font-family: 'Poppins', sans-serif;
-    font-size: 38px;
-    font-weight: 600;
-    padding: 10px;
-    color: #B69354;
-    /* Gold shade for the logo */
+    perspective: 1000px;
+    display: inline-block;
+    width: 80px;
+
+    height: 80px;
+
+    position: relative;
+
 }
+
+.nav-logo img {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    backface-visibility: hidden;
+
+    transition: transform 0.6s ease-in-out, filter 0.6s ease-in-out;
+
+    border-radius: 10px;
+
+}
+
+
+.front-face {
+    transform: rotateY(0deg);
+
+    z-index: 2;
+
+    filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8));
+
+}
+
+
+.back-face {
+    transform: rotateY(180deg);
+
+    z-index: 1;
+    filter: drop-shadow(0 0 15px rgba(255, 217, 0, 0.552));
+}
+
+
+.nav-logo:hover .front-face {
+    transform: rotateY(-180deg);
+
+}
+
+.nav-logo:hover .back-face {
+    transform: rotateY(0deg);
+
+}
+
+
+@keyframes golden-glow {
+    0% {
+        filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 25px rgba(255, 215, 0, 1));
+    }
+
+    100% {
+        filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8));
+    }
+}
+
+
+.front-face {
+    animation: golden-glow 1.5s ease-in-out infinite;
+}
+
+
+
+
 
 .nav-menu {
     display: flex;
     align-items: center;
     list-style: none;
     font-size: 18px;
-    gap: 60px;
-    font-family: 'Poppins', sans-serif;
-    /* Use Poppins font for menu */
+    /* Slightly larger font for readability */
+    gap: 48px;
+    /* Balanced spacing between menu items */
+    margin-left: auto;
+}
+
+.nav-list {
+    position: relative;
+    color: #CDC9E3;
+    /* Soft purple for text */
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.nav-list a {
+    color: #CDC9E3;
+    /* Maintain consistent color */
+    text-decoration: none;
+    padding: 8px 0;
+    /* Padding for better click area */
+}
+
+.nav-list:hover a {
+    color: #B69354;
+    /* Golden hover effect */
+}
+
+.nav-list::after {
+    content: "";
+    position: absolute;
+    background-color: #B69354;
+    /* Golden underline */
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -4px;
+    transition: width 0.3s ease;
+}
+
+.nav-list:hover::after {
+    width: 100%;
+    /* Full underline on hover */
 }
 
 .register {
     border-radius: 50px;
     padding: 10px 38px;
+    /* Reverted to original padding */
     background-color: #F3EDE3;
     /* Lightest color for the register button */
     color: #363537;
@@ -44,6 +160,8 @@
     font-weight: 600;
     font-family: 'Poppins', sans-serif;
     /* Use Poppins font for the register button */
+    font-size: inherit;
+    /* Keep it consistent with the navbar font size */
 }
 
 .register a {
@@ -60,92 +178,71 @@
     /* Light text on hover */
 }
 
-.nav-list {
-    position: relative;
-    color: #F3EDE3;
-    /* Lightest color for navigation links */
-    font-family: 'Poppins', sans-serif;
-    /* Use Poppins font for nav links */
-}
-
-.nav-list a {
-    color: #F3EDE3;
-    /* Matches text color */
-    text-decoration: none;
-    font-family: 'Poppins', sans-serif;
-    /* Use Poppins font */
-}
-
-.nav-list::after {
-    content: "";
-    position: absolute;
-    background-color: #B69354;
-    /* Gold shade for underline effect */
-    height: 3px;
-    width: 0;
-    left: 0;
-    bottom: -10px;
-    transition: 0.3s;
-}
-
-.nav-list:hover::after {
-    width: 100%;
-}
-
 .nav-list.dropdown {
     position: relative;
 }
 
 .dropbtn {
     cursor: pointer;
-    color: #F3EDE3;
-    /* Matches navigation link color */
+    color: #CDC9E3;
     background: none;
     border: none;
-    font-size: inherit;
-    font-family: 'Poppins', sans-serif;
-    /* Use Poppins font for dropdown button */
-    padding: 10px;
+    font-family: 'Poppins';
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px;
+    transition: color 0.3s ease;
+}
+
+.dropbtn:hover {
+    color: #B69354;
+    /* Golden hover color */
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
     top: 100%;
-    /* Position dropdown below the Committees button */
     left: 0;
     background-color: #574A73;
-    /* Purple shade for dropdown background */
-    min-width: 160px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-    z-index: 1;
+    /* Deep purple background */
+    min-width: 180px;
     border-radius: 8px;
     overflow: hidden;
-}
-
-.dropdown-content li {
-    list-style: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 10;
 }
 
 .dropdown-content li a {
     color: #F3EDE3;
-    /* Lightest color for dropdown links */
+    /* Light text for dropdown items */
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-    font-size: 16px;
-    font-family: 'Poppins', sans-serif;
-    /* Use Poppins font for dropdown links */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .dropdown-content li a:hover {
     background-color: #B69354;
-    /* Gold shade for hover effect */
+    /* Gold hover */
     color: #363537;
-    /* Dark text on hover */
+    /* Dark text */
 }
 
-/* Show dropdown on hover */
 .nav-list.dropdown:hover .dropdown-content {
     display: block;
+    /* Dropdown display on hover */
+}
+
+.nav-logo,
+.nav-menu,
+.register {
+    transition: all 0.3s ease;
+}
+
+/* Navbar Scroll Effect */
+.nav.scrolled {
+    background-color: rgba(54, 53, 55, 0.9);
+    /* Slight transparency when scrolling */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }

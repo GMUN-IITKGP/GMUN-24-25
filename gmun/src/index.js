@@ -19,6 +19,7 @@ import LogoutBtn from "./components/LogoutBtn";
 import FAQs from "./components/FAQs";
 import Discuss from "./components/Discuss";
 import AboutUs from "./pages/aboutUs";
+import Sec from "./components/sec";
 
 const router = createBrowserRouter([
   {
@@ -92,6 +93,10 @@ const router = createBrowserRouter([
       {
         path: "/gallery",
         element: <Gallery />,
+      },
+      {
+        path: "/sec",
+        element: <Sec />,
       },
     ],
   },

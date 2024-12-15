@@ -22,9 +22,6 @@ import image18 from "../images/18.webp";
 
 
 
-
-
-
 const images = [
   image1,
   image2,
@@ -171,7 +168,7 @@ const Gallery = () => {
                 ✖
               </button>
             <div className="modal-content">
-              <img src={selectedImage} alt="Enlarged view" />
+              <div><img src={selectedImage} alt="Enlarged view" /></div>
               {/* <button className="close-button" onClick={closeModal}>
                 ✖
               </button> */}

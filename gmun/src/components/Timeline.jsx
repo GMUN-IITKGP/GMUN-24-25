@@ -70,7 +70,7 @@ const Timeline = () => {
   <div className="TimelineOutermostBox">
     <div className="timeline-container">
       <div className="timeline-header">
-        <h2 className="timeline-header__title">Timeline of GMUN 2025</h2>
+        <h2 className="timeline-header__title">TIMELINE OF GMUN 2025</h2>
       </div>
       <div className="timeline">
         {timelineItems.map((item, index) => (

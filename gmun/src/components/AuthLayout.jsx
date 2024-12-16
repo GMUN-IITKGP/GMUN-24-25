@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BASE_URL } from "../constants";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Preloader from "./preloader";
 
 export default function AuthLayout({ children }) {
   const [loader, setLoader] = useState(true);
@@ -24,5 +25,5 @@ export default function AuthLayout({ children }) {
     getCurrentUser();
   }, []);
 
-  return loader ? <h1>Loading....</h1> : <>{children}</>;
+  return loader ? <Preloader /> : <>{children}</>;
 }

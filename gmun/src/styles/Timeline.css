@@ -14,7 +14,7 @@
 }
 
 .timeline__content-title { /*TIMELINE CARDS TITLE*/
-    font-weight: normal;
+    font-weight: bold;
     font-size: 35px;
     transition: 0.4s;
     margin: 10px 0 0 0;
@@ -162,6 +162,10 @@
     width: 100%;
     text-align: center;
     margin-bottom: 80px;
+    color: #D4AF37;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 2px;
     position: relative;
 }
 

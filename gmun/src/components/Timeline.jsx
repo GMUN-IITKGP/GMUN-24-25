@@ -22,7 +22,7 @@ const Timeline = () => {
       desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem incidunt culpa nam sequi inventore libero soluta officia eveniet magni, sit blanditiis quas cupiditate necessitatibus consequatur explicabo! Fugiat vitae maxime debitis.",
     },
     {
-      year: "Social Night after Day-1",
+      year: "SOCIAL NIGHT after Day-1",
       img: "https://d8it4huxumps7.cloudfront.net/uploads/images/opportunity/mobile_banner/65704467576a9_global-model-united-nations-2024.png?d=700x400",
       desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem incidunt culpa nam sequi inventore libero soluta officia eveniet magni, sit blanditiis quas cupiditate necessitatibus consequatur explicabo! Fugiat vitae maxime debitis.",
     },
@@ -32,7 +32,7 @@ const Timeline = () => {
       desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem incidunt culpa nam sequi inventore libero soluta officia eveniet magni, sit blanditiis quas cupiditate necessitatibus consequatur explicabo! Fugiat vitae maxime debitis.",
     },
     {
-      year: "GMUN Closing Ceremony",
+      year: "Closing Ceremony",
       img: "https://d8it4huxumps7.cloudfront.net/uploads/images/opportunity/mobile_banner/65704467576a9_global-model-united-nations-2024.png?d=700x400",
       desc: "In 1908 he helped the group of officers who toppled the Sultan. Mustafa Kemal’s career flourished as he won his heroism in the far corners of the Ottoman Empire, including Albania and Tripoli.",
     },

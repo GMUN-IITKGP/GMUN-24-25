@@ -5,46 +5,62 @@ import gmunlogo from '../images/GMUN Gold.png';
 import edition from '../images/3rd.png';
 const Navbar = () => {
   return (
+    
     <div className="nav">
-      <div className="nav-logo"><img src={gmunlogo} alt="GmunLogo" className='front-face' /><img src={edition} alt="3rd edition" className='back-face' />
-      </div>
-      <ul className="nav-menu">
-        <li className="nav-list">
-          <Link to="/">Home</Link>
-        </li>
-        <li className="nav-list">
-          <Link to="/sec">Secretariat</Link>
-        </li>
-
-        {/* Dropdown for Committees */}
-        <li className="nav-list dropdown">
-          <button className="dropbtn">Committees</button>
-          <ul className="dropdown-content">
-            <li><Link to="/committee/1">UNSC</Link></li>
-            <li><Link to="/committee/2">UNHRC</Link></li>
-            <li><Link to="/committee/3">DISEC</Link></li>
-            <li><Link to="/committee/4">LokSabha</Link></li>
-            <li><Link to="/committee/5">G20</Link></li>
-          </ul>
-        </li>
-
-        <li className="nav-list">
-          <Link to="/FAQs">FAQs</Link>
-        </li>
-        <li className="nav-list">
-          <Link to="/discuss">Discuss</Link>
-        </li>
-        <li className="nav-list">
-          <Link to="/AboutUs">About</Link>
-        </li>
-        <li className="nav-list">
-          <Link to="/gallery">Gallery</Link>
-        </li>
-        <li className="register">
-          <Link to="/register">Register</Link>
-        </li>
+  <input type="checkbox" id="sidebar-active" />
+  <div className="nav-logo">
+    <img src={gmunlogo} alt="GmunLogo" className="front-face" />
+    <img src={edition} alt="3rd edition" className="back-face" />
+  </div>
+  <div className="sidebar-nav">
+    <label htmlFor="sidebar-active" className="sidebar-open">
+      <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#e8eaed">
+        <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+      </svg>
+    </label>
+  </div>
+  <ul className="nav-menu">
+    <li>
+      <label htmlFor="sidebar-active" className="sidebar-close nav-list">
+        <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#e8eaed">
+          <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+        </svg>
+      </label>
+    </li>
+    <li className="nav-list">
+      <Link to="/">Home</Link>
+    </li>
+    <li className="nav-list">
+      <Link to="/sec">Secretariat</Link>
+    </li>
+    <li className="nav-list dropdown">
+      <button className="dropbtn">Committees</button>
+      <ul className="dropdown-content">
+        <li><Link to="/committee/1">UNSC</Link></li>
+        <li><Link to="/committee/2">UNHRC</Link></li>
+        <li><Link to="/committee/3">DISEC</Link></li>
+        <li><Link to="/committee/4">LokSabha</Link></li>
+        <li><Link to="/committee/5">G20</Link></li>
       </ul>
-    </div>
+    </li>
+    <li className="nav-list">
+      <Link to="/FAQs">FAQs</Link>
+    </li>
+    <li className="nav-list">
+      <Link to="/discuss">Discuss</Link>
+    </li>
+    <li className="nav-list">
+      <Link to="/AboutUs">About</Link>
+    </li>
+    <li className="nav-list">
+      <Link to="/gallery">Gallery</Link>
+    </li>
+    <li className="register nav-list">
+      <Link to="/register">Register</Link>
+    </li>
+  </ul>
+</div>
+
   );
 };
 

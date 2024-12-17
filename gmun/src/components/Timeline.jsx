@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../styles/Timeline.css";
+import image1 from "../images/an1.jpg";
 
 const Timeline = () => {
   const [activeIndex, setActiveIndex] = useState(-1); // Track the active timeline item
@@ -8,32 +9,32 @@ const Timeline = () => {
   const timelineItems = [
     {
       year: "GMUN Workshop",
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH6zQ3JPXHF0YD_gqlwnSZHKfZgid-daGUbg&s",
+      img: image1,
       desc: "Come join us in this Global Model United Nations Workshop, to begin this great journey.",
     },
     {
       year: "Opening Ceremony",
-      img: "https://d8it4huxumps7.cloudfront.net/uploads/images/opportunity/mobile_banner/65704467576a9_global-model-united-nations-2024.png?d=700x400",
+      img: image1,
       desc: "A fun and interactive Opening Ceremony, to mark the beginning of the Global Model United Nations Event",
     },
     {
       year: "GMUN Day-1",
-      img: "https://d8it4huxumps7.cloudfront.net/uploads/images/opportunity/mobile_banner/65704467576a9_global-model-united-nations-2024.png?d=700x400",
+      img: image1,
       desc: "First Committee Meeting and Discussion.",
     },
     {
       year: "SOCIAL NIGHT after Day-1",
-      img: "https://d8it4huxumps7.cloudfront.net/uploads/images/opportunity/mobile_banner/65704467576a9_global-model-united-nations-2024.png?d=700x400",
+      img: image1,
       desc: "Come and have fun at our first Social Night of the Event.",
     },
     {
       year: "GMUN Day-2",
-      img: "https://d8it4huxumps7.cloudfront.net/uploads/images/opportunity/mobile_banner/65704467576a9_global-model-united-nations-2024.png?d=700x400",
+      img: image1,
       desc: "Final day of Committee discussions.",
     },
     {
       year: "Closing Ceremony",
-      img: "https://d8it4huxumps7.cloudfront.net/uploads/images/opportunity/mobile_banner/65704467576a9_global-model-united-nations-2024.png?d=700x400",
+      img: image1,
       desc: "Join us for Closing ceremony of GMUN-2025",
     },
   ];

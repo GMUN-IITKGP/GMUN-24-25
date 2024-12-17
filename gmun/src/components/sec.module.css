@@ -137,12 +137,29 @@
 .scrollDown {
   position: fixed;
   bottom: 20px;
-  right: 20px;
+  left: 20px; /* Changed from right to left */
   font-size: 1.5rem;
-  color: #363537;
-  opacity: 0.7;
+  color: #FFD700; /* Gold color */
+  opacity: 0.9; /* Increased opacity for better visibility */
   animation: bounce 2s infinite;
   z-index: 1000;
+  
+  /* Shiny Text Effect */
+  text-shadow: 
+    0 0 5px rgba(255, 215, 0, 0.8),
+    0 0 10px rgba(255, 215, 0, 0.6),
+    0 0 15px rgba(255, 215, 0, 0.4);
+  
+  /* 
+  /* Alternative: Gradient Shiny Yellow
+  background: linear-gradient(90deg, #FFD700, #FFEC8B); /* Gradient from gold to light yellow */
+  /* -webkit-background-clip: text;
+  /* -webkit-text-fill-color: transparent; */
+  
+  /* Optional: Add subtle text shadow for extra shine */
+  /* text-shadow: 
+    0 0 5px rgba(255, 215, 0, 0.5),
+    0 0 10px rgba(255, 215, 0, 0.3); */
 }
 
 /* Bounce Animation for Scroll Down */
@@ -249,7 +266,7 @@
   .scrollDown {
       font-size: 1.2rem;
       bottom: 15px;
-      right: 15px;
+      left: 15px; /* Adjusted to match left positioning */
   }
 
   /* Ensure text and icons are centered without animation interference */

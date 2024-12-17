@@ -5,11 +5,11 @@
   width: 100%;
   align-items: center;
   height: 100%;
-  background-color: #574A73;
+  background-color:#190b25 ;
 }
 
 .committee-container{
-  background-color: #574A73;
+  background-color: #190b25;
 
 }
 .committee-container body{
@@ -240,34 +240,32 @@ text-align:center;
   padding: 0 10px;
   margin-bottom: 3px;
 }
-.emblem {
-  position: relative;
-  top:60 px; /* Adjust the spacing from the top */
-  width: 120px;
-  height: 120px;
 
-}
 .unhrcLogo{
-  width: 120px;
-  height: 120px;
+  width: 12vw;
+  height: 12vh;
   align-items: center;
 
 }
 .DISECLogo{
-  width: 200px;
-  height: 200px;
+  width: 20vw;
+  height: 20vh;
   align-items: center;
   margin-top: -25px;
-
- 
+}
+.Disec{
+  width: 10vw;
+  height: 10vh;
+  align-items: center;
+  margin-bottom: 10vh;
 
 }
 .loksabhaLogo{
-  width: 180px;
-  height: 180px;
+  width: 18vw;
+  height: 18vh;
   margin-left:-20px;
   align-items: center;
-  margin-top: -25px;
+  margin-top: 0vh;
 
 }
 
@@ -284,11 +282,11 @@ text-align:center;
   .committee-content {
     width: 90%; /* Slightly narrower on medium screens */
     padding: 30px; /* Reduced padding for medium screens */
-    margin-top: 50px; /* Adjust spacing for medium screens */
-    margin-bottom: 50px;
+    margin-top:  15vh; /* Adjust spacing for medium screens */
+    margin-bottom: 5vh;
   }
   .committee-container body {
-    transform: translateX(-6vw); /* Adjust translation for medium screens */
+    transform: translateX(0vw); /* Adjust translation for medium screens */
   }
   
   .cards {
@@ -317,10 +315,11 @@ text-align:center;
     padding: 10px;
   }
   .committee-container body {
-    transform: translateX(0vw); /* Adjust translation for medium screens */
+    transform: translateX(-2vw); /* Adjust translation for medium screens */
   }
   .committee-content {
-    padding:5vh;
+  
+    margin-top:  50vh;
   }
 
   #World-Map h2 {
@@ -366,7 +365,7 @@ text-align:center;
     margin-bottom:20vh;
   }
   .committee-container body {
-    transform: translateX(0vw); /* No horizontal translation for smaller screens */
+    transform: translateX(-2vw); /* No horizontal translation for smaller screens */
   }
 
   #World-Map h2 {

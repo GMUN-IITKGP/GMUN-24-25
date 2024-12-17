@@ -44,6 +44,7 @@ const DISEC = () => {
       <body>
       {/* Spinning UN Emblem */}
       <div className="emblem">
+        <div className="Disec">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 512 512"
@@ -56,6 +57,7 @@ const DISEC = () => {
             alt="UN Emblem"
           />
         </svg>
+        </div>
       </div>
       
       {/* World Map Section */}

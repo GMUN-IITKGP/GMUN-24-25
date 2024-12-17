@@ -50,7 +50,7 @@
 
 .timeline-item {
     opacity: 0.3;
-    min-height: 500px;
+    min-height: 400px;
     margin: 20px 0;
     filter: blur(2px);
     transition: 0.5s;
@@ -96,7 +96,7 @@
 .timeline-item--active {
     padding: 40px 30px 20px 20px;
     opacity: 1;
-    background-color: #524768b4;
+    background-color: #241A3A;
     /* transform: translateY(0); */
     filter: blur(0px);
     border-color: #b69354;
@@ -170,7 +170,9 @@
 }
 
 .timeline-header__title {
-    color: #b69354;
+    color: #241A3A;
+    background-color: #CDC9E3;
+    border-radius: 10px;
     font-size: 50px;
     font-weight: bold;
     margin: 0;

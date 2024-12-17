@@ -3,11 +3,13 @@ import "../styles/Register.css";
 import { BASE_URL } from "../constants.js";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { login } from "../store/authSlice.js";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -24,6 +26,7 @@ function Login() {
         }
       );
       console.log(response);
+      dispatch(login(response));
       navigate("/");
     } catch (error) {
       console.log(error);

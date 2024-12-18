@@ -45,7 +45,7 @@ const UNSC = () => {
     <div className="committee-container">
       <body>
       <div className="emblem">
-      <DISECLogo className="DISECLogo" />
+      <DISECLogo className="UNSCLogo" />
       </div>
 
       {/* World Map Section */}

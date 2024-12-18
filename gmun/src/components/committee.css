@@ -201,9 +201,7 @@ text-align:center;
   .card__bg {
     background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_spirited.jpg') center / cover no-repeat;
   }
-  .card__text {
-    /*background-color: #274a2e;*/
-  }
+  
 }
 
 .card__three {
@@ -215,9 +213,7 @@ text-align:center;
   .card__bg {
     background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_howlbg.jpg') center / cover no-repeat;
   }
-  .card__text {
-    /*background-color: #3e2222;*/
-  }
+ 
 }
 
 .card__text {
@@ -242,16 +238,18 @@ text-align:center;
 }
 
 .unhrcLogo{
-  width: 12vw;
-  height: 12vh;
-  align-items: center;
-
-}
-.DISECLogo{
+  margin-top: 2.5vh;
   width: 20vw;
   height: 20vh;
   align-items: center;
-  margin-top: -25px;
+
+}
+.UNSCLogo{
+  width: 30vw;
+  height: 30vh;
+  align-items: center;
+  margin-top: -2vh;
+  margin-bottom: -8vh;
 }
 .Disec{
   width: 10vw;
@@ -265,10 +263,15 @@ text-align:center;
   height: 18vh;
   margin-left:-20px;
   align-items: center;
-  margin-top: 0vh;
+  margin-top: 1.5vh;
 
 }
-
+.G20{
+  margin-top: 2.5vh;
+  width: 20vw;
+  height: 20vh;
+  align-items: center;
+}
 /* Responsive adjustments */
 @media (max-width: 1024px) {
  

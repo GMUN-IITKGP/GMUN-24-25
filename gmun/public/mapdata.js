@@ -4,7 +4,7 @@ var simplemaps_worldmap_mapdata={
       width: "responsive", //'700' or 'responsive'
       background_color: "#CDC9E3",
       background_transparent: "yes",
-      border_color: "#383249",
+      border_color: "#190b25",
       border_opacity:0,
       popups: "detect",
       
@@ -19,7 +19,7 @@ var simplemaps_worldmap_mapdata={
       all_states_zoomable: "no",
       
       //Location defaults
-      location_description: "Location description",
+      location_description: " ",
       location_color: "#B69354",
       location_opacity: 0.8,
       location_hover_opacity: 1,
@@ -716,301 +716,57 @@ var simplemaps_worldmap_mapdata={
       }
     },
     locations: {
-      "0": {
-        lat: 34.533,
-        lng: 69.102,
-        name: "Afghanistan",
-        description: "Aayushi Dipankar"
-      },
-      "1": {
-        lat: 41.322,
-        lng: 19.825,
-        name: "Albania",
-        description: "Anas Ahmed"
-      },
-      "2": {
-        lat: -8.816,
-        lng: 13.233,
-        name: "Angola",
-        description: "Stephen Arya"
-      },
-      "3": {
-        lat: -34.608,
-        lng: -58.373,
-        name: "Argentina",
-        description: "Avi Upadhyay"
-      },
-      "4": {
-        lat: 40.178,
-        lng: 44.514,
-        name: "Armenia",
-        description: "Kaavya Johri"
-      },
-      "5": {
-        lat: -35.306,
-        lng: 149.127,
-        name: "Australia",
-        description: "DG Kirtana"
-      },
-      "6": {
-        lat: 48.203,
-        lng: 16.368,
-        name: "Austria",
-        description: "Amishi kapoor"
-      },
-      "7": {
-        lat: 26.23,
-        lng: 50.576,
-        name: "Bahrain",
-        description: "Tanay Gupta "
-      },
-      "8": {
-        lat: 23.713,
-        lng: 90.4,
-        name: "Bangladesh",
-        description: "Moksh Jain"
-      },
-      "9": {
-        lat: 50.844,
-        lng: 4.356,
-        name: "Belgium",
-        description: "David Samuel"
-      },
-      "10": {
-        lat: -15.778,
-        lng: -47.929,
-        name: "Brazil ",
-        description: "Paritosh Kothapalli"
-      },
-      "11": {
-        lat: 45.422,
-        lng: -75.691,
-        name: "Canada",
-        description: "Sankarshana Karnam"
-      },
-      "12": {
-        lat: 12.113,
-        lng: 15.049,
-        name: "Chad",
-        description: "Charvi Lakshmi Kamireddy"
-      },
-      "13": {
-        lat: 39.907,
-        lng: 116.388,
-        name: "China",
-        description: "Hardik Agarwal"
-      },
-      "14": {
-        lat: 30.044,
-        lng: 31.235,
-        name: "Egypt",
-        description: "Bhaumi Nadella"
-      },
-      "15": {
-        lat: 60.171,
-        lng: 24.933,
-        name: "Finland",
-        description: "Mahua Pragada"
-      },
-      "16": {
-        lat: 48.857,
-        lng: 2.341,
-        name: "France",
-        description: "Chanakya Gutta"
-      },
-      "17": {
-        lat: 52.516,
-        lng: 13.377,
-        name: "Germany",
-        description: "Nidhi Srivastava"
-      },
-      "18": {
-        lat: 37.976,
-        lng: 23.736,
-        name: "Greece",
-        description: "Irashree Devrath"
-      },
-      "19": {
-        lat: 64.147,
-        lng: -21.934,
-        name: "Iceland",
-        description: "Kirat Kaur Ahluwalia"
-      },
-      "20": {
-        lat: 28.631,
-        lng: 77.217,
-        name: "India",
-        description: "Pitla Nikhita"
-      },
-      "21": {
-        lat: 35.689,
-        lng: 51.415,
-        name: "Iran",
-        description: "Komirishetty Poojitha"
-      },
-      "22": {
-        lat: 33.342,
-        lng: 44.393,
-        name: "Iraq",
-        description: "Rishit Raj Redyam"
-      },
-      "23": {
-        lat: 53.348,
-        lng: -6.248,
-        name: "Ireland",
-        description: "Sahana Pavuluri"
-      },
-      "24": {
-        lat: 31.78,
-        lng: 35.219,
-        name: "Israel",
-        description: "ABHEESHU BUDDHA"
-      },
-      "25": {
-        lat: 41.903,
-        lng: 12.496,
-        name: "Italy",
-        description: "Mallipudi Harshith"
-      },
-      "26": {
-        lat: 17.971,
-        lng: -76.788,
-        name: "Jamaica",
-        description: "Manasvi Puppala"
-      },
-      "27": {
-        lat: 35.688,
-        lng: 139.69,
-        name: "Japan",
-        description: "Kaushik Sai Kurra"
-      },
-      "28": {
-        lat: -1.284,
-        lng: 36.824,
-        name: "Kenya",
-        description: "Ayaan Shareef"
-      },
-      "29": {
-        lat: 33.896,
-        lng: 35.507,
-        name: "Lebanon",
-        description: "Tinkle Singh"
-      },
-      "30": {
-        lat: 54.691,
-        lng: 25.27,
-        name: "Lithuania",
-        description: "Devishi Upadhyay"
-      },
-      "31": {
-        lat: 19.727,
-        lng: 96.075,
-        name: "Myanmar",
-        description: "Aashitha Kurra"
-      },
-      "32": {
-        lat: 9.063,
-        lng: 7.462,
-        name: "Nigeria",
-        description: "Kundanika Chennuru"
-      },
-      "33": {
-        lat: 23.615,
-        lng: 58.591,
-        name: "Oman",
-        description: "Sabgani Advait"
-      },
-      "34": {
-        lat: 33.708,
-        lng: 73.07,
-        name: "Pakistan",
-        description: "Priyanshi Arora"
-      },
-      "35": {
-        lat: -12.056,
-        lng: -77.027,
-        name: "Peru",
-        description: "Saniya Agarwal"
-      },
-      "36": {
-        lat: 38.726,
-        lng: -9.15,
-        name: "Portugal",
-        description: "Anika Gulati"
-      },
-      "37": {
-        lat: 44.434,
-        lng: 26.103,
-        name: "Romania",
-        description: "Shanmukh Sai Gara"
-      },
-      "38": {
-        lat: 55.757,
-        lng: 37.615,
-        name: "Russia",
-        description: "Sriram Lanka"
-      },
-      "39": {
-        lat: 24.682,
-        lng: 46.687,
-        name: "Saudi Arabia",
-        description: "Shriyans Ananth Tokala"
-      },
-      "40": {
-        lat: 2.038,
-        lng: 45.342,
-        name: "Somalia",
-        description: "Amal Krishna"
-      },
-      "41": {
-        lat: 37.559,
-        lng: 127,
-        name: "South Korea",
-        description: "Arni Chandwani"
-      },
-      "42": {
-        lat: 40.42,
-        lng: -3.692,
-        name: "Spain",
-        description: "Sana Sukhija"
-      },
-      "43": {
-        lat: 33.499,
-        lng: 36.301,
-        name: "Syria",
-        description: "Katamreddy Pratheek Reddy"
-      },
-      "44": {
-        lat: 39.921,
-        lng: 32.854,
-        name: "Turkey",
-        description: "Arya Vaddadi"
-      },
-      "45": {
-        lat: 24.469,
-        lng: 54.372,
-        name: "United Arab Emirates",
-        description: "Nayan Maloth"
-      },
-      "46": {
-        lat: 51.506,
-        lng: -0.127,
-        name: "United Kingdom",
-        description: "Saransh Sharma"
-      },
-      "47": {
-        lat: 38.89,
-        lng: -77.032,
-        name: "United States of America",
-        description: "Sai Abhiram Vempati"
-      },
-      "48": {
-        lat: 10.506,
-        lng: -66.918,
-        name: "Venezuela",
-        description: "Tapasya Goel"
-      }
+      "0": { lat: 34.533, lng: 69.102, name: "Afghanistan" },
+      "1": { lat: 41.322, lng: 19.825, name: "Albania" },
+      "2": { lat: -8.816, lng: 13.233, name: "Angola" },
+      "3": { lat: -34.608, lng: -58.373, name: "Argentina" },
+      "4": { lat: 40.178, lng: 44.514, name: "Armenia" },
+      "5": { lat: -35.306, lng: 149.127, name: "Australia" },
+      "6": { lat: 48.203, lng: 16.368, name: "Austria" },
+      "7": { lat: 26.23, lng: 50.576, name: "Bahrain" },
+      "8": { lat: 23.713, lng: 90.4, name: "Bangladesh" },
+      "9": { lat: 50.844, lng: 4.356, name: "Belgium" },
+      "10": { lat: -15.778, lng: -47.929, name: "Brazil " },
+      "11": { lat: 45.422, lng: -75.691, name: "Canada" },
+      "12": { lat: 12.113, lng: 15.049, name: "Chad" },
+      "13": { lat: 39.907, lng: 116.388, name: "China" },
+      "14": { lat: 30.044, lng: 31.235, name: "Egypt" },
+      "15": { lat: 60.171, lng: 24.933, name: "Finland" },
+      "16": { lat: 48.857, lng: 2.341, name: "France" },
+      "17": { lat: 52.516, lng: 13.377, name: "Germany" },
+      "18": { lat: 37.976, lng: 23.736, name: "Greece" },
+      "19": { lat: 64.147, lng: -21.934, name: "Iceland" },
+      "20": { lat: 28.631, lng: 77.217, name: "India" },
+      "21": { lat: 35.689, lng: 51.415, name: "Iran" },
+      "22": { lat: 33.342, lng: 44.393, name: "Iraq" },
+      "23": { lat: 53.348, lng: -6.248, name: "Ireland" },
+      "24": { lat: 31.78, lng: 35.219, name: "Israel" },
+      "25": { lat: 41.903, lng: 12.496, name: "Italy" },
+      "26": { lat: 17.971, lng: -76.788, name: "Jamaica" },
+      "27": { lat: 35.688, lng: 139.69, name: "Japan" },
+      "28": { lat: -1.284, lng: 36.824, name: "Kenya" },
+      "29": { lat: 33.896, lng: 35.507, name: "Lebanon" },
+      "30": { lat: 54.691, lng: 25.27, name: "Lithuania" },
+      "31": { lat: 19.727, lng: 96.075, name: "Myanmar" },
+      "32": { lat: 9.063, lng: 7.462, name: "Nigeria" },
+      "33": { lat: 23.615, lng: 58.591, name: "Oman" },
+      "34": { lat: 33.708, lng: 73.07, name: "Pakistan" },
+      "35": { lat: -12.056, lng: -77.027, name: "Peru" },
+      "36": { lat: 38.726, lng: -9.15, name: "Portugal" },
+      "37": { lat: 44.434, lng: 26.103, name: "Romania" },
+      "38": { lat: 55.757, lng: 37.615, name: "Russia" },
+      "39": { lat: 24.682, lng: 46.687, name: "Saudi Arabia" },
+      "40": { lat: 2.038, lng: 45.342, name: "Somalia" },
+      "41": { lat: 37.559, lng: 127, name: "South Korea" },
+      "42": { lat: 40.42, lng: -3.692, name: "Spain" },
+      "43": { lat: 33.499, lng: 36.301, name: "Syria" },
+      "44": { lat: 39.921, lng: 32.854, name: "Turkey" },
+      "45": { lat: 24.469, lng: 54.372, name: "United Arab Emirates" },
+      "46": { lat: 51.506, lng: -0.127, name: "United Kingdom" },
+      "47": { lat: 38.89, lng: -77.032, name: "United States of America" },
+      "48": { lat: 10.506, lng: -66.918, name: "Venezuela" }
     },
+    
     labels: {},
     legend: {
       entries: []

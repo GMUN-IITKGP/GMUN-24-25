@@ -45,7 +45,7 @@ const G20 = () => {
       {/* Spinning UN Emblem */}
      
       <div className="emblem">
-      <G20Logo className="unhrcLogo" />
+      <G20Logo className="G20" />
       </div>
     
 

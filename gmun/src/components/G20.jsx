@@ -41,7 +41,7 @@ const G20 = () => {
 
   return (
     <div className="committee-container">
-      <body>
+     
       {/* Spinning UN Emblem */}
      
       <div className="emblem">
@@ -105,7 +105,7 @@ const G20 = () => {
           </div>
         </div>
       </div>
-      </body>
+      
     </div>
   );
 };

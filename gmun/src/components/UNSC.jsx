@@ -43,7 +43,7 @@ const UNSC = () => {
 
   return (
     <div className="committee-container">
-      <body>
+      
       <div className="emblem">
       <DISECLogo className="UNSCLogo" />
       </div>
@@ -104,7 +104,7 @@ const UNSC = () => {
           </div>
         </div>
       </div>
-      </body>
+      
     </div>
   );
 };

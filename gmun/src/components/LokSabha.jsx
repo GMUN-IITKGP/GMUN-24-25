@@ -42,7 +42,7 @@ const LokSabha = () => {
 
   return (
     <div className="committee-container">
-      <body>
+      
       {/* Spinning UN Emblem */}
       <div className="emblem">
       <LokSabhalogo className="loksabhaLogo" />
@@ -104,7 +104,7 @@ const LokSabha = () => {
           </div>
         </div>
       </div>
-      </body>
+     
     </div>
   );
 };

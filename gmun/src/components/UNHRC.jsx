@@ -42,8 +42,9 @@ const UNHRC = () => {
   }, []);
 
   return (
+    
     <div className="committee-container">
-      <body>
+      
       {/* Spinning UN Emblem */}
       
       <div className="emblem">
@@ -107,7 +108,7 @@ const UNHRC = () => {
           </div>
         </div>
       </div>
-      </body>
+     
     </div>
   );
 };

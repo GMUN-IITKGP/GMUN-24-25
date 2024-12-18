@@ -19,7 +19,14 @@ const UserSchema = new Schema(
     },
     Role: {
       type: String,
-      enum: ["Executive Board", "Secretary General", "MUN head", "Organizing Commitiee", "Delegate", "Unregistered"],
+      enum: [
+        "Executive Board",
+        "Secretary General",
+        "MUN head",
+        "Organizing Committee", // Corrected typo here
+        "Delegate",
+        "Unregistered",
+      ],
       required: true,
     },
     refreshToken: {
@@ -71,4 +78,6 @@ UserSchema.methods.generateRefreshToken = function () {
   );
 };
 
-export const User = mongoose.model("User", UserSchema);
+const usersDB = mongoose.connection.useDb("usersDB");
+
+export const User = usersDB.model("User", UserSchema);

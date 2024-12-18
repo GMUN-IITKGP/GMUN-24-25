@@ -8,6 +8,7 @@ import { login } from "./store/authSlice.js";
 import axios from "axios";
 import { useState } from "react";
 import { logout } from "./store/authSlice.js";
+import Preloader from "./components/preloader.jsx";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -31,10 +32,10 @@ const App = () => {
     };
 
     fetchData();
-  }, []);
+  }, [dispatch]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div><Preloader /></div>;
   } else {
     return (
       <div>

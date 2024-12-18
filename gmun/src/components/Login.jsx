@@ -1,81 +1,138 @@
 import React, { useState } from "react";
-import "../styles/Register.css";
-import { BASE_URL } from "../constants.js";
-import { useNavigate } from "react-router-dom";
+import styles from "../styles/LoginForm.module.css";
+import { BASE_URL } from "../constants";
 import axios from "axios";
 import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import { login } from "../store/authSlice.js";
 
-function Login() {
+const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
+
     try {
       const response = await axios.post(
         `${BASE_URL}/users/login`,
         {
-          password,
           email,
+          password,
         },
         {
           withCredentials: true,
+          headers: {
+            Accept: "application/json", // Explicitly set Accept header to JSON
+          },
         }
       );
       console.log(response);
+      alert("User logged in successfully");
       dispatch(login(response));
-      navigate("/");
+      navigate("/profile");
     } catch (error) {
-      console.log(error);
+      if (error.response) {
+        // If the response is in HTML format, extract the error message using regex
+        const htmlContent = error.response.data;
+        const regex = /Error: (.*?)<br>/;
+        const match = htmlContent.match(regex);
+
+        if (match && match[1]) {
+          // The error message is captured in the first group
+          console.log(match[1]);
+          alert(`Error: ${match[1]}`);
+        } else {
+          // Fallback error message
+          alert("An error occurred. Please try again.");
+        }
+      }
+    } finally {
+      setIsLoading(false);
     }
   };
 
+  const togglePasswordVisibility = () => setShowPassword(!showPassword);
+
   return (
-    <div class="container">
-      <div class="form_area">
-        <p class="title">LOGIN</p>
+    <div className={styles.container}>
+      <div className={styles.card}>
+        <div className={styles.cardHeader}>
+          <h2 className={styles.cardTitle}>Login to GMUN</h2>
+          <p className={styles.cardDescription}>
+            Enter your credentials to access your account
+          </p>
+        </div>
         <form onSubmit={handleSubmit}>
-          <div class="form_group">
-            <label class="sub_title" for="name">
-              Email
-            </label>
-            <input
-              placeholder="Enter your Email name"
-              class="form_style"
-              type="text"
-              onChange={(e) => setEmail(e.target.value)}
-            />
+          <div className={styles.cardContent}>
+            <div className={styles.inputGroup}>
+              <label htmlFor="email" className={styles.label}>
+                Email
+              </label>
+              <div className={styles.inputWrapper}>
+                <input
+                  id="email"
+                  type="email"
+                  className={styles.input}
+                  placeholder="m@example.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  disabled={isLoading}
+                />
+              </div>
+            </div>
+            <div className={styles.inputGroup}>
+              <label htmlFor="password" className={styles.label}>
+                Password
+              </label>
+              <div className={styles.passwordWrapper}>
+                <div className={styles.inputWrapper}>
+                  <input
+                    id="password"
+                    type={showPassword ? "text" : "password"}
+                    className={styles.input}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                    disabled={isLoading}
+                  />
+                </div>
+                <button
+                  type="button"
+                  onClick={togglePasswordVisibility}
+                  className={styles.passwordToggle}
+                  disabled={isLoading}
+                >
+                  {showPassword ? "Hide" : "Show"}
+                </button>
+              </div>
+            </div>
           </div>
-          <div class="form_group">
-            <label class="sub_title" for="password">
-              Password
-            </label>
-            <input
-              placeholder="Enter your password"
-              id="password"
-              class="form_style"
-              type="password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <div>
-            <button class="btnr" type="submit">
-              Login
+          <div className={styles.cardFooter}>
+            <button
+              type="submit"
+              className={`${styles.button} ${isLoading ? styles.loading : ""}`}
+              disabled={isLoading}
+            >
+              {isLoading ? "Signing In..." : "Sign In"}
             </button>
-            <p>
-              Don't Have an Account?{" "}
-              <a class="link" href="/register">
-                Register Here!
-              </a>
+            <p className={styles.signupText}>
+              Don't have an account?{" "}
+              <Link to="/register" className={styles.signupLink}>
+                Sign up
+              </Link>
             </p>
           </div>
         </form>
       </div>
     </div>
   );
-}
+};
 
-export default Login;
+export default LoginForm;

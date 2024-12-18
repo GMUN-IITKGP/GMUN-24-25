@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
 
 
@@ -16,7 +17,7 @@ body.no-scroll {
   background-color: #b69354;
   z-index: 1;
   overflow-y: hidden;
-  background-image: url('../images/bg.png');
+  background-image: url('GMUN_Background.jpeg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -56,16 +57,20 @@ body.no-scroll {
   cursor: pointer;
 }
 
-.logo-text {
-  font-size: 2vw;
-  font-family: 'Playfair Display', 'Times New Roman', serif;
-  position: absolute;
-  top: 40%;
-  background: linear-gradient(45deg, #ffffff, #574a73, #b69354, #ffffff);
-  background-size: 200%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shimmer 4s infinite;
+.logo-text { 
+  font-size: 2.5vw; 
+  font-family: 'Great Vibes', 'Times New Roman', serif; 
+  position: absolute; 
+  top: 40%; 
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  background: linear-gradient(45deg, #ffffff, #574a73, #b69354, #ffffff); background-size: 200%; 
+  -webkit-background-clip: text; 
+  -webkit-text-fill-color: transparent; 
+  animation: shimmer 4s infinite; 
+  text-align: center;  
+  white-space: nowrap; 
+  overflow: hidden;
 }
 
 @keyframes shimmer {

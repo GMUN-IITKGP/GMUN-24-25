@@ -15,7 +15,7 @@
 }
 
 .announcements-container {
-  background: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+  background: rgba(243, 237, 227, 0.9); /* Slightly transparent light beige background */
   margin: 10px;
   padding: 20px;
   border: 1px solid #363537; /* Dark Gray */
@@ -46,7 +46,7 @@
   padding: 15px;
   border: 1px solid #ddd;
   border-radius: 15px;
-  background: #ffffff; /* White background for questions */
+  background: #f3ede3; /* Light beige background for questions */
   box-shadow: 5px 5px 15px rgba(54, 53, 55, 0.1), -5px -5px 15px rgba(255, 255, 255, 0.6);
   transition: transform 0.4s ease, background 0.4s ease, box-shadow 0.4s ease;
   color: #574A73; /* Dark Purple */
@@ -92,7 +92,7 @@
 .outer-faq .heading-all{
   padding-top: 30px;
   padding-bottom: 12px;
-  color: #CDC9E3;
+  color: #d4af3b;
 }
 
 .question {

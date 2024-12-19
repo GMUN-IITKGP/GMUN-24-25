@@ -8,15 +8,21 @@ const createQuestion = asyncHandler(async (req, res) => {
   const user = req.user;
 
   if (!content) {
-    throw new Error("Content is required");
+    const error = new Error("Content is required");
+    error.status = 400;
+    throw error;
   }
 
-  if(!user) {
-    throw new Error(401, "You need to login to create a question");
+  if (!user) {
+    const error = new Error("You need to login to create a question");
+    error.status = 401;
+    throw error;
   }
 
-  if(user.role === "unregistered") {
-    throw new Error(403, "Only users can create questions");
+  if (user.role === "unregistered") {
+    const error = new Error("Only users can create questions");
+    error.status = 403;
+    throw error;
   }
 
   const question = await Question.create({ content, user: user._id });
@@ -44,7 +50,9 @@ const getQuestionById = asyncHandler(async (req, res) => {
   const question = await Question.findById(id);
 
   if (!question) {
-    throw new Error(404, "Question not found");
+    const error = new Error("Question not found");
+    error.status = 404;
+    throw error;
   }
 
   res.status(200).json(question);
@@ -56,21 +64,29 @@ const createAnswer = asyncHandler(async (req, res) => {
   const { questionId } = req.params;
 
   if (!content) {
-    throw new Error("Content is required");
+    const error = new Error("Content is required");
+    error.status = 400;
+    throw error;
   }
 
-  if(!user) {
-    throw new Error(401, "You need to login to create an answer");
+  if (!user) {
+    const error = new Error("You need to login to create an answer");
+    error.status = 401;
+    throw error;
   }
 
-  if(user.role === "unregistered") {
-    throw new Error(403, "Only users can create answers");
+  if (user.role === "unregistered") {
+    const error = new Error("Only users can create answers");
+    error.status = 403;
+    throw error;
   }
 
   const question = await Question.findById(questionId);
 
   if (!question) {
-    throw new Error(404, "Question not found");
+    const error = new Error("Question not found");
+    error.status = 404;
+    throw error;
   }
 
   const answer = await Answer.create({
@@ -92,17 +108,23 @@ const updateAnswer = asyncHandler(async (req, res) => {
   const { answerId } = req.params;
 
   if (!content) {
-    throw new Error("Content is required");
+    const error = new Error("Content is required");
+    error.status = 400;
+    throw error;
   }
 
   const answer = await Answer.findById(answerId);
 
   if (!answer) {
-    throw new Error(404, "Answer not found");
+    const error = new Error("Answer not found");
+    error.status = 404;
+    throw error;
   }
 
   if (answer.user.toString() !== user._id.toString()) {
-    throw new Error(403, "You are not authorized to update this answer");
+    const error = new Error("You are not authorized to update this answer");
+    error.status = 403;
+    throw error;
   }
 
   answer.content = content;
@@ -119,11 +141,15 @@ const deleteAnswer = asyncHandler(async (req, res) => {
   const answer = await Answer.findById(answerId);
 
   if (!answer) {
-    throw new Error(404, "Answer not found");
+    const error = new Error("Answer not found");
+    error.status = 404;
+    throw error;
   }
 
   if (answer.user.toString() !== user._id.toString()) {
-    throw new Error(403, "You are not authorized to delete this answer");
+    const error = new Error("You are not authorized to delete this answer");
+    error.status = 403;
+    throw error;
   }
 
   await answer.remove();

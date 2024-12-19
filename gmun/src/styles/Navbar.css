@@ -157,6 +157,7 @@
     font-weight: 600 !important;
     font-family: 'Poppins', sans-serif !important;
     font-size: inherit !important;
+    cursor: pointer;
 }
 
 .register a {

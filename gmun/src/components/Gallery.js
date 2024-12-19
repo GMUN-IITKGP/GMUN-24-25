@@ -56,7 +56,7 @@ const texts = [
   "Day 2",
   "Day 2",
   "Day 2",
-  "day 2",
+  "Day 2",
   "Award Distributions",
   "Closing Remarks",
   "Closing Ceremony",

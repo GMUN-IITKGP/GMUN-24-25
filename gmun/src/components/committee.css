@@ -269,7 +269,7 @@ font-size: 48px;
   }
   .committee-content {
     width: 90%; /* Slightly narrower on medium screens */
-    margin-top:-5vh;
+    margin-top:15vh;
     margin-left:5vw;
     margin-bottom: 1vh;
     align-items: center;
@@ -357,21 +357,57 @@ font-size: 48px;
   .committee-content p {
     font-size: 14px; /* Adjusted paragraph font size */
   }
-
   .cards {
-    width:10vw; /* Full width for the cards */
-    padding: 10px; /* Less padding */
+    display: flex;
+    flex-direction: column;
+    min-width: 90%; /* Ensure the cards fit within the screen width */
+    padding: 20px 15px;
+    transform: none; /* Remove 3D rotation for better readability */
+  }
+
+  .cards h1 {
+    
+    font-size: 24px; /* Reduce heading font size */
+    margin-bottom: 20px;
+    transform: none;
+  }
+
+  .cards h3 {
+    font-size: 14px; /* Adjust font size */
+    margin-bottom: 10px;
+    transform: none;
   }
 
   .card {
-    width: 100%; /* Reduced card width */
-    height: 160px; /* Reduced card height */
-    margin: 5px; /* Reduced margin for cards */
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    width: 90%; /* Cards take full width on smaller screens */
+    height: auto; /* Let the height adjust to content */
+    margin-bottom: 15px; /* Add spacing between cards */
+    transform: none; /* Simplify transform for better performance */
+    box-shadow: none; /* Reduce shadow for a cleaner look */
+  }
+
+  .card:not(:last-child) {
+    margin-right: 0; /* Remove right margin to avoid overflow */
+  }
+
+  .card__img {
+    flex:1;
+    height: 5vh; /* Restrict image height for smaller screens */
+  }
+
+  .card__text {
+    height: auto; /* Adjust height to content */
+    padding: 10px; /* Add padding for better readability */
   }
 
   .card__title {
-    font-size: 12px; /* Smaller font size for card titles */
+    font-size: 16px; /* Reduce title font size */
   }
+
+ 
 
   #World-Map h2 {
     font-size: 24px; /* Slightly smaller font for map heading */

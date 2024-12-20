@@ -66,7 +66,7 @@ const texts = [
 
 const Gallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [radius, setRadius] = useState(450);
+  const [radius, setRadius] = useState(400); // Increased radius for larger screens
   const [selectedImage, setSelectedImage] = useState(null); // Modal state
   const visibleCount = 8;
 
@@ -93,9 +93,9 @@ const Gallery = () => {
   useEffect(() => {
     const updateRadius = () => {
       if (window.innerWidth < 450) {
-        setRadius(160);
+        setRadius(200); // Increased radius for smaller screens
       } else {
-        setRadius(450);
+        setRadius(400); // Increased radius for larger screens
       }
     };
 
@@ -116,13 +116,13 @@ const Gallery = () => {
   };
 
   const closeModal = () => {
-    setSelectedImage(null); 
+    setSelectedImage(null);
   };
 
   return (
     <div
       className="page-container"
-      onClick={closeModal} 
+      onClick={closeModal}
     >
       <div className="gallery-container" onClick={(e) => e.stopPropagation()}>
         <div className="logo" onClick={handleLogoClick}>
@@ -164,14 +164,11 @@ const Gallery = () => {
 
         {selectedImage && (
           <div className="modal" onClick={(e) => e.stopPropagation()}>
-          <button className="close-button" onClick={closeModal}>
-                ✖
-              </button>
+            <button className="close-button" onClick={closeModal}>
+              ✖
+            </button>
             <div className="modal-content">
               <div><img src={selectedImage} alt="Enlarged view" /></div>
-              {/* <button className="close-button" onClick={closeModal}>
-                ✖
-              </button> */}
             </div>
           </div>
         )}

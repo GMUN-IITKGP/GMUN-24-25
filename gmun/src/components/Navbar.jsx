@@ -106,7 +106,7 @@ const Navbar = () => {
             Logout
           </li>
         ) : (
-          <li className="register">
+          <li className="register nav-list">
             <Link to="/login">Login</Link>
           </li>
         )}

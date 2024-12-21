@@ -73,6 +73,9 @@ const UNSC = () => {
             src="/team-images/Executive Board Images/Urvansh pic.jpg"
             alt="Urvansh Saraf"
           />
+          <div className="card__hover-text">
+          <p>Co-Chair</p>
+          </div>
           <div className="card__text">
             <p className="card__title">Urvansh Saraf</p>
           </div>
@@ -86,6 +89,9 @@ const UNSC = () => {
             src="/team-images/Executive Board Images/Swapnaneel pic.jpg"
             alt="Swapnaneel Datta"
           />
+          <div className="card__hover-text">
+          <p>Co-Chair</p>
+          </div>
           <div className="card__text">
             <p className="card__title">Swapnaneel Datta</p>
           </div>

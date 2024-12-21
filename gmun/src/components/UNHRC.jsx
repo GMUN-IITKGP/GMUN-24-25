@@ -77,6 +77,9 @@ const UNHRC = () => {
             src="/team-images/Executive Board Images/Divyansu_Sharma.JPG"
             alt="Divyanshu Sharma"
           />
+          <div className="card__hover-text">
+          <p>Chairperson</p>
+          </div>
           <div className="card__text">
             <p className="card__title">Divyanshu Sharma</p>
           </div>
@@ -90,6 +93,9 @@ const UNHRC = () => {
             src="/team-images/Executive Board Images/Arghyadip.jpg"
             alt="Arghyadip Pal"
           />
+          <div className="card__hover-text">
+          <p>Vice-Chairperson</p>
+          </div>
           <div className="card__text">
             <p className="card__title">Arghyadip Pal</p>
           </div>

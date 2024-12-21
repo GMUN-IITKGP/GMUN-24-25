@@ -74,6 +74,9 @@ const G20 = () => {
             src="/team-images/Executive Board Images/Sayanabha.JPG"
             alt="Sayanabha Chandra"
           />
+          <div className="card__hover-text">
+          <p>Chairperson</p>
+          </div>
           <div className="card__text">
             <p className="card__title">Sayanabha Chandra</p>
           </div>
@@ -87,6 +90,9 @@ const G20 = () => {
             src="/team-images/Executive Board Images/Kashish Rathi.JPG"
             alt="Kashish Rathi"
           />
+          <div className="card__hover-text">
+          <p>Vice Chairperson</p>
+          </div>
           <div className="card__text">
             <p className="card__title">Kashish Rathi</p>
           </div>

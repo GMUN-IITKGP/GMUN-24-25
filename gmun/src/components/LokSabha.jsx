@@ -73,6 +73,9 @@ const LokSabha = () => {
             src="/team-images/Executive Board Images/sohan paul.jpg"
             alt="Sohan Paul"
           />
+          <div className="card__hover-text">
+          <p>Speaker</p>
+          </div>
           <div className="card__text">
             <p className="card__title">Sohan Paul</p>
           </div>
@@ -86,6 +89,9 @@ const LokSabha = () => {
             src="/team-images/Executive Board Images/Ayush.png"
             alt="Ayush Mazumdar"
           />
+          <div className="card__hover-text">
+          <p>Deputy Speaker</p>
+          </div>
           <div className="card__text">
             <p className="card__title">Ayush Mazumdar</p>
           </div>

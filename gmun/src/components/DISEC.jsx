@@ -72,6 +72,9 @@ const DISEC = () => {
             src="/team-images/Executive Board Images/AbhinavDas.jpeg"
             alt="1"
           />
+          <div className="card__hover-text">
+          <p>Chairperson</p>
+          </div>
           <div className="card__text">
             <p className="card__title">Abhinav Das</p>
           </div>
@@ -85,6 +88,9 @@ const DISEC = () => {
             src="/team-images/Executive Board Images/SaanviGupta.jpeg"
             alt="Spirited Away"
           />
+          <div className="card__hover-text">
+          <p>Vice Chairperson</p>
+          </div>
           <div className="card__text">
             <p className="card__title">Saanvi Gupta</p>
           </div>

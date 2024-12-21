@@ -71,11 +71,11 @@ const G20 = () => {
           <div className="card__bg"></div>
           <img
             className="card__img"
-            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_mono.png"
-            alt="Princess Mononoke"
+            src="/team-images/Executive Board Images/Sayanabha.JPG"
+            alt="Sayanabha Chandra"
           />
           <div className="card__text">
-            <p className="card__title">Princess Mononoke</p>
+            <p className="card__title">Sayanabha Chandra</p>
           </div>
         </div>
 
@@ -84,26 +84,15 @@ const G20 = () => {
           <div className="card__bg"></div>
           <img
             className="card__img"
-            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_chihiro.png"
-            alt="Spirited Away"
+            src="/team-images/Executive Board Images/Kashish Rathi.JPG"
+            alt="Kashish Rathi"
           />
           <div className="card__text">
-            <p className="card__title">Spirited Away</p>
+            <p className="card__title">Kashish Rathi</p>
           </div>
         </div>
 
-        {/* Card 3 */}
-        <div className="card card__three">
-          <div className="card__bg"></div>
-          <img
-            className="card__img"
-            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_howlcastle.png"
-            alt="Howl's Moving Castle"
-          />
-          <div className="card__text">
-            <p className="card__title">Howl's Moving Castle</p>
-          </div>
-        </div>
+        
       </div>
       
     </div>

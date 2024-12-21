@@ -74,11 +74,11 @@ const UNHRC = () => {
           <div className="card__bg"></div>
           <img
             className="card__img"
-            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_mono.png"
-            alt="Princess Mononoke"
+            src="/team-images/Executive Board Images/Divyansu_Sharma.JPG"
+            alt="Divyanshu Sharma"
           />
           <div className="card__text">
-            <p className="card__title">Princess Mononoke</p>
+            <p className="card__title">Divyanshu Sharma</p>
           </div>
         </div>
 
@@ -87,24 +87,11 @@ const UNHRC = () => {
           <div className="card__bg"></div>
           <img
             className="card__img"
-            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_chihiro.png"
-            alt="Spirited Away"
+            src="/team-images/Executive Board Images/Arghyadip.jpg"
+            alt="Arghyadip Pal"
           />
           <div className="card__text">
-            <p className="card__title">Spirited Away</p>
-          </div>
-        </div>
-
-        {/* Card 3 */}
-        <div className="card card__three">
-          <div className="card__bg"></div>
-          <img
-            className="card__img"
-            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_howlcastle.png"
-            alt="Howl's Moving Castle"
-          />
-          <div className="card__text">
-            <p className="card__title">Howl's Moving Castle</p>
+            <p className="card__title">Arghyadip Pal</p>
           </div>
         </div>
       </div>

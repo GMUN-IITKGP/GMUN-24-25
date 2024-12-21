@@ -148,8 +148,10 @@ font-size: 48px;
 }
 
 .card__img {
-  position: relative;
-  height: 100%;
+  width: 100%; /* Adjust width to fill parent container */
+  height:100%; /* Maintain aspect ratio */
+  object-fit: cover; /* Optional: Ensure it looks good for uneven aspect ratios */
+  border-radius: 15px;
 }
 
 .card__bg {
@@ -165,26 +167,36 @@ font-size: 48px;
 
 .card__one {
   .card__img {
-    top: 14px;
-    right: -10px;
-    height: 110%;
+    top:-10px;
+    width: 100%; /* Adjust width to fill parent container */
+    height:110%; /* Maintain aspect ratio */
+    object-fit: cover; /* Optional: Ensure it looks good for uneven aspect ratios */
   }
   .card__bg {
-    background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_monobg.jpg') center / cover no-repeat;
+    background-color: #f3ede300;
   }
   .card__text {
-    /*background-color: #254b60;*/
-    position:relative;
+    background-color: #00040637;
+    position:absolute;
+   
     
   }
 }
 
 .card__two {
   .card__img {
-    top: 25px;
+    top:-10px;
+    width: 100%; /* Adjust width to fill parent container */
+    height:110%; /* Maintain aspect ratio */
+    object-fit: cover; /* Optional: Ensure it looks good for uneven aspect ratios */
   }
   .card__bg {
-    background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_spirited.jpg') center / cover no-repeat;
+    background-color: #9a090900;
+  }
+  .card__text {
+    background-color: #00040637;
+    position:absolute;
+    
   }
   
 }

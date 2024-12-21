@@ -70,11 +70,11 @@ const LokSabha = () => {
           <div className="card__bg"></div>
           <img
             className="card__img"
-            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_mono.png"
-            alt="Princess Mononoke"
+            src="/team-images/Executive Board Images/sohan paul.jpg"
+            alt="Sohan Paul"
           />
           <div className="card__text">
-            <p className="card__title">Princess Mononoke</p>
+            <p className="card__title">Sohan Paul</p>
           </div>
         </div>
 
@@ -83,26 +83,15 @@ const LokSabha = () => {
           <div className="card__bg"></div>
           <img
             className="card__img"
-            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_chihiro.png"
-            alt="Spirited Away"
+            src="/team-images/Executive Board Images/Ayush.png"
+            alt="Ayush Mazumdar"
           />
           <div className="card__text">
-            <p className="card__title">Spirited Away</p>
+            <p className="card__title">Ayush Mazumdar</p>
           </div>
         </div>
 
-        {/* Card 3 */}
-        <div className="card card__three">
-          <div className="card__bg"></div>
-          <img
-            className="card__img"
-            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_howlcastle.png"
-            alt="Howl's Moving Castle"
-          />
-          <div className="card__text">
-            <p className="card__title">Howl's Moving Castle</p>
-          </div>
-        </div>
+      
       </div>
      
     </div>

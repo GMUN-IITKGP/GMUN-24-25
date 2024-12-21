@@ -69,11 +69,11 @@ const DISEC = () => {
           <div className="card__bg"></div>
           <img
             className="card__img"
-            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_mono.png"
-            alt="Princess Mononoke"
+            src="/team-images/Executive Board Images/AbhinavDas.jpeg"
+            alt="1"
           />
           <div className="card__text">
-            <p className="card__title">Princess Mononoke</p>
+            <p className="card__title">Abhinav Das</p>
           </div>
         </div>
 
@@ -82,26 +82,14 @@ const DISEC = () => {
           <div className="card__bg"></div>
           <img
             className="card__img"
-            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_chihiro.png"
+            src="/team-images/Executive Board Images/SaanviGupta.jpeg"
             alt="Spirited Away"
           />
           <div className="card__text">
-            <p className="card__title">Spirited Away</p>
+            <p className="card__title">Saanvi Gupta</p>
           </div>
         </div>
 
-        {/* Card 3 */}
-        <div className="card card__three">
-          <div className="card__bg"></div>
-          <img
-            className="card__img"
-            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_howlcastle.png"
-            alt="Howl's Moving Castle"
-          />
-          <div className="card__text">
-            <p className="card__title">Howl's Moving Castle</p>
-          </div>
-        </div>
       </div>
       
     </div>

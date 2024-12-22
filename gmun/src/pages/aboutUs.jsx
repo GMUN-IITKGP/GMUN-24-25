@@ -6,6 +6,7 @@ import cq from '../images/CQ_Logo_Gold.jpg';
 const AboutUs = () => {
   return (
     <div>
+      <div className="heading">About Us</div>
       <div className="contain1">
       <div className="box">
       <div className="overlay1" style={{ backgroundImage: `url(${cq})`}}></div>

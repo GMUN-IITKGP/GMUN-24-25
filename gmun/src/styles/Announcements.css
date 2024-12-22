@@ -390,6 +390,7 @@ body {
   }
   .content{
     max-width: 200px;
+    margin-bottom: 0;
   }
   .content .name {
     font-size: 15px;
@@ -412,5 +413,19 @@ body {
     left: calc(40% + 660px);
     top: 90%;
     opacity: 0;
+  }
+  .button button{
+    max-width: 25px;
+    max-height: 20px;
+    border-radius: 12px;
+    transform: translateY(60%);
+  }
+  .content .reg{
+    max-width: 90px;
+    max-height: 25px;
+    font-size: 0.5em;
+    position: relative;
+    top:-10px;
+
   }
 }

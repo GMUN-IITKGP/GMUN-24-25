@@ -22,6 +22,7 @@ import AboutUs from "./pages/aboutUs";
 import Sec from "./components/sec";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
+import PostPage from "./components/PostPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -61,6 +62,14 @@ const router = createBrowserRouter([
         element: (
           <AuthLayout>
             <Profile />
+          </AuthLayout>
+        ),
+      },
+      {
+        path: "/posts/:postId",
+        element: (
+          <AuthLayout>
+            <PostPage />
           </AuthLayout>
         ),
       },

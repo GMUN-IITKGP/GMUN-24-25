@@ -4,11 +4,17 @@ import { Question } from "../models/Question.model.js";
 import { Answer } from "../models/Answer.model.js";
 
 const createQuestion = asyncHandler(async (req, res) => {
-  const { content } = req.body;
+  const { title, description } = req.body;
   const user = req.user;
 
-  if (!content) {
-    const error = new Error("Content is required");
+  if (!title) {
+    const error = new Error("Title is required");
+    error.status = 400;
+    throw error;
+  }
+
+  if (!description) {
+    const error = new Error("Description is required");
     error.status = 400;
     throw error;
   }
@@ -25,13 +31,22 @@ const createQuestion = asyncHandler(async (req, res) => {
     throw error;
   }
 
-  const question = await Question.create({ content, user: user._id });
+  const question = await Question.create({
+    title,
+    description,
+    user: user._id,
+  });
 
   res.status(201).json(question);
 });
 
 const getQuestions = asyncHandler(async (req, res) => {
-  const questions = await Question.find();
+  const questions = await Question.find()
+    .populate({ path: "user", select: "fullName" })
+    .populate({
+      path: "answers",
+      populate: { path: "user", select: "fullName email" },
+    });
 
   res.status(200).json(questions);
 });
@@ -45,9 +60,14 @@ const getUserQuestions = asyncHandler(async (req, res) => {
 });
 
 const getQuestionById = asyncHandler(async (req, res) => {
-  const { id } = req.params;
+  const { questionId } = req.params;
 
-  const question = await Question.findById(id);
+  const question = await Question.findById(questionId)
+    .populate({ path: "user", select: "fullName" })
+    .populate({
+      path: "answers",
+      populate: { path: "user", select: "fullName email" },
+    });
 
   if (!question) {
     const error = new Error("Question not found");
@@ -152,8 +172,7 @@ const deleteAnswer = asyncHandler(async (req, res) => {
     throw error;
   }
 
-  await answer.remove();
-
+  await Answer.findByIdAndDelete(answerId);
   res.status(200).json({ message: "Answer deleted successfully" });
 });
 

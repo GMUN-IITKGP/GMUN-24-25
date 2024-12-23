@@ -38,7 +38,9 @@ app.use((err, req, res, next) => {
 
 //routes
 import userRoutes from "./routes/User.routes.js";
+import qnaRoutes from "./routes/qna.routes.js";
 
 app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/posts", qnaRoutes);
 
 export { server };

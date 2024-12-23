@@ -20,8 +20,6 @@ import image16 from "../images/16.webp";
 import image17 from "../images/17.webp";
 import image18 from "../images/18.webp";
 
-
-
 const images = [
   image1,
   image2,
@@ -66,7 +64,7 @@ const texts = [
 
 const Gallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [radius, setRadius] = useState(400); // Increased radius for larger screens
+  const [radius, setRadius] = useState(400); // Adjusted for responsiveness
   const [selectedImage, setSelectedImage] = useState(null); // Modal state
   const visibleCount = 8;
 
@@ -93,9 +91,9 @@ const Gallery = () => {
   useEffect(() => {
     const updateRadius = () => {
       if (window.innerWidth < 450) {
-        setRadius(200); // Increased radius for smaller screens
+        setRadius(200); // Reduced radius for smaller screens
       } else {
-        setRadius(400); // Increased radius for larger screens
+        setRadius(400);
       }
     };
 
@@ -120,13 +118,13 @@ const Gallery = () => {
   };
 
   return (
-    <div
-      className="page-container"
-      onClick={closeModal}
-    >
+    <div className="page-container" onClick={closeModal}>
       <div className="gallery-container" onClick={(e) => e.stopPropagation()}>
         <div className="logo" onClick={handleLogoClick}>
-          <div className="logo-text">{texts[currentIndex]}</div>
+          <div className="logo-text">
+            {texts[currentIndex]}
+            <span className="click-me">Click Me</span>
+          </div>
         </div>
         <div className="gallery">
           {(() => {
@@ -168,7 +166,9 @@ const Gallery = () => {
               ✖
             </button>
             <div className="modal-content">
-              <div><img src={selectedImage} alt="Enlarged view" /></div>
+              <div>
+                <img src={selectedImage} alt="Enlarged view" />
+              </div>
             </div>
           </div>
         )}

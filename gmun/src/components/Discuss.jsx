@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Discuss.css";
+import styles from "./Discuss.module.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../constants";
@@ -26,6 +26,17 @@ const Discuss = () => {
 
   const navigate = useNavigate();
 
+  const displayDate = (data) => {
+    const date = new Date(data);
+
+    const formattedDate = date.toLocaleDateString("en-US", {
+      day: "numeric",
+      month: "long",
+    });
+
+    return formattedDate;
+  };
+
   const handlePostSubmit = async (e) => {
     e.preventDefault();
     if (newPost.title && newPost.description) {
@@ -41,8 +52,8 @@ const Discuss = () => {
           }
         );
         console.log(response);
-        setPosts([...posts, { ...newPost }]);
         alert("Post created successfully");
+        window.location.reload();
       } catch (error) {
         console.log(error);
         alert("Failed to create post");
@@ -54,44 +65,71 @@ const Discuss = () => {
     return <Preloader />;
   } else {
     return (
-      <div className="discuss-container">
-        <h1 className="discuss-header">Discussions</h1>
+      <div className={styles["discuss-page"]}>
+        <div className={styles["discuss-container"]}>
+          <h1 className={styles["discuss-header"]}>Discussions</h1>
 
-        {/* New Post Section */}
-        <form className="new-post-form" onSubmit={handlePostSubmit}>
-          <input
-            type="text"
-            className="post-title-input"
-            placeholder="Enter a heading..."
-            value={newPost.title}
-            onChange={(e) => setNewPost({ ...newPost, title: e.target.value })}
-          />
-          <textarea
-            className="post-description-input"
-            placeholder="Enter a brief description..."
-            value={newPost.description}
-            onChange={(e) =>
-              setNewPost({ ...newPost, description: e.target.value })
-            }
-          />
-          <button type="submit" className="submit-post-button">
-            Post
-          </button>
-        </form>
+          <form className={styles["question-form"]} onSubmit={handlePostSubmit}>
+            <div className={styles["form-group"]}>
+              <label htmlFor="title">Title</label>
+              <input
+                type="text"
+                id="title"
+                value={newPost.title}
+                onChange={(e) =>
+                  setNewPost((prevState) => ({
+                    ...prevState,
+                    title: e.target.value, // Replace "New Title" with your desired title value
+                  }))
+                }
+                placeholder="Enter your question title"
+                required
+              />
+            </div>
 
-        {/* Posts Section */}
-        <div className="posts-section">
-          {posts &&
-            posts.map((post, index) => (
-              <div key={index} className="post">
-                <div
-                  className="post-heading"
-                  onClick={() => navigate(`/posts/${post._id}`)}
-                >
-                  <h2>{post.title}</h2>
+            <div className={styles["form-group"]}>
+              <label htmlFor="description">Description</label>
+              <textarea
+                id="description"
+                value={newPost.description}
+                onChange={(e) =>
+                  setNewPost((prevState) => ({
+                    ...prevState,
+                    description: e.target.value, // Replace "New Title" with your desired title value
+                  }))
+                }
+                placeholder="Provide more details about your question"
+                rows="4"
+                required
+              />
+            </div>
+
+            <button type="submit" className={styles["submit-btn"]}>
+              Post Question
+            </button>
+          </form>
+
+          <div className={styles.discussions}>
+            {posts.map((post) => (
+              <div
+                onClick={() => navigate(`/posts/${post._id}`)}
+                key={post.id}
+                className={styles["discussion-card"]}
+              >
+                <h2 className={styles["discussion-title"]}>{post.title}</h2>
+                <div className={styles["discussion-meta"]}>
+                  Posted by {post.user.fullName} on{" "}
+                  {displayDate(post.createdAt)}
                 </div>
+                <p className={styles["discussion-description"]}>
+                  {post.description}
+                </p>
+                <span className={styles["comments-count"]}>
+                  {post.answers.length} comments
+                </span>
               </div>
             ))}
+          </div>
         </div>
       </div>
     );

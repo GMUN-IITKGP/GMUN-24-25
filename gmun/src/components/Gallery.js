@@ -151,7 +151,7 @@ const Gallery = () => {
                     }}
                     onClick={() => handleImageClick(images[index])}
                   >
-                    <img src={images[index]} alt={`Image ${index + 1}`} />
+                  <img src={images[index]} alt={`Slide ${index + 1}`} />
                   </div>
                 </div>
               );

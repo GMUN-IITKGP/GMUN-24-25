@@ -48,9 +48,9 @@ const Footer = () => {
             </div>
             {<div className="footer-links">
                 <a href="mailto:yourname@example.com">Contact Us</a>
-                <a href="#">About</a>
-                <a href="#">Register</a>
-                <a href="#">Home</a>
+                <a href="mailto:yourname@example.com">About</a>
+                <a href="mailto:yourname@example.com">Register</a>
+                <a href="mailto:yourname@example.com">Home</a>
 
             </div>}
         </footer>

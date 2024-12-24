@@ -41,9 +41,9 @@ const Timeline = () => {
 
   useEffect(() => {
     const observerOptions = {
-      root: null, //viewport
+      root: null, // Viewport
       rootMargin: "0px",
-      threshold: 0.7 
+      threshold: 0.7,
     };
 
     const observerCallback = (entries) => {
@@ -55,47 +55,53 @@ const Timeline = () => {
       });
     };
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-    timelineRefs.current.forEach((ref) => {
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
+
+    // Store a snapshot of the current refs in a variable
+    const currentRefs = timelineRefs.current;
+    currentRefs.forEach((ref) => {
       if (ref) observer.observe(ref);
     });
 
     return () => {
-      timelineRefs.current.forEach((ref) => {
+      currentRefs.forEach((ref) => {
         if (ref) observer.unobserve(ref);
       });
     };
   }, []);
 
   return (
-  <div className="TimelineOutermostBox">
-    <div className="timeline-container">
-      <div className="timeline-header">
-        <h2 className="timeline-header__title">TIMELINE OF GMUN 2025</h2>
-      </div>
-      <div className="timeline">
-        {timelineItems.map((item, index) => (
-          <div
-            className={`timeline-item ${
-              index === activeIndex ? "timeline-item--active" : ""
-            }`}
-            key={index}
-            ref={(el) => (timelineRefs.current[index] = el)} // Assign ref to each timeline item
-          >
-            <div className="timeline__content">
-              <img
-                className="timeline__img"
-                src={item.img}
-                alt={`${item.year} Event`}
-              />
-              <h2 className="timeline__content-title">{item.year}</h2>
-              <p className="timeline__content-desc">{item.desc}</p>
+    <div className="TimelineOutermostBox">
+      <div className="timeline-container">
+        <div className="timeline-header">
+          <h2 className="timeline-header__title">TIMELINE OF GMUN 2025</h2>
+        </div>
+        <div className="timeline">
+          {timelineItems.map((item, index) => (
+            <div
+              className={`timeline-item ${
+                index === activeIndex ? "timeline-item--active" : ""
+              }`}
+              key={index}
+              ref={(el) => (timelineRefs.current[index] = el)} // Assign ref to each timeline item
+            >
+              <div className="timeline__content">
+                <img
+                  className="timeline__img"
+                  src={item.img}
+                  alt={`${item.year} Event`}
+                />
+                <h2 className="timeline__content-title">{item.year}</h2>
+                <p className="timeline__content-desc">{item.desc}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
-  </div>
   );
 };
 

@@ -1,16 +1,16 @@
 /* General Styles */
 .post {
-    max-width: 700px;
+    max-width: 800px;
     margin: 20px auto;
     background: #cdc9e3;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     border-radius: 15px;
-    transition: transform 0.3s ease;
+    transition: box-shadow 0.4s ease;
 }
 
 .post:hover {
-    transform: scale(1.02);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
 
 .post-heading {
@@ -46,6 +46,7 @@
 /* Expanded Post Details */
 .post-details {
     padding: 20px;
+    padding-top: 0;
 }
 
 .comments-section {
@@ -55,7 +56,6 @@
 .comments-header {
     font-size: 1.2rem;
     margin-bottom: 10px;
-    color: #b69354;
     border-bottom: 2px solid #b69354;
     display: inline-block;
     padding-bottom: 5px;
@@ -64,18 +64,33 @@
 .comment {
     cursor: pointer;
     margin: 10px 0;
-    padding: 10px 15px;
-    background: #f3ede3;
-    border-radius: 14px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    background: #574a73;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     font-size: 0.95rem;
-    color: #574a73;
-    transition: background-color 0.3s ease;
+    color: #f3ede3;
+    position: relative;
 }
 
 .comment:hover {
     background-color: #b69354;
     color: #fff;
+}
+
+.comment-author {
+    font-size: 0.85rem;
+    color: #f3ede3;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.comment-date {
+    font-size: 0.75rem;
+    color: #cdc9e3;
+    position: absolute;
+    top: 10px;
+    right: 15px;
 }
 
 /* New Comment Form */
@@ -89,7 +104,7 @@
     flex-grow: 1;
     padding: 10px;
     border: 1px solid #cdc9e3;
-    border-radius: 15px;
+    border-radius: 20px;
     font-size: 0.95rem;
     transition: border-color 0.3s ease;
 }

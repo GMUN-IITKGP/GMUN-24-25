@@ -57,7 +57,7 @@
   width: 100%;
   padding: 0.75rem;
   border: 2px solid #B69354;
-  border-radius: 4px;
+  border-radius: 9px;
   background-color: #F3EDE3;
   color: #363537;
   transition: all 0.3s ease;
@@ -84,7 +84,7 @@
   color: #F3EDE3;
   border: none;
   padding: 0.75rem 1.5rem;
-  border-radius: 4px;
+  border-radius: 16px;
   cursor: pointer;
   font-weight: bold;
   transition: all 0.3s ease;
@@ -112,7 +112,7 @@
 .discussion-card {
   background-color: #CDC9E3;
   padding: 1.25rem;
-  border-radius: 8px;
+  border-radius: 18px;
   border-left: 4px solid #574A73;
   transition: all 0.3s ease;
   cursor: pointer;

@@ -105,7 +105,7 @@ const loginUser = asyncHandler(async (req, res) => {
     throw error;
   }
 
-  const options = { httpOnly: true, secure: true };
+  const options = { httpOnly: true, secure: true, sameSite: "none" };
 
   res
     .status(200)

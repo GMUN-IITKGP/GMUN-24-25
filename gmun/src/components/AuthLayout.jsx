@@ -8,6 +8,7 @@ export default function AuthLayout({ children }) {
 
   useEffect(() => {
     if (!authStatus) {
+      alert("Login is Required");
       navigate("/");
     }
   }, [authStatus, navigate]);

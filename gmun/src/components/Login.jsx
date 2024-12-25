@@ -5,6 +5,8 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { login } from "../store/authSlice.js";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -33,6 +35,7 @@ const LoginForm = () => {
         }
       );
       console.log(response);
+      toast.success("User logged in successfully");
       alert("User logged in successfully");
       dispatch(login(response));
       navigate("/profile");
@@ -46,10 +49,10 @@ const LoginForm = () => {
         if (match && match[1]) {
           // The error message is captured in the first group
           console.log(match[1]);
-          alert(`Error: ${match[1]}`);
+          toast.error(`Error: ${match[1]}`);
         } else {
           // Fallback error message
-          alert("An error occurred. Please try again.");
+          toast.error("An error occurred. Please try again.");
         }
       }
     } finally {

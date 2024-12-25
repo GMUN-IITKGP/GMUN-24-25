@@ -9,6 +9,8 @@ import axios from "axios";
 import { useState } from "react";
 import { logout } from "./store/authSlice.js";
 import Preloader from "./components/preloader.jsx";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -36,18 +38,27 @@ const App = () => {
   }, [dispatch]);
 
   if (loading) {
-    return <div><Preloader /></div>;
+    return (
+      <>
+        <div>
+          <Preloader />
+        </div>
+      </>
+    );
   } else {
     return (
-      <div>
-        {/* Navbar will always be displayed */}
-        <NavBar />
-
-        {/* Render the child route components using Outlet */}
+      <>
+        <ToastContainer position="top-left" />
         <div>
-          <Outlet />
+          {/* Navbar will always be displayed */}
+          <NavBar />
+
+          {/* Render the child route components using Outlet */}
+          <div>
+            <Outlet />
+          </div>
         </div>
-      </div>
+      </>
     );
   }
 };

@@ -26,10 +26,6 @@ import PostPage from "./components/PostPage.jsx";
 
 const router = createBrowserRouter([
   {
-    path: "/login",
-    element: <Login />,
-  },
-  {
     path: "/logout",
     element: (
       <AuthLayout>
@@ -38,16 +34,20 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/register",
-    element: <Register />,
-  },
-  {
     path: "/",
     element: <App />,
     children: [
       {
         path: "/",
         element: <Landing />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
       },
       {
         path: "/edit",

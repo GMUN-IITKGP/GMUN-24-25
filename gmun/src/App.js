@@ -32,7 +32,7 @@ const App = () => {
     };
 
     fetchData();
-  }, [dispatch]);
+  }, []);
 
   if (loading) {
     return <div><Preloader /></div>;

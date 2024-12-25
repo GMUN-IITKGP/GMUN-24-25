@@ -17,6 +17,7 @@ const App = () => {
   useEffect(() => {
     // Fetch data from the API
     // Update the state
+    document.title = "GMUN 2025";
 
     const fetchData = async () => {
       try {

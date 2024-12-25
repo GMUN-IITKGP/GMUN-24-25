@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import WorldMap from "./WorldMap";
 import "./committee.css"; // General styles
+import { ReactComponent as DISECLogo } from "../images/committee_img/DISEC_LOGO.svg";
 
 
 const DISEC = () => {
@@ -41,21 +42,9 @@ const DISEC = () => {
 
   return (
     <div className="committee-container">
-      <body>
-      {/* Spinning UN Emblem */}
+     
       <div className="emblem">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 512 512"
-          className="spinning-logo"
-        >
-          <image
-            href="https://upload.wikimedia.org/wikipedia/commons/5/52/Emblem_of_the_United_Nations.svg"
-            width="100%"
-            height="100%"
-            alt="UN Emblem"
-          />
-        </svg>
+      <DISECLogo className="Disec" />
       </div>
       
       {/* World Map Section */}
@@ -66,8 +55,8 @@ const DISEC = () => {
       {/* Committee Content Section */}
       <div className="committee-content">
         <h2>DISEC</h2>
-        <p>AGENDA</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p>1. Enhancing the effectiveness of disarmament,demobilization and reintegration and security sector reform in conflict-affected regions.</p>
+        <p>2. Prevention of involvement of artificial intelligence in weapon systems and its implications for global security.</p>
       </div>
 
       {/* 3D Cards Section */}
@@ -80,11 +69,14 @@ const DISEC = () => {
           <div className="card__bg"></div>
           <img
             className="card__img"
-            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_mono.png"
-            alt="Princess Mononoke"
+            src="/team-images/Executive Board Images/AbhinavDas.jpeg"
+            alt="1"
           />
+          <div className="card__hover-text">
+          <p>Chairperson</p>
+          </div>
           <div className="card__text">
-            <p className="card__title">Princess Mononoke</p>
+            <p className="card__title">Abhinav Das</p>
           </div>
         </div>
 
@@ -93,28 +85,19 @@ const DISEC = () => {
           <div className="card__bg"></div>
           <img
             className="card__img"
-            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_chihiro.png"
+            src="/team-images/Executive Board Images/SaanviGupta.jpeg"
             alt="Spirited Away"
           />
+          <div className="card__hover-text">
+          <p>Vice Chairperson</p>
+          </div>
           <div className="card__text">
-            <p className="card__title">Spirited Away</p>
+            <p className="card__title">Saanvi Gupta</p>
           </div>
         </div>
 
-        {/* Card 3 */}
-        <div className="card card__three">
-          <div className="card__bg"></div>
-          <img
-            className="card__img"
-            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_howlcastle.png"
-            alt="Howl's Moving Castle"
-          />
-          <div className="card__text">
-            <p className="card__title">Howl's Moving Castle</p>
-          </div>
-        </div>
       </div>
-      </body>
+      
     </div>
   );
 };

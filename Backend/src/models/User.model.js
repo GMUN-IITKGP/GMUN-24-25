@@ -17,6 +17,17 @@ const UserSchema = new Schema(
       type: String,
       required: true,
     },
+    Role: {
+      type: String,
+      enum: [
+        "Executive Board",
+        "Secretary General",
+        "MUN head",
+        "Organizing Committee", // Corrected typo here
+        "Delegate",
+        "Unregistered",
+      ],
+    },
     refreshToken: {
       type: String,
     },

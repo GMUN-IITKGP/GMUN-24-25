@@ -1,7 +1,6 @@
 import React from 'react';
 import Countdown from '../components/Countdown';
 import Announcements from '../components/Announcements';
-import Navbar from '../components/Navbar';
 import Footer from "../components/Footer";
 import Carousel from '../components/carousel';
 import Timeline from '../components/Timeline';

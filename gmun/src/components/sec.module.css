@@ -5,7 +5,7 @@
 .galleryP {
   display: flex;
   flex-direction: column;
-  /* width: 100%; */ /* Optional: Uncomment if needed */
+  width: 100%; /* Ensure full width */
   background-color: pink !important; /* Override global background */
   background-image: none !important; /* Remove any inherited background image */
   /* Add top padding to prevent overlap with fixed navbar */
@@ -13,7 +13,7 @@
 }
 
 .container {
-  width: 100%; /* Changed from 100vw to 100% to prevent horizontal overflow */
+  width: 100%; /* Ensure full width */
   height: 100%;
   background-color: blue !important; /* Ensure container has its own background */
   box-sizing: border-box;
@@ -29,11 +29,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 60px 40px; /* Increased padding to add height */
+  padding: 60px 40px; /* Adjust padding as needed */
   /* Removed min-height: 100vh; to allow sections to size based on content */
   background-color: #F3EDE3; /* Default background color */
   transition: background-color 1s ease;
   box-sizing: border-box;
+  width: 100%; /* Ensure full width */
 }
 
 /* Adjusted padding for better spacing */
@@ -66,17 +67,22 @@
 }
 
 .image {
-  flex: 1; /* Allow image to take available space */
+  /* Change from flex: 1 to fixed size to prevent resizing */
+  flex: none;
+  width: 375px; /* Increased from 300px to 375px for desktop */
+  height: 375px; /* Increased from 300px to 375px for desktop */
   position: relative;
 }
 
+/* Fixed size for images on desktop */
 .desktopPhoto {
-  width: 100%; /* Full width for images */
+  /* Removed any width settings that make it flexible */
 }
 
 .desktopPhoto img {
-  width: 80%; /* Decreased from 100% to 80% to slightly reduce image size */
-  height: auto;
+  width: 375px; /* Increased from 300px to 375px */
+  height: 375px; /* Increased from 300px to 375px */
+  object-fit: cover; /* Ensure the image covers the container without distortion */
   border: 7px solid #B69354; /* Default border color */
   border-radius: 10px; /* Rounded corners */
   box-sizing: border-box; /* Include border in dimensions */
@@ -137,12 +143,18 @@
 .scrollDown {
   position: fixed;
   bottom: 20px;
-  right: 20px;
+  right: 20px; /* Positioned at bottom right */
   font-size: 1.5rem;
-  color: #363537;
-  opacity: 0.7;
+  color: #FFD700; /* Gold color */
+  opacity: 0.9; /* Increased opacity for better visibility */
   animation: bounce 2s infinite;
   z-index: 1000;
+  
+  /* Shiny Text Effect */
+  text-shadow: 
+    0 0 5px rgba(255, 215, 0, 0.8),
+    0 0 10px rgba(255, 215, 0, 0.6),
+    0 0 15px rgba(255, 215, 0, 0.4);
 }
 
 /* Bounce Animation for Scroll Down */
@@ -185,28 +197,59 @@
   .headerContent {
       flex-direction: column;
       padding: 0 20px;
+      width: 100%; /* Ensure full width on mobile */
+      max-width: none; /* Remove max-width constraint */
+      margin: 0; /* Remove auto margins */
   }
 
   .headerTitle {
       margin-bottom: 15px;
       font-size: 2rem;
+      text-align: center; /* Ensure centered text on small devices */
   }
 
   .showSecretariatBtn {
       /* Remove absolute positioning */
       position: static;
       transform: none;
-      margin: 10px auto 0; /* Center the button */
+      margin: 10px auto 0; /* Center the button with top margin */
       width: auto; /* Adjust width to content */
-      padding: 10px 20px; /* Adjust padding */
-      font-size: 1rem; /* Adjust font size */
-      border-radius: 5px; /* Consistent border radius */
-  }
+      padding: 8px 16px; /* Reduce padding for smaller size */
+      font-size: 0.9rem; /* Decrease font size */
+      border-radius: 4px; /* Slightly smaller border radius */
+      
+      /* Merged Styles from .button-74 */
+      background-color: #fbeee0; /* Light background */
+      border: 2px solid #422800; /* Dark brown border */
+      border-radius: 30px; /* Rounded corners */
+      box-shadow: #422800 4px 4px 0 0; /* Shadow effect */
+      color: #422800; /* Text color */
+      display: inline-block;
+      font-weight: 600;
+      font-size: 18px;
+      padding: 0 18px;
+      line-height: 50px;
+      text-align: center;
+      text-decoration: none;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      
+      min-width: 120px; /* Ensure minimum width */
+      padding: 0 25px; /* Adjust padding */
+      
+      /* Responsive adjustments */
+      background-color: #fbeee0; /* Ensure background color persists */
+      border-radius: 30px; /* Ensure border-radius persists */
+      box-shadow: #422800 4px 4px 0 0; /* Ensure box-shadow persists */
+      font-size: 18px; /* Ensure font-size persists */
+    }
 
   .contentSection {
       flex-direction: column;
       text-align: center; /* Changed from left to center for small devices */
       padding: 30px 20px; /* Increased padding to add height */
+      width: 100%; /* Ensure full width */
   }
 
   .text, .image {
@@ -223,12 +266,15 @@
   }
 
   .image {
+      width: 250px; /* Increased from 200px to 250px for mobile */
+      height: 250px; /* Increased from 200px to 250px for mobile */
       margin-top: 20px;
   }
 
   .desktopPhoto img {
-      width: 80%; /* Maintain decreased size */
-      max-width: 300px;
+      width: 250px; /* Increased from 200px to 250px for mobile */
+      height: 250px; /* Increased from 200px to 250px for mobile */
+      object-fit: cover; /* Ensure the image covers the container without distortion */
       margin: 0 auto;
   }
 
@@ -249,7 +295,7 @@
   .scrollDown {
       font-size: 1.2rem;
       bottom: 15px;
-      right: 15px;
+      right: 15px; /* Adjusted to match right positioning */
   }
 
   /* Ensure text and icons are centered without animation interference */
@@ -268,8 +314,19 @@
   }
 
   .showSecretariatBtn {
-      font-size: 0.9rem;
-      padding: 8px 16px;
+      font-size: 0.9rem; /* Maintain smaller font size */
+      padding: 8px 16px; /* Maintain padding */
+      width: auto; /* Ensure auto width */
+  }
+
+  .image {
+      width: 190px; /* Increased from 150px to 190px for very small screens */
+      height: 190px; /* Increased from 150px to 190px for very small screens */
+  }
+
+  .desktopPhoto img {
+      width: 190px; /* Increased from 150px to 190px for very small screens */
+      height: 190px; /* Increased from 150px to 190px for very small screens */
   }
 }
 
@@ -282,7 +339,7 @@
 /* Team Header */
 .teamHeader {
   background-color: #B69354; /* Golden color from existing palette */
-  width: 100%;
+  width: 100%; /* Ensure full width */
   padding: 20px 0;
   z-index: 1000;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -292,12 +349,13 @@
   display: flex;
   justify-content: center; /* Center items horizontally */
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%; /* Ensure full width */
   padding: 0 40px;
   position: relative; /* Allows absolute positioning of the button */
+  /* Removed max-width and margin to allow full-width layout */
 }
 
+/* Header Title */
 .headerTitle {
   color: #F3EDE3; /* Light cream color from existing palette */
   font-size: 2.5rem;
@@ -306,15 +364,29 @@
   /* Removed flex-grow: 1; */
 }
 
+/* Show Secretariat Button */
 .showSecretariatBtn {
-  background-color: #574A73; /* Dark purple from existing palette */
-  color: #F3EDE3; /* Light cream color */
-  border: none;
-  padding: 10px 20px;
-  font-size: 1rem;
-  border-radius: 5px;
+  /* Original Styles Removed */
+  
+  /* Merged Styles from .button-74 */
+  background-color: #fbeee0; /* Light background */
+  border: 2px solid #422800; /* Dark brown border */
+  border-radius: 30px; /* Rounded corners */
+  box-shadow: #422800 4px 4px 0 0; /* Shadow effect */
+  color: #422800; /* Text color */
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease;
   
   position: absolute; /* Position the button to the right */
   right: 40px; /* Align it with the original padding */
@@ -322,9 +394,16 @@
   transform: translateY(-50%); /* Adjust for exact centering */
 }
 
+/* Hover State */
 .showSecretariatBtn:hover {
-  background-color: #CDC9E3; /* Light purple from existing palette */
-  color: #363537; /* Dark text color */
+  background-color: #fff; /* Change background on hover */
+  /* Additional hover styles if needed */
+}
+
+/* Active State */
+.showSecretariatBtn:active {
+  box-shadow: #422800 2px 2px 0 0; /* Adjust shadow on active */
+  transform: translate(2px, 2px); /* Move button on active */
 }
 
 /* Responsive Styles for Header */
@@ -333,6 +412,9 @@
   .headerContent {
     flex-direction: column;
     padding: 0 20px;
+    width: 100%; /* Ensure full width on mobile */
+    max-width: none; /* Remove max-width constraint */
+    margin: 0; /* Remove auto margins */
   }
 
   .headerTitle {
@@ -350,6 +432,26 @@
     padding: 8px 16px; /* Reduce padding for smaller size */
     font-size: 0.9rem; /* Decrease font size */
     border-radius: 4px; /* Slightly smaller border radius */
+    
+    /* Merged Styles from .button-74 */
+    background-color: #fbeee0; /* Light background */
+    border: 2px solid #422800; /* Dark brown border */
+    border-radius: 30px; /* Rounded corners */
+    box-shadow: #422800 4px 4px 0 0; /* Shadow effect */
+    color: #422800; /* Text color */
+    display: inline-block;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 0 18px;
+    line-height: 50px;
+    text-align: center;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    
+    min-width: 120px; /* Ensure minimum width */
+    padding: 0 25px; /* Adjust padding */
   }
 }
 
@@ -360,7 +462,18 @@
   }
 
   .showSecretariatBtn {
-    font-size: 0.9rem;
-    padding: 8px 16px;
+    font-size: 0.9rem; /* Maintain smaller font size */
+    padding: 8px 16px; /* Maintain padding */
+    width: auto; /* Ensure auto width */
+  }
+
+  .image {
+    width: 190px; /* Increased from 150px to 190px for very small screens */
+    height: 190px; /* Increased from 150px to 190px for very small screens */
+  }
+
+  .desktopPhoto img {
+    width: 190px; /* Increased from 150px to 190px for very small screens */
+    height: 190px; /* Increased from 150px to 190px for very small screens */
   }
 }

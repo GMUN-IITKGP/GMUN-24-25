@@ -2,151 +2,146 @@ import { User } from "../models/User.model.js";
 import { asyncHandler } from "../utils/asynchandler.js";
 
 const generateAccessandRefreshToken = async (userId) => {
-  try {
-    const user = await User.findById(userId);
+  const user = await User.findById(userId);
 
-    if (!user) {
-      throw new Error("User not found");
-    }
-
-    const accessToken = user.generateAccessToken();
-    const refreshToken = user.generateRefreshToken();
-
-    user.refreshToken = refreshToken;
-
-    await user.save({ validateBeforeSave: false });
-
-    return { accessToken, refreshToken };
-  } catch (error) {
-    throw new Error(error.message);
+  if (!user) {
+    const error = new Error("User not found");
+    error.status = 404;
+    throw error;
   }
+
+  const accessToken = user.generateAccessToken();
+  const refreshToken = user.generateRefreshToken();
+
+  user.refreshToken = refreshToken;
+  await user.save({ validateBeforeSave: false });
+
+  return { accessToken, refreshToken };
 };
 
 const registerUser = asyncHandler(async (req, res) => {
   const { fullName, email, password } = req.body;
 
-    if (!fullName) {
-      throw new Error("Full name is required");
-    }
+  if (!fullName) {
+    const error = new Error("Full name is required");
+    error.status = 400;
+    throw error;
+  }
 
-    if (!email) {
-      throw new Error("Email is required");
-    }
+  if (!email) {
+    const error = new Error("Email is required");
+    error.status = 400;
+    throw error;
+  }
 
-    if (!password) {
-      throw new Error("Password is required");
-    }
+  if (!password) {
+    const error = new Error("Password is required");
+    error.status = 400;
+    throw error;
+  }
 
-    const existingUser = await User.findOne({email});
-    if (existingUser) {
-      throw new Error(400, "User already exists with this username or email");
-    }
+  const existingUser = await User.findOne({ email });
+  if (existingUser) {
+    const error = new Error("User already exists with this username or email");
+    error.status = 409;
+    throw error;
+  }
 
-    const user = await User.create({ fullName, email, password });
+  const user = await User.create({ fullName, email, password });
+  const createdUser = await User.findById(user._id).select(
+    "-password -refreshToken"
+  );
 
-    const createdUser = await User.findById(user._id).select(
-      "-password -refreshToken"
-    );
+  if (!createdUser) {
+    const error = new Error("Something went wrong while registering the user");
+    error.status = 500;
+    throw error;
+  }
 
-    //checking if User is Created or Not
-    if (!createdUser) {
-      throw new Error(
-        500,
-        "Something went wrong while registering the User"
-      );
-    }
-
-    res.status(201).json(createdUser);
+  res.status(201).json(createdUser);
 });
 
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
-    if (!email) {
-      throw new Error("Email is required");
-    }
+  if (!email) {
+    const error = new Error("Email is required");
+    error.status = 400;
+    throw error;
+  }
 
-    if (!password) {
-      throw new Error("Password is required");
-    }
+  if (!password) {
+    const error = new Error("Password is required");
+    error.status = 400;
+    throw error;
+  }
 
-    const user = await User.findOne({ email });
+  const user = await User.findOne({ email });
 
-    if (!user) {
-      throw new Error("User not found");
-    }
+  if (!user) {
+    const error = new Error("User not found");
+    error.status = 404;
+    throw error;
+  }
 
-    const isMatch = await user.checkPassword(password);
+  const isMatch = await user.checkPassword(password);
 
-    if (!isMatch) {
-      throw new Error("Invalid credentials");
-    }
+  if (!isMatch) {
+    const error = new Error("Invalid credentials");
+    error.status = 401;
+    throw error;
+  }
 
-    const { accessToken, refreshToken } = await generateAccessandRefreshToken(
-      user._id
-    );
-
-    const loggedInUser = await User.findById(user._id).select(
-      "-password -refreshToken"
-    );
-
-    if (!loggedInUser) {
-      res.status(500);
-      throw new Error("Couldn't login user");
-    }
-
-    const options = {
-      httpOnly: false,
-      secure: true,
-    };
-
-    res
-      .status(200)
-      .cookie("accessToken", accessToken, options)
-      .cookie("refreshToken", refreshToken, options)
-      .json({
-        loggedInUser,
-        accessToken,
-        refreshToken,
-      });
-});
-
-const logoutUser = asyncHandler(async (req, res, next) => {
-  await User.findByIdAndUpdate(
-    req.user._id,
-    {
-      $unset: {
-        refreshToken: 1,
-      },
-    },
-    {
-      new: true,
-    }
+  const { accessToken, refreshToken } = await generateAccessandRefreshToken(
+    user._id
+  );
+  const loggedInUser = await User.findById(user._id).select(
+    "-password -refreshToken"
   );
 
-  const options = {
-    httpOnly: false,
-    secure: true,
-    samesite: "none",
-  };
+  if (!loggedInUser) {
+    const error = new Error("Couldn't login user");
+    error.status = 500;
+    throw error;
+  }
 
-  return res
+  const options = { httpOnly: true, secure: true, sameSite: "none" };
+
+  res
+    .status(200)
+    .cookie("accessToken", accessToken, options)
+    .cookie("refreshToken", refreshToken, options)
+    .json({ loggedInUser, accessToken, refreshToken });
+});
+
+const logoutUser = asyncHandler(async (req, res) => {
+  await User.findByIdAndUpdate(
+    req.user._id,
+    { $unset: { refreshToken: 1 } },
+    { new: true }
+  );
+
+  const options = { httpOnly: true, secure: true, sameSite: "none" };
+
+  res
     .status(200)
     .clearCookie("accessToken", options)
     .clearCookie("refreshToken", options)
-    .json({
-      "User Logged Out": "Successfully",
-    });
+    .json({ message: "User logged out successfully" });
 });
 
 const getUserProfile = asyncHandler(async (req, res) => {
-  const user = await User.findById(req.user._id).select("-password -refreshToken");
+  const user = await User.findById(req.user._id).select(
+    "-password -refreshToken"
+  );
 
   if (!user) {
-    throw new Error("User not found");
+    const error = new Error("User not found");
+    error.status = 404;
+    throw error;
   }
 
   res.status(200).json(user);
-})
+});
 
 export { registerUser, loginUser, logoutUser, getUserProfile };

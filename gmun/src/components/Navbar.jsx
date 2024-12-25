@@ -1,33 +1,94 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import '../styles/Navbar.css';
-import gmunlogo from '../images/GMUN Gold.png';
-import edition from '../images/3rd.png';
+import React from "react";
+import { Link } from "react-router-dom";
+import "../styles/Navbar.css";
+import gmunlogo from "../images/GMUN Gold.png";
+import edition from "../images/3rd.png";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../store/authSlice";
+import axios from "axios";
+import { BASE_URL } from "../constants";
+
 const Navbar = () => {
+  const authStatus = useSelector((state) => state.auth.status);
+
+  const dispatch = useDispatch();
+
+  const handlelogout = async () => {
+    try {
+      const response = await axios.post(
+        `${BASE_URL}/users/logout`,
+        {},
+        {
+          withCredentials: true,
+        }
+      );
+      console.log(response);
+      dispatch(logout());
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="nav">
-      <div className="nav-logo"><img src={gmunlogo} alt="GmunLogo" className='front-face' /><img src={edition} alt="3rd edition" className='back-face' />
+      <input type="checkbox" id="sidebar-active" />
+      <div className="nav-logo">
+        <img src={gmunlogo} alt="GmunLogo" className="front-face" />
+        <img src={edition} alt="3rd edition" className="back-face" />
+      </div>
+      <div className="sidebar-nav">
+        <label htmlFor="sidebar-active" className="sidebar-open">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="32px"
+            viewBox="0 -960 960 960"
+            width="32px"
+            fill="#e8eaed"
+          >
+            <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+          </svg>
+        </label>
       </div>
       <ul className="nav-menu">
+        <li>
+          <label htmlFor="sidebar-active" className="sidebar-close nav-list">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="32px"
+              viewBox="0 -960 960 960"
+              width="32px"
+              fill="#e8eaed"
+            >
+              <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
+            </svg>
+          </label>
+        </li>
         <li className="nav-list">
           <Link to="/">Home</Link>
         </li>
         <li className="nav-list">
           <Link to="/sec">Secretariat</Link>
         </li>
-
-        {/* Dropdown for Committees */}
         <li className="nav-list dropdown">
           <button className="dropbtn">Committees</button>
           <ul className="dropdown-content">
-            <li><Link to="/committee/1">UNSC</Link></li>
-            <li><Link to="/committee/2">UNHRC</Link></li>
-            <li><Link to="/committee/3">DISEC</Link></li>
-            <li><Link to="/committee/4">LokSabha</Link></li>
-            <li><Link to="/committee/5">G20</Link></li>
+            <li>
+              <Link to="/committee/1">UNSC</Link>
+            </li>
+            <li>
+              <Link to="/committee/2">UNHRC</Link>
+            </li>
+            <li>
+              <Link to="/committee/3">DISEC</Link>
+            </li>
+            <li>
+              <Link to="/committee/4">LokSabha</Link>
+            </li>
+            <li>
+              <Link to="/committee/5">G20</Link>
+            </li>
           </ul>
         </li>
-
         <li className="nav-list">
           <Link to="/FAQs">FAQs</Link>
         </li>
@@ -40,9 +101,15 @@ const Navbar = () => {
         <li className="nav-list">
           <Link to="/gallery">Gallery</Link>
         </li>
-        <li className="register">
-          <Link to="/register">Register</Link>
-        </li>
+        {authStatus ? (
+          <li onClick={handlelogout} className="register">
+            Logout
+          </li>
+        ) : (
+          <li className="register nav-list">
+            <Link to="/login">Login</Link>
+          </li>
+        )}
       </ul>
     </div>
   );

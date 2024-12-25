@@ -1,36 +1,25 @@
 .countdown-container {
     width: 100%;
-
     max-width: 100%;
-
     padding: 30px;
-    background: #524768;
-
+    background: #241a3a;
     border-radius: 15px;
-
     box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.6);
-
     text-align: center;
     animation: fadeIn 1s ease-in-out;
     box-sizing: border-box;
-
 }
-
 
 .countdown-heading {
     font-size: 28px;
     font-weight: 700;
     color: #B69354;
-
     margin-bottom: 20px;
 }
 
-
 .countdown-heading span {
     color: #F3EDE3;
-
 }
-
 
 .countdown-wrapper {
     display: flex;
@@ -41,17 +30,12 @@
 
 .countdown-card {
     background-color: #CDC9E3;
-
     padding: 15px;
     border-radius: 15px;
-
     text-align: center;
     width: 80px;
-
     height: 75px;
-
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -60,10 +44,8 @@
 
 .countdown-number {
     font-size: 32px;
-
     font-weight: 800;
     color: #363537;
-
 }
 
 .countdown-number.fade-in {
@@ -78,31 +60,23 @@
 
 .countdown-label {
     font-size: 12px;
-
     font-weight: 600;
     color: #574A73;
-
     margin-top: 5px;
-
     word-wrap: break-word;
     text-align: center;
 }
-
 
 .fun-fact {
     margin-top: 20px;
     font-size: 16px;
     color: #CDC9E3;
-
     font-style: italic;
     padding: 10px;
     background: rgba(0, 0, 0, 0.4);
-
     border-radius: 8px;
     border: none;
-
 }
-
 
 .fact-button {
     font-size: 13px;
@@ -110,27 +84,19 @@
     padding: 5px 15px;
     margin-top: 20px;
     background: #B69354;
-
     color: #363537;
-
     border: none;
     border-radius: 8px;
-
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-
 }
 
 .fact-button:hover {
     background: #F3EDE3;
-
     color: #B69354;
-
     transform: scale(1.05);
-
 }
-
 
 @keyframes fadeIn {
     from {
@@ -142,6 +108,72 @@
         opacity: 1;
         transform: translateY(0);
     }
+}
 
+@media (max-width: 768px) {
+    .countdown-container {
+        padding: 20px;
+    }
 
+    .countdown-heading {
+        font-size: 24px;
+    }
+
+    .countdown-wrapper {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .countdown-card {
+        width: 70px;
+        height: 65px;
+        padding: 10px;
+    }
+
+    .countdown-number {
+        font-size: 28px;
+    }
+
+    .countdown-label {
+        font-size: 10px;
+    }
+
+    .fun-fact {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .fact-button {
+        font-size: 12px;
+        padding: 4px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .countdown-heading {
+        font-size: 20px;
+    }
+
+    .countdown-card {
+        width: 60px;
+        height: 55px;
+        padding: 8px;
+    }
+
+    .countdown-number {
+        font-size: 24px;
+    }
+
+    .countdown-label {
+        font-size: 8px;
+    }
+
+    .fun-fact {
+        font-size: 12px;
+    }
+
+    .fact-button {
+        font-size: 10px;
+        padding: 3px 8px;
+    }
 }

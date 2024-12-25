@@ -5,6 +5,49 @@
   text-align: center;
 }
 
+.heading-all{
+  font-family: 'Poppins', sans-serif;
+    font-size: 64px;
+    font-weight: 700;
+    color: #D4AF37;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 4px;
+    position: relative;
+    margin: 30px 0;
+    animation: breathing 3s ease-in-out infinite;
+}
+
+.heading-all:hover {
+  transform: scale(1.05);
+  color: #FFD700;
+  text-shadow: 0 0 12px rgba(255, 215, 0, 0.9), 0 0 24px rgba(255, 215, 0, 0.7);
+}
+
+.heading-all::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  height: 100%;
+  width: 150%;
+  background: linear-gradient(120deg, transparent, rgba(255, 215, 0, 0.5), transparent);
+  transform: skewX(-20deg);
+  animation: shiimmer 3s linear infinite;
+}
+.heading-all::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #D4AF37, #FFD700, #D4AF37);
+  border-radius: 2px;
+  animation: glowingUnderline 2s ease-in-out infinite;
+}
+
 .bodiy {
   margin: 0;
   padding: 0;
@@ -15,7 +58,7 @@
 }
 
 .announcements-container {
-  background: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+  background: rgba(243, 237, 227, 0.9); /* Slightly transparent light beige background */
   margin: 10px;
   padding: 20px;
   border: 1px solid #363537; /* Dark Gray */
@@ -46,7 +89,7 @@
   padding: 15px;
   border: 1px solid #ddd;
   border-radius: 15px;
-  background: #ffffff; /* White background for questions */
+  background: #f3ede3; /* Light beige background for questions */
   box-shadow: 5px 5px 15px rgba(54, 53, 55, 0.1), -5px -5px 15px rgba(255, 255, 255, 0.6);
   transition: transform 0.4s ease, background 0.4s ease, box-shadow 0.4s ease;
   color: #574A73; /* Dark Purple */
@@ -90,9 +133,9 @@
 }
 
 .outer-faq .heading-all{
-  padding-top: 30px;
-  padding-bottom: 12px;
-  color: #CDC9E3;
+  padding-top: 10px;
+  padding-bottom: 2px;
+  color: #d4af3b;
 }
 
 .question {
@@ -149,5 +192,17 @@
 
   .faq-header {
     font-size: 3rem; /* Increased font size for FAQ header on small screens */
+  }
+}
+@media (max-width: 480px) {
+  .heading-all {
+      font-size: 8vw;
+      letter-spacing: 0.2em;
+  }
+}
+@media (max-width: 480px) {
+  .heading-all::after {
+      width: 40%;
+      height: 0.25em;
   }
 }

@@ -1,53 +1,53 @@
 // src/teamData.js
 const teamMembers = [
-    {
-      name: "ADITYA JHA",
-      role: "Secretary General",
-      image: "/team-images/AdityaJha.png",
-      facebook: "https://www.facebook.com/adityajha",
-      linkedin: "https://www.linkedin.com/in/adityajha",
-      instagram: "https://www.instagram.com/adityajha"
-    },
-    {
-      name: "SOMYAJEET GUPTA CHOWDHURY",
-      role: "Under Secretary General Tech",
-      image: "/team-images/SomyajeetC.png",
-      facebook: "https://www.facebook.com/somyajeetc",
-      linkedin: "https://www.linkedin.com/in/somyajeetc",
-      instagram: "https://www.instagram.com/somyajeetc"
-    },
-    {
-      name: "ARKA PRAVA MANDAL",
-      role: "Under Secretary General Public Relations",
-      image: "/team-images/ArkaPM.png",
-      facebook: "https://www.facebook.com/arkapm",
-      linkedin: "https://www.linkedin.com/in/arkapm",
-      instagram: "https://www.instagram.com/arkapm"
-    },
-    {
-      name: "HEMANT V. NAIR",
-      role: "Under Secretary General Design",
-      image: "/team-images/HemantVN.png",
-      facebook: "https://www.facebook.com/hemantvn",
-      linkedin: "https://www.linkedin.com/in/hemantvn",
-      instagram: "https://www.instagram.com/hemantvn"
-    },
-    {
-      name: "MANAN BAGGA",
-      role: "Under Secretary General Events",
-      image: "/team-images/MananB.png",
-      facebook: "https://www.facebook.com/mananbagga",
-      linkedin: "https://www.linkedin.com/in/mananbagga",
-      instagram: "https://www.instagram.com/mananbagga"
-    },
-    {
-      name: "SUBHAYAN DEY",
-      role: "Under Secretary General Sponsorship and Finance",
-      image: "/team-images/SubhayanD.png",
-      facebook: "https://www.facebook.com/subhayandey",
-      linkedin: "https://www.linkedin.com/in/subhayandey",
-      instagram: "https://www.instagram.com/subhayandey"
-    }
-  ];
-  
-  export default teamMembers;
+  {
+        name: "ISHITA MUTNEJA",
+        role: "Secretary General",
+        image: "/team-images/Ishita.jpeg",
+        facebook: "https://www.facebook.com/profile.php?id=100086923635381",
+        linkedin: "https://www.linkedin.com/in/ishita-mutneja03/",
+        instagram: "https://www.instagram.com/ishitamutneja/"
+      },
+      {
+        name: "ADITYA AGARWAL",
+        role: "Under Secretary General Public Relations",
+        image: "/team-images/Aditya.jpg",
+        facebook: "https://www.facebook.com/profile.php?id=100088521496290",
+        linkedin: "https://www.linkedin.com/in/aditya-agarwal-407558256/",
+        instagram: "https://www.instagram.com/_adityagarwal_10/"
+      },
+      {
+        name: "SUJAY VIVEK",
+        role: "Under Secretary General Tech",
+        image: "/team-images/Sujay.png",
+        facebook: "https://www.facebook.com/profile.php?id=100087475424997",
+        linkedin: "https://www.linkedin.com/in/sujayvivek/",
+        instagram: "https://www.instagram.com/sujay_v1029/"
+      },
+      {
+        name: "UDAY ARNAV THAKUR",
+        role: "Under Secretary General Design",
+        image: "/team-images/Uday2.jpeg",
+        facebook: "https://www.facebook.com/profile.php?id=100087750030750",
+        linkedin: "https://www.linkedin.com/in/uday-arnav-thakur-b3a809259/",
+        instagram: "https://www.instagram.com/udayy___/"
+      },
+      {
+        name: "SUHANI GUPTA",
+        role: "Under Secretary General Events",
+        image: "/team-images/Suhani.jpg",
+        facebook: "https://www.facebook.com/profile.php?id=100087490874170",
+        linkedin: "https://www.linkedin.com/in/suhani-gupta-95956a251/",
+        instagram: "https://www.instagram.com/__suhaniigupta__/"
+      },
+      {
+        name: "PRATHAM BHIMNANI",
+        role: "Under Secretary General Sponsorship and Finance",
+        image: "/team-images/Pratham.jpeg",
+        facebook: "https://www.facebook.com/profile.php?id=100094205771993",
+        linkedin: "https://www.linkedin.com/in/pratham-bhimnani-36736725a/",
+        instagram: "https://www.instagram.com/prathahaham/"
+      }
+    ];
+    
+    export default teamMembers;

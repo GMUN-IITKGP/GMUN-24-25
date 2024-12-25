@@ -1,28 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { BASE_URL } from "../constants";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { useSelector } from "react-redux";
 
 export default function AuthLayout({ children }) {
-  const [loader, setLoader] = useState(true);
+  const authStatus = useSelector((state) => state.auth.status);
   const navigate = useNavigate();
 
-  const getCurrentUser = async () => {
-    try {
-      const response = await axios.get(`${BASE_URL}/users/profile`, {
-        withCredentials: true,
-      });
-      console.log(response);
-      setLoader(false);
-    } catch (error) {
-      navigate("/landing");
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
-    getCurrentUser();
-  }, []);
+    if (!authStatus) {
+      navigate("/");
+    }
+  }, [authStatus, navigate]);
 
-  return loader ? <h1>Loading....</h1> : <>{children}</>;
+  return authStatus ? <>{children}</> : <div>Not Authorized User</div>;
 }

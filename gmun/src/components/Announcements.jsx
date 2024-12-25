@@ -3,7 +3,8 @@ import '../styles/Announcements.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import image1 from '../images/an1.jpg';
-import image2 from '../images/an2.jpg';
+import image2 from '../images/an3.jpg';
+import image3 from '../images/an4.jpg';
 
 const Announcements = () => {
     const slideRef = useRef(null);
@@ -23,7 +24,7 @@ const Announcements = () => {
             <div className="contain">
             <div className="slide" ref={slideRef}>
             <div className="item">
-                    <div className="overlay"  style={{ backgroundImage: "url(https://gmun.cqiitkgp.com/assets/gmun_eb_board-6fef2cd5.jpg)" }}></div>
+                    <div className="overlay"  style={{ backgroundImage: `url(${image3})` }}></div>
                     <div className="dark"></div>
                     <div className="content">
                         <div className="name">Executive Board Applications Live</div>
@@ -48,14 +49,14 @@ const Announcements = () => {
                     <div className="content">
                         <div className="name">Delegate Applications Live</div>
                         <div className="des">Attention Fellow Delegates Delegate registrations for the 3rd edition of Global Model United Nations (GMUN) are now open. Join us at IIT Kharagpur from 12 to 14 January 2025, for a informative and rich experience in diplomacy and leadership.Organized by Communiqué IIT Kharagpur, this is your chance to engage, debate, and make a global impact.To secure your spot, Register now (For Non KGPians)</div>
-                        <button onClick={() => window.open('https://bit.ly/gmuniitkgp2025', '_blank', 'noopener noreferrer')}>
+                        <button className="reg" onClick={() => window.open('https://bit.ly/gmuniitkgp2025', '_blank', 'noopener noreferrer')}>
                             Register Here
                         </button>
                     </div>
                 </div>
 
                 <div className="item">
-                    <div className="overlay"  style={{ backgroundImage: "url(https://gmun.cqiitkgp.com/assets/gmun_eb_board-6fef2cd5.jpg)" }}></div>
+                    <div className="overlay"  style={{ backgroundImage: `url(${image3})` }}></div>
                     <div className="dark"></div>
                     <div className="content">
                         <div className="name">Executive Board Applications Live</div>
@@ -80,7 +81,7 @@ const Announcements = () => {
                     <div className="content">
                         <div className="name">Delegate Applications Live</div>
                         <div className="des">Attention Fellow Delegates Delegate registrations for the 3rd edition of Global Model United Nations (GMUN) are now open. Join us at IIT Kharagpur from 12 to 14 January 2025, for a informative and rich experience in diplomacy and leadership.Organized by Communiqué IIT Kharagpur, this is your chance to engage, debate, and make a global impact.To secure your spot, Register now (For Non KGPians)</div>
-                        <button onClick={() => window.open('https://bit.ly/gmuniitkgp2025', '_blank', 'noopener noreferrer')}>
+                        <button className="reg" onClick={() => window.open('https://bit.ly/gmuniitkgp2025', '_blank', 'noopener noreferrer')}>
                             Register Here
                         </button>
                     </div>

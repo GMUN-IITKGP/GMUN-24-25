@@ -88,7 +88,7 @@ body {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
-  transition: background 2s ease;
+  transition: background 3s ease;
 }
 
 .slide .item:nth-child(3) {
@@ -151,7 +151,16 @@ body {
   opacity: 0;
   animation: animate 1s ease-in-out 0.6s 1 forwards;
 }
-
+.content .reg{
+  border-radius: 8px;
+  box-shadow: 5px 5px 10px #505050;
+}
+.content .reg:hover{
+  position: relative;
+  top:3px;
+  background: #ababab;
+  color:#fff;
+}
 @keyframes animate {
   from {
     opacity: 0;
@@ -381,6 +390,7 @@ body {
   }
   .content{
     max-width: 200px;
+    margin-bottom: 0;
   }
   .content .name {
     font-size: 15px;
@@ -403,5 +413,19 @@ body {
     left: calc(40% + 660px);
     top: 90%;
     opacity: 0;
+  }
+  .button button{
+    max-width: 25px;
+    max-height: 20px;
+    border-radius: 12px;
+    transform: translateY(60%);
+  }
+  .content .reg{
+    max-width: 90px;
+    max-height: 25px;
+    font-size: 0.5em;
+    position: relative;
+    top:-10px;
+
   }
 }

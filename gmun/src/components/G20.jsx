@@ -41,11 +41,11 @@ const G20 = () => {
 
   return (
     <div className="committee-container">
-      <body>
+     
       {/* Spinning UN Emblem */}
      
       <div className="emblem">
-      <G20Logo className="unhrcLogo" />
+      <G20Logo className="G20" />
       </div>
     
 
@@ -57,8 +57,8 @@ const G20 = () => {
       {/* Committee Content Section */}
       <div className="committee-content">
         <h2>G20</h2>
-        <p>AGENDA</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+       
+        <p>Integrating financial and sustainable energy solutions into global policy frameworks to promote socioeconomic and environmental sustainibility.</p>
       </div>
 
       {/* 3D Cards Section */}
@@ -71,11 +71,14 @@ const G20 = () => {
           <div className="card__bg"></div>
           <img
             className="card__img"
-            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_mono.png"
-            alt="Princess Mononoke"
+            src="/team-images/Executive Board Images/Sayanabha.JPG"
+            alt="Sayanabha Chandra"
           />
+          <div className="card__hover-text">
+          <p>Chairperson</p>
+          </div>
           <div className="card__text">
-            <p className="card__title">Princess Mononoke</p>
+            <p className="card__title">Sayanabha Chandra</p>
           </div>
         </div>
 
@@ -84,28 +87,20 @@ const G20 = () => {
           <div className="card__bg"></div>
           <img
             className="card__img"
-            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_chihiro.png"
-            alt="Spirited Away"
+            src="/team-images/Executive Board Images/Kashish Rathi.JPG"
+            alt="Kashish Rathi"
           />
+          <div className="card__hover-text">
+          <p>Vice Chairperson</p>
+          </div>
           <div className="card__text">
-            <p className="card__title">Spirited Away</p>
+            <p className="card__title">Kashish Rathi</p>
           </div>
         </div>
 
-        {/* Card 3 */}
-        <div className="card card__three">
-          <div className="card__bg"></div>
-          <img
-            className="card__img"
-            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_howlcastle.png"
-            alt="Howl's Moving Castle"
-          />
-          <div className="card__text">
-            <p className="card__title">Howl's Moving Castle</p>
-          </div>
-        </div>
+        
       </div>
-      </body>
+      
     </div>
   );
 };

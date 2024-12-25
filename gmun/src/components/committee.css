@@ -5,34 +5,18 @@
   width: 100%;
   align-items: center;
   height: 100%;
-  background-color: #574A73;
+  background-color:#190b2500 ;
 }
 
 .committee-container{
-  background-color: #574A73;
+  background-color: #190b2500;
 
 }
-.committee-container body{
-  
-  width: 100vw; 
-  transform: translateX(-9vw);
-  height: 100%; 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding:20px;
-  box-sizing: border-box;
-  margin: 0; 
-  overflow-x: hidden;
-  background-color: #574A73;
-  min-height:100vh;
-}
+
 #World-Map h2{
 font-size: 48px;
     color: #F3EDE3;
-    
-text-align:center;
+    text-align:center;
  padding-bottom:50px;
  font-family: 'Montserrat',sans-serif;
  font-weight: 700;
@@ -52,7 +36,8 @@ text-align:center;
 }
 
 .committee-content {
-  width: 80%;
+  align-items: center;
+  width: 100%;
   padding: 50px; /* Default padding for larger screens */
   background-color: #363537a8;
   border: 5px solid #B69354;
@@ -60,7 +45,7 @@ text-align:center;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   position: relative;
   z-index: 2;
-  margin-top: 400px; /* Default margin for large screens */
+  margin-top: 40vh; /* Default margin for large screens */
   flex: 1 1 auto;
   margin-bottom: 100px;
   transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transition */
@@ -113,7 +98,7 @@ text-align:center;
   text-align: center;
   transform-origin: 50% 50%;
   transform-style: preserve-3d;
-  transform: rotateX(11deg) rotateY(16.5deg);
+  transform: rotateX(0deg) rotateY(16.5deg);
   min-width: 595px;
 }
 
@@ -163,8 +148,10 @@ text-align:center;
 }
 
 .card__img {
-  position: relative;
-  height: 100%;
+  width: 100%; /* Adjust width to fill parent container */
+  height:100%; /* Maintain aspect ratio */
+  object-fit: cover; /* Optional: Ensure it looks good for uneven aspect ratios */
+  border-radius: 15px;
 }
 
 .card__bg {
@@ -180,30 +167,38 @@ text-align:center;
 
 .card__one {
   .card__img {
-    top: 14px;
-    right: -10px;
-    height: 110%;
+    top:-10px;
+    width: 100%; /* Adjust width to fill parent container */
+    height:110%; /* Maintain aspect ratio */
+    object-fit: cover; /* Optional: Ensure it looks good for uneven aspect ratios */
   }
   .card__bg {
-    background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_monobg.jpg') center / cover no-repeat;
+    background-color: #f3ede300;
   }
   .card__text {
-    /*background-color: #254b60;*/
-    position:relative;
+    background-color: #00040637;
+    position:absolute;
+   
     
   }
 }
 
 .card__two {
   .card__img {
-    top: 25px;
+    top:-10px;
+    width: 100%; /* Adjust width to fill parent container */
+    height:110%; /* Maintain aspect ratio */
+    object-fit: cover; /* Optional: Ensure it looks good for uneven aspect ratios */
   }
   .card__bg {
-    background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_spirited.jpg') center / cover no-repeat;
+    background-color: #9a090900;
   }
   .card__text {
-    /*background-color: #274a2e;*/
+    background-color: #00040637;
+    position:absolute;
+    
   }
+  
 }
 
 .card__three {
@@ -215,9 +210,7 @@ text-align:center;
   .card__bg {
     background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_howlbg.jpg') center / cover no-repeat;
   }
-  .card__text {
-    /*background-color: #3e2222;*/
-  }
+ 
 }
 
 .card__text {
@@ -240,37 +233,66 @@ text-align:center;
   padding: 0 10px;
   margin-bottom: 3px;
 }
-.emblem {
-  position: relative;
-  top:60 px; /* Adjust the spacing from the top */
-  width: 120px;
-  height: 120px;
 
+.card__hover-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  text-align: center;
+  font-size: 1.2rem;
+  border-radius: 15px; /* Matches card's border-radius for a seamless effect */
 }
+
+.card:hover .card__hover-text {
+  opacity: 1;
+}
+
 .unhrcLogo{
-  width: 120px;
-  height: 120px;
+  margin-top: 2.5vh;
+  width: 20vw;
+  height: 20vh;
   align-items: center;
 
 }
-.DISECLogo{
-  width: 200px;
-  height: 200px;
+.UNSCLogo{
+  width: 20vw;
+  height: 20vh;
   align-items: center;
-  margin-top: -25px;
-
- 
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  filter: sepia(1) saturate(2) brightness(0.8) hue-rotate(0deg);
+}
+.Disec{
+  width: 30vw;
+  height: 30vh;
+  align-items: center;
+  margin-top: -2vh;
+  margin-bottom: -8vh;
 
 }
 .loksabhaLogo{
-  width: 180px;
-  height: 180px;
+  width: 18vw;
+  height: 18vh;
   margin-left:-20px;
   align-items: center;
-  margin-top: -25px;
+  margin-top: 1.5vh;
 
 }
-
+.G20{
+  margin-top: 2.5vh;
+  width: 20vw;
+  height: 20vh;
+  align-items: center;
+}
 /* Responsive adjustments */
 @media (max-width: 1024px) {
  
@@ -279,22 +301,19 @@ text-align:center;
   }
   #World-Map h2 {
     font-size: 32px; /* Smaller title */
-    margin-bottom: 20px;
+    margin-bottom: 5vh;
   }
   .committee-content {
     width: 90%; /* Slightly narrower on medium screens */
-    padding: 30px; /* Reduced padding for medium screens */
-    margin-top: 50px; /* Adjust spacing for medium screens */
-    margin-bottom: 50px;
-  }
-  .committee-container body {
-    transform: translateX(-6vw); /* Adjust translation for medium screens */
+    margin-top:15vh;
+    margin-left:5vw;
+    margin-bottom: 1vh;
+    align-items: center;
   }
   
   .cards {
     transform: none; /* Remove 3D rotation on smaller screens */
-    margin: 20px auto;
-    padding: 20px;
+    margin: 2vw auto;
   }
   
   .cards h1 {
@@ -313,15 +332,6 @@ text-align:center;
     height: 40vh;
   }
 
-  .committee-container {
-    padding: 10px;
-  }
-  .committee-container body {
-    transform: translateX(0vw); /* Adjust translation for medium screens */
-  }
-  .committee-content {
-    padding:5vh;
-  }
 
   #World-Map h2 {
     font-size: 28px;
@@ -329,9 +339,9 @@ text-align:center;
  
 
   .committee-content {
-    width: 95%; /* Almost full width */
+    width: 90%; /* Almost full width */
     padding: 20px; /* Compact padding for smaller screens */
-    margin-top: 30px; /* Reduced spacing for small screens */
+    margin-top: 9vh; /* Reduced spacing for small screens */
     margin-bottom: 30px;
     font-size: 14px; /* Adjust font size for readability */
   }
@@ -345,12 +355,13 @@ text-align:center;
   }
 
   .cards {
-    width: 100%;
-    padding: 15px;
+    transform: none; /* Remove 3D rotation on smaller screens */
+    width: 10vw;
+    
   }
 
   .card {
-    width: 130px;
+    width: auto;
     height: 180px;
     margin: 10px;
   }
@@ -359,55 +370,79 @@ text-align:center;
     font-size: 14px;
   }
 }
-
 @media (max-width: 480px) {
   .committee-map {
-    height: 30vh;
-    margin-bottom:20vh;
-  }
-  .committee-container body {
-    transform: translateX(0vw); /* No horizontal translation for smaller screens */
+    height: 30vh; /* Slightly reduced height for very small screens */
   }
 
-  #World-Map h2 {
-    font-size: 24px;
-  }
-
-  .committee-content {
-    width: 95%; /* Almost full width */
-    padding: 20px; /* Compact padding for smaller screens */
-    margin-top: 20px; /* Reduced spacing for small screens */
-    margin-bottom: 30px;
-    font-size: 14px; /* Adjust font size for readability */
-  }
   
+  .committee-content {
+    margin-top: 20vh; /* Further reduced margin-top for small screens */
+    width: 90%; /* Full width */
+    margin-bottom: 20px; /* Reduced bottom margin */
+    font-size: 12px; /* Adjust font size to be smaller */
+  }
 
   .committee-content h2 {
-    font-size: 24px;
+    font-size: 22px; /* Reduced heading size */
   }
 
-  .committee-content h3,
   .committee-content p {
-    font-size: 14px;
+    font-size: 14px; /* Adjusted paragraph font size */
+  }
+  .cards {
+    display: flex;
+    flex-direction: column;
+    min-width: 90%; /* Ensure the cards fit within the screen width */
+    padding: 20px 15px;
+    transform: none; /* Remove 3D rotation for better readability */
   }
 
-  .cards {
-    padding: 10px;
-    margin: 0;
-    box-shadow: none; /* Remove shadow for a cleaner look */
+  .cards h1 {
+    
+    font-size: 24px; /* Reduce heading font size */
+    margin-bottom: 20px;
+    transform: none;
+  }
+
+  .cards h3 {
+    font-size: 14px; /* Adjust font size */
+    margin-bottom: 10px;
+    transform: none;
   }
 
   .card {
-    width: 100px;
-    height: 150px;
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    width: 90%; /* Cards take full width on smaller screens */
+    height: auto; /* Let the height adjust to content */
+    margin-bottom: 15px; /* Add spacing between cards */
+    transform: none; /* Simplify transform for better performance */
+    box-shadow: none; /* Reduce shadow for a cleaner look */
+  }
+
+  .card:not(:last-child) {
+    margin-right: 0; /* Remove right margin to avoid overflow */
+  }
+
+  .card__img {
+    flex:1;
+    height: 5vh; /* Restrict image height for smaller screens */
+  }
+
+  .card__text {
+    height: auto; /* Adjust height to content */
+    padding: 10px; /* Add padding for better readability */
   }
 
   .card__title {
-    font-size: 12px;
+    font-size: 16px; /* Reduce title font size */
   }
 
-  .emblem {
-    width: 90px;
-    height: 90px;
+ 
+
+  #World-Map h2 {
+    font-size: 24px; /* Slightly smaller font for map heading */
   }
 }

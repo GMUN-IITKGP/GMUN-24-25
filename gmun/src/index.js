@@ -1,4 +1,4 @@
-import React, { Children } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
 import "./styles/index.css";
 import App from "./App";
@@ -20,6 +20,9 @@ import FAQs from "./components/FAQs";
 import Discuss from "./components/Discuss";
 import AboutUs from "./pages/aboutUs";
 import Sec from "./components/sec";
+import { Provider } from "react-redux";
+import store from "./store/store.js";
+import PostPage from "./components/PostPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -44,11 +47,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: (
-          <AuthLayout>
-            <Profile />
-          </AuthLayout>
-        ),
+        element: <Landing />,
       },
       {
         path: "/edit",
@@ -59,8 +58,20 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/landing",
-        element: <Landing />,
+        path: "/profile",
+        element: (
+          <AuthLayout>
+            <Profile />
+          </AuthLayout>
+        ),
+      },
+      {
+        path: "/posts/:postId",
+        element: (
+          <AuthLayout>
+            <PostPage />
+          </AuthLayout>
+        ),
       },
       {
         path: "/AboutUs",
@@ -84,11 +95,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/FAQs",
-        element: <FAQs/>,
+        element: <FAQs />,
       },
       {
         path: "/Discuss",
-        element: <Discuss/>,
+        element: <Discuss />,
       },
       {
         path: "/gallery",
@@ -105,7 +116,9 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
 

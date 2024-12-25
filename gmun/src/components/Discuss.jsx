@@ -1,104 +1,138 @@
-import React, { useState } from "react";
-import "./Discuss.css";
+import React, { useEffect, useState } from "react";
+import styles from "./Discuss.module.css";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { BASE_URL } from "../constants";
+import Preloader from "./preloader";
 
 const Discuss = () => {
   const [posts, setPosts] = useState([]);
   const [newPost, setNewPost] = useState({ title: "", description: "" });
-  const [expandedPostIndex, setExpandedPostIndex] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-  const handlePostSubmit = (e) => {
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await axios.get(`${BASE_URL}/posts/questions`);
+        console.log(response.data);
+        setPosts(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+      setLoading(false);
+    };
+    fetchPosts();
+  }, []);
+
+  const navigate = useNavigate();
+
+  const displayDate = (data) => {
+    const date = new Date(data);
+
+    const formattedDate = date.toLocaleDateString("en-US", {
+      day: "numeric",
+      month: "long",
+    });
+
+    return formattedDate;
+  };
+
+  const handlePostSubmit = async (e) => {
     e.preventDefault();
     if (newPost.title && newPost.description) {
-      setPosts([...posts, { ...newPost, comments: [] }]);
-      setNewPost({ title: "", description: "" });
+      try {
+        const response = await axios.post(
+          `${BASE_URL}/posts/questions`,
+          {
+            title: newPost.title,
+            description: newPost.description,
+          },
+          {
+            withCredentials: true,
+          }
+        );
+        console.log(response);
+        alert("Post created successfully");
+        window.location.reload();
+      } catch (error) {
+        console.log(error);
+        alert("Failed to create post");
+      }
     }
   };
 
-  const handleCommentSubmit = (postIndex, comment) => {
-    const updatedPosts = [...posts];
-    updatedPosts[postIndex].comments.push(comment);
-    setPosts(updatedPosts);
-  };
+  if (loading) {
+    return <Preloader />;
+  } else {
+    return (
+      <div className={styles["discuss-page"]}>
+        <div className={styles["discuss-container"]}>
+          <h1 className={styles["discuss-header"]}>Discussions</h1>
 
-  const togglePost = (index) => {
-    setExpandedPostIndex(index === expandedPostIndex ? null : index);
-  };
-
-  return (
-    <div className="discuss-container">
-      <h1 className="discuss-header">Discussions</h1>
-
-      {/* New Post Section */}
-      <form className="new-post-form" onSubmit={handlePostSubmit}>
-        <input
-          type="text"
-          className="post-title-input"
-          placeholder="Enter a heading..."
-          value={newPost.title}
-          onChange={(e) => setNewPost({ ...newPost, title: e.target.value })}
-        />
-        <textarea
-          className="post-description-input"
-          placeholder="Enter a brief description..."
-          value={newPost.description}
-          onChange={(e) =>
-            setNewPost({ ...newPost, description: e.target.value })
-          }
-        />
-        <button type="submit" className="submit-post-button">
-          Post
-        </button>
-      </form>
-
-      {/* Posts Section */}
-      <div className="posts-section">
-        {posts.map((post, index) => (
-          <div key={index} className="post">
-            <div
-              className="post-heading"
-              onClick={() => togglePost(index)}
-            >
-              <h2>{post.title}</h2>
+          <form className={styles["question-form"]} onSubmit={handlePostSubmit}>
+            <div className={styles["form-group"]}>
+              <label htmlFor="title">Title</label>
+              <input
+                type="text"
+                id="title"
+                value={newPost.title}
+                onChange={(e) =>
+                  setNewPost((prevState) => ({
+                    ...prevState,
+                    title: e.target.value, // Replace "New Title" with your desired title value
+                  }))
+                }
+                placeholder="Enter your question title"
+                required
+              />
             </div>
-            {expandedPostIndex === index && (
-              <div className="post-details">
-                <p className="post-description">{post.description}</p>
-                <div className="comments-section">
-                  <h3 className="comments-header">Comments</h3>
-                  {post.comments.map((comment, commentIndex) => (
-                    <p key={commentIndex} className="comment">
-                      {comment}
-                    </p>
-                  ))}
-                  <form
-                    className="new-comment-form"
-                    onSubmit={(e) => {
-                      e.preventDefault();
-                      const comment = e.target.elements.comment.value.trim();
-                      if (comment) {
-                        handleCommentSubmit(index, comment);
-                        e.target.reset();
-                      }
-                    }}
-                  >
-                    <input
-                      type="text"
-                      name="comment"
-                      placeholder="Write a comment..."
-                      className="comment-input"
-                    />
-                    <button type="submit" className="submit-comment-button">
-                      Comment
-                    </button>
-                  </form>
-                </div>
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
 
+            <div className={styles["form-group"]}>
+              <label htmlFor="description">Description</label>
+              <textarea
+                id="description"
+                value={newPost.description}
+                onChange={(e) =>
+                  setNewPost((prevState) => ({
+                    ...prevState,
+                    description: e.target.value, // Replace "New Title" with your desired title value
+                  }))
+                }
+                placeholder="Provide more details about your question"
+                rows="4"
+                required
+              />
+            </div>
+
+            <button type="submit" className={styles["submit-btn"]}>
+              Post Question
+            </button>
+          </form>
+
+          <div className={styles.discussions}>
+            {posts.map((post) => (
+              <div
+                onClick={() => navigate(`/posts/${post._id}`)}
+                key={post.id}
+                className={styles["discussion-card"]}
+              >
+                <h2 className={styles["discussion-title"]}>{post.title}</h2>
+                <div className={styles["discussion-meta"]}>
+                  Posted by {post.user.fullName} on{" "}
+                  {displayDate(post.createdAt)}
+                </div>
+                <p className={styles["discussion-description"]}>
+                  {post.description}
+                </p>
+                <span className={styles["comments-count"]}>
+                  {post.answers.length} comments
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    );
+  }
+};
 export default Discuss;

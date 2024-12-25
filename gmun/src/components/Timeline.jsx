@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../styles/Timeline.css";
+import image1 from "../images/an1.jpg";
 
 const Timeline = () => {
   const [activeIndex, setActiveIndex] = useState(-1); // Track the active timeline item
@@ -8,41 +9,41 @@ const Timeline = () => {
   const timelineItems = [
     {
       year: "GMUN Workshop",
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH6zQ3JPXHF0YD_gqlwnSZHKfZgid-daGUbg&s",
-      desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem incidunt culpa nam sequi inventore libero soluta officia eveniet magni, sit blanditiis quas cupiditate necessitatibus consequatur explicabo! Fugiat vitae maxime debitis.",
+      img: image1,
+      desc: "Come join us in this Global Model United Nations Workshop, to begin this great journey.",
     },
     {
       year: "Opening Ceremony",
-      img: "https://d8it4huxumps7.cloudfront.net/uploads/images/opportunity/mobile_banner/65704467576a9_global-model-united-nations-2024.png?d=700x400",
-      desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem incidunt culpa nam sequi inventore libero soluta officia eveniet magni, sit blanditiis quas cupiditate necessitatibus consequatur explicabo! Fugiat vitae maxime debitis.",
+      img: image1,
+      desc: "A fun and interactive Opening Ceremony, to mark the beginning of the Global Model United Nations Event",
     },
     {
       year: "GMUN Day-1",
-      img: "https://d8it4huxumps7.cloudfront.net/uploads/images/opportunity/mobile_banner/65704467576a9_global-model-united-nations-2024.png?d=700x400",
-      desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem incidunt culpa nam sequi inventore libero soluta officia eveniet magni, sit blanditiis quas cupiditate necessitatibus consequatur explicabo! Fugiat vitae maxime debitis.",
+      img: image1,
+      desc: "First Committee Meeting and Discussion.",
     },
     {
-      year: "Social Night after Day-1",
-      img: "https://d8it4huxumps7.cloudfront.net/uploads/images/opportunity/mobile_banner/65704467576a9_global-model-united-nations-2024.png?d=700x400",
-      desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem incidunt culpa nam sequi inventore libero soluta officia eveniet magni, sit blanditiis quas cupiditate necessitatibus consequatur explicabo! Fugiat vitae maxime debitis.",
+      year: "SOCIAL NIGHT after Day-1",
+      img: image1,
+      desc: "Come and have fun at our first Social Night of the Event.",
     },
     {
       year: "GMUN Day-2",
-      img: "https://d8it4huxumps7.cloudfront.net/uploads/images/opportunity/mobile_banner/65704467576a9_global-model-united-nations-2024.png?d=700x400",
-      desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem incidunt culpa nam sequi inventore libero soluta officia eveniet magni, sit blanditiis quas cupiditate necessitatibus consequatur explicabo! Fugiat vitae maxime debitis.",
+      img: image1,
+      desc: "Final day of Committee discussions.",
     },
     {
-      year: "GMUN Closing Ceremony",
-      img: "https://d8it4huxumps7.cloudfront.net/uploads/images/opportunity/mobile_banner/65704467576a9_global-model-united-nations-2024.png?d=700x400",
-      desc: "In 1908 he helped the group of officers who toppled the Sultan. Mustafa Kemal’s career flourished as he won his heroism in the far corners of the Ottoman Empire, including Albania and Tripoli.",
+      year: "Closing Ceremony",
+      img: image1,
+      desc: "Join us for Closing ceremony of GMUN-2025",
     },
   ];
 
   useEffect(() => {
     const observerOptions = {
-      root: null, //viewport
+      root: null, // Viewport
       rootMargin: "0px",
-      threshold: 0.4, 
+      threshold: 0.7,
     };
 
     const observerCallback = (entries) => {
@@ -54,47 +55,53 @@ const Timeline = () => {
       });
     };
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-    timelineRefs.current.forEach((ref) => {
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
+
+    // Store a snapshot of the current refs in a variable
+    const currentRefs = timelineRefs.current;
+    currentRefs.forEach((ref) => {
       if (ref) observer.observe(ref);
     });
 
     return () => {
-      timelineRefs.current.forEach((ref) => {
+      currentRefs.forEach((ref) => {
         if (ref) observer.unobserve(ref);
       });
     };
   }, []);
 
   return (
-  <div className="TimelineOutermostBox">
-    <div className="timeline-container">
-      <div className="timeline-header">
-        <h2 className="timeline-header__title">Timeline of GMUN 2025</h2>
-      </div>
-      <div className="timeline">
-        {timelineItems.map((item, index) => (
-          <div
-            className={`timeline-item ${
-              index === activeIndex ? "timeline-item--active" : ""
-            }`}
-            key={index}
-            ref={(el) => (timelineRefs.current[index] = el)} // Assign ref to each timeline item
-          >
-            <div className="timeline__content">
-              <img
-                className="timeline__img"
-                src={item.img}
-                alt={`${item.year} Event`}
-              />
-              <h2 className="timeline__content-title">{item.year}</h2>
-              <p className="timeline__content-desc">{item.desc}</p>
+    <div className="TimelineOutermostBox">
+      <div className="timeline-container">
+        <div className="timeline-header">
+          <h2 className="timeline-header__title">TIMELINE OF GMUN 2025</h2>
+        </div>
+        <div className="timeline">
+          {timelineItems.map((item, index) => (
+            <div
+              className={`timeline-item ${
+                index === activeIndex ? "timeline-item--active" : ""
+              }`}
+              key={index}
+              ref={(el) => (timelineRefs.current[index] = el)} // Assign ref to each timeline item
+            >
+              <div className="timeline__content">
+                <img
+                  className="timeline__img"
+                  src={item.img}
+                  alt={`${item.year} Event`}
+                />
+                <h2 className="timeline__content-title">{item.year}</h2>
+                <p className="timeline__content-desc">{item.desc}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
-  </div>
   );
 };
 

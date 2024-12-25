@@ -42,8 +42,9 @@ const UNHRC = () => {
   }, []);
 
   return (
+    
     <div className="committee-container">
-      <body>
+      
       {/* Spinning UN Emblem */}
       
       <div className="emblem">
@@ -59,8 +60,8 @@ const UNHRC = () => {
       {/* Committee Content Section */}
       <div className="committee-content">
         <h2>UNHRC</h2>
-        <p>AGENDA</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        
+        <p>Consideration of digital privacy rights of assessment of mechanisms for protecting personal data across national and global context</p>
       </div>
 
       {/* 3D Cards Section */}
@@ -73,11 +74,14 @@ const UNHRC = () => {
           <div className="card__bg"></div>
           <img
             className="card__img"
-            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_mono.png"
-            alt="Princess Mononoke"
+            src="/team-images/Executive Board Images/Divyansu_Sharma.JPG"
+            alt="Divyanshu Sharma"
           />
+          <div className="card__hover-text">
+          <p>Chairperson</p>
+          </div>
           <div className="card__text">
-            <p className="card__title">Princess Mononoke</p>
+            <p className="card__title">Divyanshu Sharma</p>
           </div>
         </div>
 
@@ -86,28 +90,18 @@ const UNHRC = () => {
           <div className="card__bg"></div>
           <img
             className="card__img"
-            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_chihiro.png"
-            alt="Spirited Away"
+            src="/team-images/Executive Board Images/Arghyadip.jpg"
+            alt="Arghyadip Pal"
           />
-          <div className="card__text">
-            <p className="card__title">Spirited Away</p>
+          <div className="card__hover-text">
+          <p>Vice-Chairperson</p>
           </div>
-        </div>
-
-        {/* Card 3 */}
-        <div className="card card__three">
-          <div className="card__bg"></div>
-          <img
-            className="card__img"
-            src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/62105/3dr_howlcastle.png"
-            alt="Howl's Moving Castle"
-          />
           <div className="card__text">
-            <p className="card__title">Howl's Moving Castle</p>
+            <p className="card__title">Arghyadip Pal</p>
           </div>
         </div>
       </div>
-      </body>
+     
     </div>
   );
 };

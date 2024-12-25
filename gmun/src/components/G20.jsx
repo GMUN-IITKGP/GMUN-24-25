@@ -57,8 +57,8 @@ const G20 = () => {
       {/* Committee Content Section */}
       <div className="committee-content">
         <h2>G20</h2>
-        <p>AGENDA</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+       
+        <p>Integrating financial and sustainable energy solutions into global policy frameworks to promote socioeconomic and environmental sustainibility.</p>
       </div>
 
       {/* 3D Cards Section */}

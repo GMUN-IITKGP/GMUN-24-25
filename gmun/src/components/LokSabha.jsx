@@ -56,8 +56,8 @@ const LokSabha = () => {
       {/* Committee Content Section */}
       <div className="committee-content">
         <h2>LokSabha</h2>
-        <p>AGENDA</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        
+        <p>Deliberation on one nation one election in India with special emphasis on the constitution.</p>
       </div>
 
       {/* 3D Cards Section */}

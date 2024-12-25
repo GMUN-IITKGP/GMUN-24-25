@@ -264,17 +264,19 @@ font-size: 48px;
 
 }
 .UNSCLogo{
+  width: 20vw;
+  height: 20vh;
+  align-items: center;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  filter: sepia(1) saturate(2) brightness(0.8) hue-rotate(0deg);
+}
+.Disec{
   width: 30vw;
   height: 30vh;
   align-items: center;
   margin-top: -2vh;
   margin-bottom: -8vh;
-}
-.Disec{
-  width: 10vw;
-  height: 10vh;
-  align-items: center;
-  margin-bottom: 10vh;
 
 }
 .loksabhaLogo{

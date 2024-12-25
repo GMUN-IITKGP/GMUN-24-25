@@ -44,7 +44,7 @@ const DISEC = () => {
     <div className="committee-container">
      
       <div className="emblem">
-      <DISECLogo className="UNSCLogo" />
+      <DISECLogo className="Disec" />
       </div>
       
       {/* World Map Section */}
@@ -55,8 +55,8 @@ const DISEC = () => {
       {/* Committee Content Section */}
       <div className="committee-content">
         <h2>DISEC</h2>
-        <p>AGENDA</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p>1. Enhancing the effectiveness of disarmament,demobilization and reintegration and security sector reform in conflict-affected regions.</p>
+        <p>2. Prevention of involvement of artificial intelligence in weapon systems and its implications for global security.</p>
       </div>
 
       {/* 3D Cards Section */}

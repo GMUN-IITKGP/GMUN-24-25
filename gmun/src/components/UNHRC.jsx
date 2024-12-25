@@ -60,8 +60,8 @@ const UNHRC = () => {
       {/* Committee Content Section */}
       <div className="committee-content">
         <h2>UNHRC</h2>
-        <p>AGENDA</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        
+        <p>Consideration of digital privacy rights of assessment of mechanisms for protecting personal data across national and global context</p>
       </div>
 
       {/* 3D Cards Section */}

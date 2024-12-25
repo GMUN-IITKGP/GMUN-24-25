@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import WorldMap from "./WorldMap";
 import "./committee.css"; // General styles
-import { ReactComponent as DISECLogo } from "../images/committee_img/DISEC_LOGO.svg";
+import { ReactComponent as UNSCLogo } from "../images/committee_img/UNSC Logo.svg";
 
 
 
@@ -45,7 +45,7 @@ const UNSC = () => {
     <div className="committee-container">
       
       <div className="emblem">
-      <DISECLogo className="UNSCLogo" />
+      <UNSCLogo className="UNSCLogo" />
       </div>
 
       {/* World Map Section */}
@@ -56,8 +56,8 @@ const UNSC = () => {
       {/* Committee Content Section */}
       <div className="committee-content">
         <h2>AGENDA</h2>
-        <h3>AGENDA TITLE</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        
+        <p>Deliberation on the nexus between organised crime and terrorism.</p>
       </div>
 
       {/* 3D Cards Section */}

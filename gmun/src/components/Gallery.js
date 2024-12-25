@@ -168,7 +168,7 @@ const Gallery = () => {
                 ✖
               </button>
             <div className="modal-content">
-              <div><img src={selectedImage} alt="Enlarged view" /></div>
+              <div className=""><img src={selectedImage} alt="Enlarged view" /></div>
               {/* <button className="close-button" onClick={closeModal}>
                 ✖
               </button> */}

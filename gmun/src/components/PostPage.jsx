@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../constants";
 import Preloader from "./preloader";
+import "./Postpage.css"
 
 function PostPage() {
   const [expandedPostIndex, setExpandedPostIndex] = useState(false);
@@ -71,7 +72,7 @@ function PostPage() {
             <div className="post-details">
               {/* <p className="post-description">{question.description}</p> */}
               <div className="comments-section">
-                <h3 className="comments-header">Answers</h3>
+                <h3 className="comments-header">Comments</h3>
                 {question.answers.map((answer, answerIndex) => (
                   <p key={answerIndex} className="comment">
                     {answer.content}

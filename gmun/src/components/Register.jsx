@@ -9,7 +9,6 @@ const RegisterForm = () => {
   const [fullName, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [Role, setRole] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
@@ -23,7 +22,6 @@ const RegisterForm = () => {
         fullName,
         email,
         password,
-        Role,
       });
       console.log(response);
       alert("User registered successfully");
@@ -120,32 +118,6 @@ const RegisterForm = () => {
                 >
                   {showPassword ? "Hide" : "Show"}
                 </button>
-              </div>
-            </div>
-            <div className={styles.inputGroup}>
-              <label htmlFor="Role" className={styles.label}>
-                Role
-              </label>
-              <div className={styles.inputWrapper}>
-                <select
-                  id="Role"
-                  name="Role"
-                  className={styles.select}
-                  value={Role}
-                  onChange={(e) => setRole(e.target.value)}
-                  required
-                  disabled={isLoading}
-                >
-                  <option value="">Select a role</option>
-                  <option value="Executive Board">Executive Board</option>
-                  <option value="Secretary General">Secretary General</option>
-                  <option value="MUN head">MUN head</option>
-                  <option value="Organizing Committee">
-                    Organizing Committee
-                  </option>
-                  <option value="Delegate">Delegate</option>
-                  <option value="Unregistered">Unregistered</option>
-                </select>
               </div>
             </div>
           </div>

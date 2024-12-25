@@ -20,7 +20,7 @@ const generateAccessandRefreshToken = async (userId) => {
 };
 
 const registerUser = asyncHandler(async (req, res) => {
-  const { fullName, email, password, Role } = req.body;
+  const { fullName, email, password } = req.body;
 
   if (!fullName) {
     const error = new Error("Full name is required");
@@ -40,12 +40,6 @@ const registerUser = asyncHandler(async (req, res) => {
     throw error;
   }
 
-  if (!Role) {
-    const error = new Error("Role is required");
-    error.status = 400;
-    throw error;
-  }
-
   const existingUser = await User.findOne({ email });
   if (existingUser) {
     const error = new Error("User already exists with this username or email");
@@ -53,7 +47,7 @@ const registerUser = asyncHandler(async (req, res) => {
     throw error;
   }
 
-  const user = await User.create({ fullName, email, password, Role });
+  const user = await User.create({ fullName, email, password });
   const createdUser = await User.findById(user._id).select(
     "-password -refreshToken"
   );
@@ -111,7 +105,7 @@ const loginUser = asyncHandler(async (req, res) => {
     throw error;
   }
 
-  const options = { httpOnly: false, secure: true };
+  const options = { httpOnly: true, secure: true };
 
   res
     .status(200)
@@ -127,7 +121,7 @@ const logoutUser = asyncHandler(async (req, res) => {
     { new: true }
   );
 
-  const options = { httpOnly: false, secure: true, sameSite: "none" };
+  const options = { httpOnly: true, secure: true, sameSite: "none" };
 
   res
     .status(200)

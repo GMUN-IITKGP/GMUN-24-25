@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../constants";
 import Preloader from "./preloader";
+import "./Postpage.css";
 
 function PostPage() {
   const [expandedPostIndex, setExpandedPostIndex] = useState(false);
@@ -12,13 +13,11 @@ function PostPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log(postId);
     const fetchQuestion = async () => {
       try {
         const response = await axios.get(
           `${BASE_URL}/posts/questions/${postId}`
         );
-        console.log(response.data);
         setQuestion(response.data);
       } catch (error) {
         console.log(error);
@@ -43,7 +42,6 @@ function PostPage() {
           withCredentials: true,
         }
       );
-      console.log(response.data.content);
       setQuestion({
         ...question,
         answers: [...question.answers, response.data.content],
@@ -63,19 +61,22 @@ function PostPage() {
         <div className="post">
           <div className="post-heading" onClick={() => togglePost()}>
             <h2>{question.title}</h2>
-            <p className="post-author">{question.user.fullName}</p>
-            <p className="post-date">{question.createdAt}</p>
-            <p>{question.description}</p>
+            <p className="post-author">Posted by {question.user.fullName}</p>
+            <p className="post-date">{new Date(question.createdAt).toDateString()}</p>
+            {/* <p>{question.description}</p> */}
           </div>
           {expandedPostIndex && (
             <div className="post-details">
-              {/* <p className="post-description">{question.description}</p> */}
               <div className="comments-section">
-                <h3 className="comments-header">Answers</h3>
+                <h3 className="comments-header">Comments</h3>
                 {question.answers.map((answer, answerIndex) => (
-                  <p key={answerIndex} className="comment">
-                    {answer.content}
-                  </p>
+                  <div key={answerIndex} className="comment">
+                    <p className="comment-author">{answer.user.fullName}</p>
+                    <p className="comment-date">
+                      {new Date(answer.createdAt).toDateString()}
+                    </p>
+                    <p>{answer.content}</p>
+                  </div>
                 ))}
                 <form
                   className="new-comment-form"

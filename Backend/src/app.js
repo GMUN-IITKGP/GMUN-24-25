@@ -39,8 +39,10 @@ app.use((err, req, res, next) => {
 //routes
 import userRoutes from "./routes/User.routes.js";
 import qnaRoutes from "./routes/qna.routes.js";
+import healthCheckRoutes from "./routes/healthCheck.routes.js";
 
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/posts", qnaRoutes);
+app.use("/api/v1/health", healthCheckRoutes);
 
 export { server };

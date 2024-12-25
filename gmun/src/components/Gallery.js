@@ -42,7 +42,7 @@ const images = [
 ];
 
 const texts = [
-  "Opening Ceremony",
+  "Click Me",
   "Opening Ceremony",
   "Day 1",
   "Day 1",

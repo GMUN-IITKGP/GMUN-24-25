@@ -37,7 +37,7 @@ const LoginForm = () => {
       console.log(response);
       toast.success("User logged in successfully");
       dispatch(login(response));
-      navigate("/profile");
+      navigate("/");
     } catch (error) {
       if (error.response) {
         // If the response is in HTML format, extract the error message using regex

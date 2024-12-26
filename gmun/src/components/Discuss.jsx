@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { BASE_URL } from "../constants";
 import Preloader from "./preloader";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Discuss = () => {
   const [posts, setPosts] = useState([]);
@@ -52,11 +54,11 @@ const Discuss = () => {
           }
         );
         console.log(response);
-        alert("Post created successfully");
+        toast.success("Post created successfully");
         window.location.reload();
       } catch (error) {
         console.log(error);
-        alert("Failed to create post");
+        toast.error("Failed to create post");
       }
     }
   };

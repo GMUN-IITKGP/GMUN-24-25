@@ -47,6 +47,7 @@ function PostPage() {
         answers: [...question.answers, response.data.content],
       });
       alert("Answer submitted successfully");
+      window.location.reload();
     } catch (error) {
       console.log(error);
       alert("Failed to submit answer");

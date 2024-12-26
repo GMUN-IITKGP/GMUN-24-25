@@ -9,11 +9,8 @@ import axios from "axios";
 import { useState } from "react";
 import { logout } from "./store/authSlice.js";
 import Preloader from "./components/preloader.jsx";
-import { Suspense, lazy } from "react";
-
-
-const Gallery = lazy(() => import("./components/Gallery"));
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -22,6 +19,7 @@ const App = () => {
   useEffect(() => {
     // Fetch data from the API
     // Update the state
+    document.title = "GMUN 2025";
 
     const fetchData = async () => {
       try {
@@ -40,20 +38,27 @@ const App = () => {
   }, [dispatch]);
 
   if (loading) {
-    return <div><Preloader /></div>;
+    return (
+      <>
+        <div>
+          <Preloader />
+        </div>
+      </>
+    );
   } else {
     return (
-      <div>
-        {/* Navbar will always be displayed */}
-        <NavBar />
-
-        {/* Render the child route components using Outlet */}
+      <>
+        <ToastContainer position="top-left" />
         <div>
-          <Outlet />
+          {/* Navbar will always be displayed */}
+          <NavBar />
+
+          {/* Render the child route components using Outlet */}
+          <div>
+            <Outlet />
+          </div>
         </div>
-        
-      </div>
-      
+      </>
     );
   }
 };

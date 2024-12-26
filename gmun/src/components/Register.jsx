@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { BASE_URL } from "../constants";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const RegisterForm = () => {
   const [fullName, setName] = useState("");
@@ -24,7 +26,7 @@ const RegisterForm = () => {
         password,
       });
       console.log(response);
-      alert("User registered successfully");
+      toast.success("User registered successfully");
       navigate("/login");
     } catch (error) {
       if (error.response) {
@@ -36,10 +38,10 @@ const RegisterForm = () => {
         if (match && match[1]) {
           // The error message is captured in the first group
           console.log(match[1]);
-          alert(`Error: ${match[1]}`);
+          toast.error(`Error: ${match[1]}`);
         } else {
           // Fallback error message
-          alert("An error occurred. Please try again.");
+          toast.error("An error occurred. Please try again.");
         }
       }
     } finally {

@@ -9,6 +9,11 @@ import axios from "axios";
 import { useState } from "react";
 import { logout } from "./store/authSlice.js";
 import Preloader from "./components/preloader.jsx";
+import { Suspense, lazy } from "react";
+
+
+const Gallery = lazy(() => import("./components/Gallery"));
+
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -46,7 +51,9 @@ const App = () => {
         <div>
           <Outlet />
         </div>
+        
       </div>
+      
     );
   }
 };

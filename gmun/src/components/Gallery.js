@@ -1,46 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import "./Gallery.css";
 
-import image1 from "../images/1.webp";
-import image2 from "../images/2.webp";
-import image3 from "../images/3.webp";
-import image4 from "../images/4.webp";
-import image5 from "../images/5.webp";
-import image6 from "../images/6.webp";
-import image7 from "../images/7.webp";
-import image8 from "../images/8.webp";
-import image9 from "../images/9.webp";
-import image10 from "../images/10.webp";
-import image11 from "../images/11.webp";
-import image12 from "../images/12.webp";
-import image13 from "../images/13.webp";
-import image14 from "../images/14.webp";
-import image15 from "../images/15.webp";
-import image16 from "../images/16.webp";
-import image17 from "../images/17.webp";
-import image18 from "../images/18.webp";
-
-const images = [
-  image1,
-  image2,
-  image3,
-  image4,
-  image5,
-  image6,
-  image7,
-  image8,
-  image9,
-  image10,
-  image11,
-  image12,
-  image13,
-  image14,
-  image15,
-  image16,
-  image17,
-  image18,
+// Dynamically import images using import()
+const imageImports = [
+  import("../images/1.webp"),
+  import("../images/2.webp"),
+  import("../images/3.webp"),
+  import("../images/4.webp"),
+  import("../images/5.webp"),
+  import("../images/6.webp"),
+  import("../images/7.webp"),
+  import("../images/8.webp"),
+  import("../images/9.webp"),
+  import("../images/10.webp"),
+  import("../images/11.webp"),
+  import("../images/12.webp"),
+  import("../images/13.webp"),
+  import("../images/14.webp"),
+  import("../images/15.webp"),
+  import("../images/16.webp"),
+  import("../images/17.webp"),
+  import("../images/18.webp"),
 ];
 
+// Text captions for each image
 const texts = [
   "Click Me",
   "Opening Ceremony",
@@ -64,17 +47,16 @@ const texts = [
 
 const Gallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [radius, setRadius] = useState(400); // Adjusted for responsiveness
-  const [selectedImage, setSelectedImage] = useState(null); // Modal state
+  const [radius, setRadius] = useState(400);
+  const [selectedImage, setSelectedImage] = useState(null);
   const visibleCount = 8;
 
+  // Handle key press for navigation
   const handleKeyDown = (e) => {
     if (e.key === "ArrowRight") {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % imageImports.length);
     } else if (e.key === "ArrowLeft") {
-      setCurrentIndex((prevIndex) =>
-        (prevIndex - 1 + images.length) % images.length
-      );
+      setCurrentIndex((prevIndex) => (prevIndex - 1 + imageImports.length) % imageImports.length);
     }
   };
 
@@ -88,10 +70,11 @@ const Gallery = () => {
     };
   }, []);
 
+  // Update radius for responsiveness
   useEffect(() => {
     const updateRadius = () => {
       if (window.innerWidth < 450) {
-        setRadius(200); // Reduced radius for smaller screens
+        setRadius(200);
       } else {
         setRadius(400);
       }
@@ -106,7 +89,7 @@ const Gallery = () => {
   }, []);
 
   const handleLogoClick = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % imageImports.length);
   };
 
   const handleImageClick = (image) => {
@@ -130,7 +113,7 @@ const Gallery = () => {
           {(() => {
             const elements = [];
             for (let i = 0; i < visibleCount; i++) {
-              const index = (currentIndex + i) % images.length;
+              const index = (currentIndex + i) % imageImports.length;
               const angle = (360 / visibleCount) * i + 90;
               const isTopmost = Math.abs((angle + 360) % 360 - 270) < 5;
 
@@ -149,9 +132,12 @@ const Gallery = () => {
                       transform: `rotate(-${angle}deg)`,
                       transition: "transform 1s ease",
                     }}
-                    onClick={() => handleImageClick(images[index])}
+                    onClick={() => handleImageClick(imageImports[index])}
                   >
-                  <img src={images[index]} alt={`Slide ${index + 1}`} />
+                    {/* Lazy load each image using Suspense */}
+                    <Suspense fallback={<div className="image-placeholder">Loading...</div>}>
+                      <LazyImage importPromise={imageImports[index]} index={index} />
+                    </Suspense>
                   </div>
                 </div>
               );
@@ -160,21 +146,35 @@ const Gallery = () => {
           })()}
         </div>
 
+        {/* Modal for Enlarged Image */}
         {selectedImage && (
           <div className="modal" onClick={(e) => e.stopPropagation()}>
             <button className="close-button" onClick={closeModal}>
               ✖
             </button>
             <div className="modal-content">
-              <div>
-                <img src={selectedImage} alt="Enlarged view" />
-              </div>
+              <Suspense fallback={<div className="image-placeholder">Loading...</div>}>
+                <LazyImage importPromise={selectedImage} />
+              </Suspense>
             </div>
           </div>
         )}
       </div>
     </div>
   );
+};
+
+// LazyImage Component for dynamically loading images
+const LazyImage = ({ importPromise, index }) => {
+  const [imageSrc, setImageSrc] = useState(null);
+
+  useEffect(() => {
+    importPromise.then((module) => {
+      setImageSrc(module.default); // Get the default export from the dynamic import
+    });
+  }, [importPromise]);
+
+  return <img src={imageSrc} alt={`Slide ${index + 1}`} />;
 };
 
 export default Gallery;

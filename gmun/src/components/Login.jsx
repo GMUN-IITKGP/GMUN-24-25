@@ -36,7 +36,6 @@ const LoginForm = () => {
       );
       console.log(response);
       toast.success("User logged in successfully");
-      alert("User logged in successfully");
       dispatch(login(response));
       navigate("/profile");
     } catch (error) {

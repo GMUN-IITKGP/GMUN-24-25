@@ -5,6 +5,8 @@ import axios from "axios";
 import { BASE_URL } from "../constants";
 import Preloader from "./preloader";
 import "./Postpage.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function PostPage() {
   const [expandedPostIndex, setExpandedPostIndex] = useState(false);
@@ -46,11 +48,11 @@ function PostPage() {
         ...question,
         answers: [...question.answers, response.data.content],
       });
-      alert("Answer submitted successfully");
+      toast.success("Answer submitted successfully");
       window.location.reload();
     } catch (error) {
       console.log(error);
-      alert("Failed to submit answer");
+      toast.error("An error occurred. Please try again.");
     }
   };
 

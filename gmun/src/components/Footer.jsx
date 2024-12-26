@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/Footer.css';
-
+import { Link } from "react-router-dom";
 const Footer = () => {
     return (
         <footer className="footer">
@@ -43,14 +43,14 @@ const Footer = () => {
             </div>
 
             <div className="footer-logo">
-                <p>Communiqué</p>
+                <a href="https://cqiitkgp.com/" target='_blank' className="cq1">Communiqué</a>
                 <p>&copy; 2024 Communiqué. All Rights Reserved.</p>
             </div>
             {<div className="footer-links">
-                <a href="mailto:yourname@example.com">Contact Us</a>
-                <a href="mailto:yourname@example.com">About</a>
-                <a href="mailto:yourname@example.com">Register</a>
-                <a href="mailto:yourname@example.com">Home</a>
+                <a href="https://mail.google.com/mail/?view=cm&to=cq.iitkharagpur@gmail.com">Contact Us</a>
+                <Link to="/AboutUs">About</Link>
+                <Link to="/login">Login</Link>
+                <Link to="/discuss">Discuss</Link>
 
             </div>}
         </footer>

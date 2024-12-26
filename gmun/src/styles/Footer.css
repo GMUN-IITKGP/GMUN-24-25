@@ -94,3 +94,16 @@
   width: 100%;
   left: 0;
 }
+
+.cq1:hover {
+  color: #B69354;
+}
+
+.cq1 {
+  margin: 0 15px;
+  color: #F3EDE3;
+  text-decoration: none;
+  font-size: 15px;
+  transition: color 0.3s ease, transform 0.2s ease;
+  position: relative;
+}

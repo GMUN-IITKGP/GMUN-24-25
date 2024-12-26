@@ -263,7 +263,7 @@
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 1146px) {
     .nav-menu {
         flex-direction: column;
         align-items: flex-start;

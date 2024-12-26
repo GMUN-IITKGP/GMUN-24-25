@@ -286,13 +286,12 @@ body.no-scroll {
   }
 
   .logo {
-    width: 25vw;
-    height: 25vw;
-    font-size: 2vw;
+    width: 31vw;
+    height: 31vw;
   }
 
   .logo-text {
-    font-size: 2vw;
+    font-size: 5vw;
     position: absolute;
     top: 50%;
   }
@@ -303,8 +302,8 @@ body.no-scroll {
   }
 
   .gallery-item {
-    width: 27vw;
-    height: 27vw;
+    width: 31vw;
+    height: 31vw;
   }
 
   .modal {

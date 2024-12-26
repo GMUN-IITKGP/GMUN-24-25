@@ -74,7 +74,7 @@ const Gallery = () => {
   useEffect(() => {
     const updateRadius = () => {
       if (window.innerWidth < 450) {
-        setRadius(200);
+        setRadius(180);
       } else {
         setRadius(400);
       }

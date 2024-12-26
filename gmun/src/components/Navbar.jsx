@@ -7,6 +7,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../store/authSlice";
 import axios from "axios";
 import { BASE_URL } from "../constants";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Navbar = () => {
   const authStatus = useSelector((state) => state.auth.status);
@@ -23,8 +25,10 @@ const Navbar = () => {
         }
       );
       console.log(response);
+      toast.success("Logged out successfully");
       dispatch(logout());
     } catch (error) {
+      toast.error("An error occurred. Please try again.");
       console.log(error);
     }
   };
@@ -106,7 +110,7 @@ const Navbar = () => {
             Logout
           </li>
         ) : (
-          <li className="register nav-list">
+          <li className="register">
             <Link to="/login">Login</Link>
           </li>
         )}

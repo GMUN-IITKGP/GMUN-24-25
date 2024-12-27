@@ -39,26 +39,7 @@ const LoginForm = () => {
       dispatch(login(response));
       navigate("/");
     } catch (error) {
-      if (error.response) {
-        const response = error.response.data;
-
-        if (typeof response === "object") {
-          // Handle JSON response
-          const errorMessage =
-            response.message || response.error || "Unknown error";
-          toast.error(`Error: ${errorMessage}`);
-        } else if (typeof response === "string") {
-          // Attempt to parse HTML error message
-          const regex = /Error: (.*?)<br>/;
-          const match = response.match(regex);
-
-          if (match && match[1]) {
-            toast.error(`Error: ${match[1]}`);
-          } else {
-            toast.error("An error occurred. Please try again.");
-          }
-        }
-      }
+      console.log(error);
     } finally {
       setIsLoading(false);
     }

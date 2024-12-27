@@ -32,7 +32,7 @@ app.use((err, req, res, next) => {
     status: "error",
     message,
     // Optionally, you can add more details like error stack for development purposes:
-    // stack: err.stack,
+    stack: err.stack,
   });
 });
 

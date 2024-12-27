@@ -52,8 +52,8 @@ function PostPage() {
       toast.success("Answer submitted successfully");
       window.location.reload();
     } catch (error) {
-      console.log(error);
-      toast.error("An error occurred. Please try again.");
+      console.log(error.response.data.message);
+      toast.error(error.response.data.message);
     }
   };
 

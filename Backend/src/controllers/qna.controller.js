@@ -26,7 +26,7 @@ const createQuestion = asyncHandler(async (req, res) => {
   }
 
   if (user.role === "unregistered") {
-    const error = new Error("Only users can create questions");
+    const error = new Error("Only registered users can create questions");
     error.status = 403;
     throw error;
   }
@@ -96,7 +96,7 @@ const createAnswer = asyncHandler(async (req, res) => {
   }
 
   if (user.role === "unregistered") {
-    const error = new Error("Only users can create answers");
+    const error = new Error("Only Registered users can create answers");
     error.status = 403;
     throw error;
   }

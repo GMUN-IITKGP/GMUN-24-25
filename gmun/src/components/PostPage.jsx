@@ -22,7 +22,21 @@ function PostPage() {
         );
         setQuestion(response.data);
       } catch (error) {
-        console.log(error);
+        if (error.response) {
+          // If the response is in HTML format, extract the error message using regex
+          const htmlContent = error.response.data;
+          const regex = /Error: (.*?)<br>/;
+          const match = htmlContent.match(regex);
+
+          if (match && match[1]) {
+            // The error message is captured in the first group
+            console.log(match[1]);
+            toast.error(`Error: ${match[1]}`);
+          } else {
+            // Fallback error message
+            toast.error("An error occurred. Please try again.");
+          }
+        }
       }
       setLoading(false);
     };
@@ -65,7 +79,9 @@ function PostPage() {
           <div className="post-heading" onClick={() => togglePost()}>
             <h2>{question.title}</h2>
             <p className="post-author">Posted by {question.user.fullName}</p>
-            <p className="post-date">{new Date(question.createdAt).toDateString()}</p>
+            <p className="post-date">
+              {new Date(question.createdAt).toDateString()}
+            </p>
             {/* <p>{question.description}</p> */}
           </div>
           {expandedPostIndex && (

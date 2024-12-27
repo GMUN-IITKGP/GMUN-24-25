@@ -1,13 +1,12 @@
 import { User } from "../models/User.model.js";
 import { asyncHandler } from "../utils/asynchandler.js";
+import ApiError from "../utils/ApiError.js"; // Import the ApiError class
 
 const generateAccessandRefreshToken = async (userId) => {
   const user = await User.findById(userId);
 
   if (!user) {
-    const error = new Error("User not found");
-    error.status = 404;
-    throw error;
+    throw new ApiError(404, "User not found");
   }
 
   const accessToken = user.generateAccessToken();
@@ -23,28 +22,20 @@ const registerUser = asyncHandler(async (req, res) => {
   const { fullName, email, password } = req.body;
 
   if (!fullName) {
-    const error = new Error("Full name is required");
-    error.status = 400;
-    throw error;
+    throw new ApiError(400, "Full name is required");
   }
 
   if (!email) {
-    const error = new Error("Email is required");
-    error.status = 400;
-    throw error;
+    throw new ApiError(400, "Email is required");
   }
 
   if (!password) {
-    const error = new Error("Password is required");
-    error.status = 400;
-    throw error;
+    throw new ApiError(400, "Password is required");
   }
 
   const existingUser = await User.findOne({ email });
   if (existingUser) {
-    const error = new Error("User already exists with this username or email");
-    error.status = 409;
-    throw error;
+    throw new ApiError(409, "User already exists with this username or email");
   }
 
   const user = await User.create({ fullName, email, password });
@@ -53,9 +44,7 @@ const registerUser = asyncHandler(async (req, res) => {
   );
 
   if (!createdUser) {
-    const error = new Error("Something went wrong while registering the user");
-    error.status = 500;
-    throw error;
+    throw new ApiError(500, "Something went wrong while registering the user");
   }
 
   res.status(201).json(createdUser);
@@ -65,31 +54,23 @@ const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
 
   if (!email) {
-    const error = new Error("Email is required");
-    error.status = 400;
-    throw error;
+    throw new ApiError(400, "Email is required");
   }
 
   if (!password) {
-    const error = new Error("Password is required");
-    error.status = 400;
-    throw error;
+    throw new ApiError(400, "Password is required");
   }
 
   const user = await User.findOne({ email });
 
   if (!user) {
-    const error = new Error("User not found");
-    error.status = 404;
-    throw error;
+    throw new ApiError(404, "User not found");
   }
 
   const isMatch = await user.checkPassword(password);
 
   if (!isMatch) {
-    const error = new Error("Invalid credentials");
-    error.status = 401;
-    throw error;
+    throw new ApiError(401, "Invalid credentials");
   }
 
   const { accessToken, refreshToken } = await generateAccessandRefreshToken(
@@ -100,9 +81,7 @@ const loginUser = asyncHandler(async (req, res) => {
   );
 
   if (!loggedInUser) {
-    const error = new Error("Couldn't login user");
-    error.status = 500;
-    throw error;
+    throw new ApiError(500, "Couldn't login user");
   }
 
   const options = { httpOnly: true, secure: true, sameSite: "none" };
@@ -136,9 +115,7 @@ const getUserProfile = asyncHandler(async (req, res) => {
   );
 
   if (!user) {
-    const error = new Error("User not found");
-    error.status = 404;
-    throw error;
+    throw new ApiError(404, "User not found");
   }
 
   res.status(200).json(user);

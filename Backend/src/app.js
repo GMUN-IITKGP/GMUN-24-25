@@ -19,20 +19,15 @@ app.use(express.urlencoded({ extended: true, limit: "16kb" }));
 app.use(express.static("public"));
 app.use(cookieParser()); // setup to send and recieve cookies
 
+import ApiError from "./utils/ApiError.js";
+
 app.use((err, req, res, next) => {
-  // Log error details for debugging
+  if (err instanceof ApiError) {
+    return res.status(err.statusCode).json({ message: err.message });
+  }
 
-  // Set the status code to the error's status or 500 (Internal Server Error) as a default
-  const statusCode = err.status || 500;
-  const message = err.message || "Internal Server Error";
-
-  // Respond with the status code and the message
-  res.status(statusCode).json({
-    status: "error",
-    message,
-    // Optionally, you can add more details like error stack for development purposes:
-    stack: err.stack,
-  });
+  // Default error handler
+  return res.status(500).json({ message: "Internal Server Error" });
 });
 
 //routes

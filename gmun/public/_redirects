@@ -1,1 +1,5 @@
+# Redirect API requests to your backend
+/api/* https://gmun-24-25.onrender.com/api/:splat 200
+
+# Handle Single Page Application routing
 /* /index.html 200

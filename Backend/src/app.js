@@ -21,7 +21,6 @@ app.use(cookieParser()); // setup to send and recieve cookies
 
 app.use((err, req, res, next) => {
   // Log error details for debugging
-  console.log(err.message);
 
   // Set the status code to the error's status or 500 (Internal Server Error) as a default
   const statusCode = err.status || 500;

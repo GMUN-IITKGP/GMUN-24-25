@@ -7,8 +7,8 @@ const FaFacebookF = lazy(() => import('react-icons/fa').then((mod) => ({ default
 const FaLinkedinIn = lazy(() => import('react-icons/fa').then((mod) => ({ default: mod.FaLinkedinIn })));
 const FaInstagram = lazy(() => import('react-icons/fa').then((mod) => ({ default: mod.FaInstagram })));
 
-const teamMembers = lazy(() => import('./teamData')); // Ensure this path is correct
-const secretrait = lazy(() => import('./secretariat')); // Ensure this path is correct
+// const teamMembers = lazy(() => import('./teamData')); // Ensure this path is correct
+// const secretrait = lazy(() => import('./secretariat')); // Ensure this path is correct
 
 gsap.registerPlugin(ScrollTrigger);
 

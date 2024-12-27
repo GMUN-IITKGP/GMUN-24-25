@@ -43,9 +43,10 @@ const Footer = () => {
             </div>
 
             <div className="footer-logo">
-                <a href="https://cqiitkgp.com/" target='_blank' className="cq1">Communiqué</a>
+                <a href="https://cqiitkgp.com/" target="_blank" rel="noopener noreferrer" className="cq1">Communiqué</a>
                 <p>&copy; 2024 Communiqué. All Rights Reserved.</p>
             </div>
+
             {<div className="footer-links">
                 <a href="https://mail.google.com/mail/?view=cm&to=cq.iitkharagpur@gmail.com">Contact Us</a>
                 <Link to="/AboutUs">About</Link>

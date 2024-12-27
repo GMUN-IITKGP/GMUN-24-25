@@ -27,6 +27,7 @@ const UserSchema = new Schema(
         "Delegate",
         "Unregistered",
       ],
+      default: "Unregistered",
     },
     refreshToken: {
       type: String,

@@ -26,7 +26,7 @@ const Discuss = () => {
       setLoading(false);
     };
     fetchPosts();
-  }, []);
+  }, [userData]);
 
   const navigate = useNavigate();
 

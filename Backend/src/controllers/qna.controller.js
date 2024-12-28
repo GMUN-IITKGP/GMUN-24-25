@@ -149,6 +149,25 @@ const deleteAnswer = asyncHandler(async (req, res) => {
   res.status(200).json({ message: "Answer deleted successfully" });
 });
 
+const deleteQuestion = asyncHandler(async (req, res) => {
+  const user = req.user;
+  const { questionId } = req.params;
+
+  const question = await Question.findById(questionId);
+
+  if (!question) {
+    throw new ApiError(404, "Question not found");
+  }
+
+  if (question.user.toString() !== user._id.toString()) {
+    throw new ApiError(403, "You are not authorized to delete this question");
+  }
+
+  await Question.findByIdAndDelete(questionId);
+
+  res.status(200).json({ message: "Question deleted successfully" });
+});
+
 export {
   createQuestion,
   getQuestions,
@@ -157,4 +176,5 @@ export {
   createAnswer,
   updateAnswer,
   deleteAnswer,
+  deleteQuestion,
 };

@@ -27,7 +27,7 @@ const App = () => {
           withCredentials: true,
         });
         console.log(response);
-        dispatch(login(response));
+        dispatch(login({ userData: response.data }));
       } catch (error) {
         dispatch(logout());
       }

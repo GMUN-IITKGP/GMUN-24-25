@@ -6,13 +6,15 @@ import { BASE_URL } from "../constants";
 import Preloader from "./preloader";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useSelector } from "react-redux";
 
 const Discuss = () => {
   const [posts, setPosts] = useState([]);
   const [newPost, setNewPost] = useState({ title: "", description: "" });
   const [loading, setLoading] = useState(true);
-
+  const userData = useSelector((state) => state.auth.userData);
   useEffect(() => {
+    console.log(userData);
     const fetchPosts = async () => {
       try {
         const response = await axios.get(`${BASE_URL}/posts/questions`);
@@ -39,6 +41,23 @@ const Discuss = () => {
     return formattedDate;
   };
 
+  const handleDelete = async (id) => {
+    try {
+      const response = await axios.delete(`${BASE_URL}/posts/questions/${id}`, {
+        withCredentials: true,
+      });
+      console.log(response);
+      toast.success("Post deleted successfully");
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+    } catch (error) {
+      console.log(error);
+      toast.error(error.response.data.message);
+      window.location.reload();
+    }
+  };
+
   const handlePostSubmit = async (e) => {
     e.preventDefault();
     if (newPost.title && newPost.description) {
@@ -55,7 +74,9 @@ const Discuss = () => {
         );
         console.log(response);
         toast.success("Post created successfully");
-        window.location.reload();
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
       } catch (error) {
         console.log(error.response.data.message);
         toast.error(error.response.data.message);
@@ -115,7 +136,7 @@ const Discuss = () => {
             {posts.map((post) => (
               <div
                 onClick={() => navigate(`/posts/${post._id}`)}
-                key={post.id}
+                key={post._id}
                 className={styles["discussion-card"]}
               >
                 <h2 className={styles["discussion-title"]}>{post.title}</h2>
@@ -129,6 +150,28 @@ const Discuss = () => {
                 <span className={styles["comments-count"]}>
                   {post.answers.length} comments
                 </span>
+                {post.user._id === userData._id && (
+                  <button
+                    onClick={(event) => {
+                      event.stopPropagation(); // Prevent the parent onClick from triggering
+                      handleDelete(post._id);
+                    }}
+                    className={styles.button}
+                  >
+                    <div className={styles.trash}>
+                      <div className={styles.top}>
+                        <div className={styles.paper}></div>
+                      </div>
+                      <div className={styles.box}></div>
+                      <div className={styles.check}>
+                        <svg viewBox="0 0 8 6">
+                          <polyline points="1 3.4 2.71428571 5 7 1"></polyline>
+                        </svg>
+                      </div>
+                    </div>
+                    <span>Delete Item</span>
+                  </button>
+                )}
               </div>
             ))}
           </div>

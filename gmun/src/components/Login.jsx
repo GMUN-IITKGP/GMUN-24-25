@@ -36,7 +36,7 @@ const LoginForm = () => {
       );
       console.log(response);
       toast.success("User logged in successfully");
-      dispatch(login(response));
+      dispatch(login({ userData: response.data }));
       navigate("/");
     } catch (error) {
       console.log(error.response.data.message);

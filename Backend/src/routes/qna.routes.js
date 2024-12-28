@@ -7,6 +7,7 @@ import {
   createAnswer,
   updateAnswer,
   deleteAnswer,
+  deleteQuestion,
 } from "../controllers/qna.controller.js";
 import { verifyJWT } from "../middlewares/auth.middleware.js";
 
@@ -18,7 +19,11 @@ router.get("/questions/user", verifyJWT, getUserQuestions);
 router.get("/questions/:questionId", getQuestionById);
 router.post("/questions/:questionId/answers", verifyJWT, createAnswer);
 router.put("/questions/:questionId/answers/:answerId", verifyJWT, updateAnswer);
-router.delete("/questions/:questionId/answers/:answerId", verifyJWT, deleteAnswer);
-
+router.delete(
+  "/questions/:questionId/answers/:answerId",
+  verifyJWT,
+  deleteAnswer
+);
+router.delete("/questions/:questionId", verifyJWT, deleteQuestion);
 
 export default router;

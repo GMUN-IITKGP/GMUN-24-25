@@ -99,7 +99,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/Discuss",
-        element: <Discuss />,
+        element: (
+          <AuthLayout>
+            <Discuss />
+          </AuthLayout>
+        ),
       },
       {
         path: "/gallery",

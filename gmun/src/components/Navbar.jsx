@@ -9,10 +9,11 @@ import axios from "axios";
 import { BASE_URL } from "../constants";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const authStatus = useSelector((state) => state.auth.status);
-
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handlelogout = async () => {
@@ -27,6 +28,7 @@ const Navbar = () => {
       console.log(response);
       toast.success("Logged out successfully");
       dispatch(logout());
+      navigate("/");
     } catch (error) {
       toast.error("An error occurred. Please try again.");
       console.log(error);

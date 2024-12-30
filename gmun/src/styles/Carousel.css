@@ -25,42 +25,42 @@
 /* Black containers with Glassmorphism effect */
 .image {
   position: absolute;
-  height: 300px; /* Keeps black box size fixed */
-  width: 350px; /* Keeps black box size fixed */
+  height: 300px; 
+  width: 350px; 
   border-radius: 20px;
-  background-color: rgba(0, 0, 0, 0.85); /* Darker opaque black background */
-  backdrop-filter: blur(10px); /* Apply blur effect to the background */
-  border: 5px solid #a67c52; /* Duller golden border (hex code for a more subtle gold) */
+  background-color: rgba(0, 0, 0, 0.85); 
+  backdrop-filter: blur(10px); 
+  border: 5px solid #a67c52; 
   text-align: center;
   font-size: 15em;
   color: #fff;
-  overflow: hidden; /* Ensures images stay within the container */
+  overflow: hidden; 
 }
 
 /* Enlarged individual images inside the containers */
 .image img {
-  width: 95%; /* Default size */
-  height: auto; /* Maintain aspect ratio */
-  margin: auto; /* Center the image */
-  display: block; /* Ensure the image centers properly */
-  transform: scale(1); /* Default scaling */
+  width: 95%; 
+  height: auto; 
+  margin: auto; 
+  display: block; 
+  transform: scale(1); 
 }
 
-/* Adjusted positioning for each image container */
+
 #image > .i1 {
-  transform: translateZ(320px); /* Position remains unchanged */
+  transform: translateZ(320px); 
 }
 #image > .i2 {
-  transform: rotateY(72deg) translateZ(320px); /* Position remains unchanged */
+  transform: rotateY(72deg) translateZ(320px); 
 }
 #image > .i3 {
-  transform: rotateY(144deg) translateZ(320px); /* Position remains unchanged */
+  transform: rotateY(144deg) translateZ(320px); 
 }
 #image > .i4 {
-  transform: rotateY(216deg) translateZ(320px); /* Position remains unchanged */
+  transform: rotateY(216deg) translateZ(320px); 
 }
 #image > .i5 {
-  transform: rotateY(288deg) translateZ(320px); /* Position remains unchanged */
+  transform: rotateY(288deg) translateZ(320px); 
 }
 
 /* Specific image size adjustments */

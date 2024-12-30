@@ -5,14 +5,12 @@
   margin: 50px auto 100px;
 }
 
-
 /* Main rotating container */
 #image {
   position: relative; /* Ensure relative positioning */
   transform-style: preserve-3d;
   animation: spin 24s infinite linear;
 }
-
 
 /* Spin animation */
 @keyframes spin {
@@ -23,7 +21,6 @@
     transform: rotateY(-360deg);
   }
 }
-
 
 /* Black containers with Glassmorphism effect */
 .image {
@@ -40,16 +37,14 @@
   overflow: hidden; /* Ensures images stay within the container */
 }
 
-
 /* Enlarged individual images inside the containers */
 .image img {
-  width: 95%; /* Slightly larger than before */
+  width: 95%; /* Default size */
   height: auto; /* Maintain aspect ratio */
   margin: auto; /* Center the image */
   display: block; /* Ensure the image centers properly */
-  transform: scale(1); /* Makes the image slightly larger */
+  transform: scale(1); /* Default scaling */
 }
-
 
 /* Adjusted positioning for each image container */
 #image > .i1 {
@@ -66,4 +61,19 @@
 }
 #image > .i5 {
   transform: rotateY(288deg) translateZ(320px); /* Position remains unchanged */
+}
+
+/* Specific image size adjustments */
+#image > .i1 img {
+  width: 85%; /* Reduce image size to 85% */
+}
+
+#image > .i2 img {
+  width: 85%; /* Reduce image size to 85% */
+  margin-top: 20px; /* Position remains unchanged */
+}
+
+#image > .i4 img {
+  width: 85%; /* Reduce image size to 85% */
+  margin-top: 35px; /* Bring image slightly further down */
 }

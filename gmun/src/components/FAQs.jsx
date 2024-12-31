@@ -33,7 +33,7 @@ const Announcements = () => {
     },
     {
       title: 'What committees are being simulated?',
-      content: 'Our conference presents a variety of committees namely United Nations Human Rights Council(UNHRC), "United Nations Security Council(UNSC), Disarmament and Security Council(DISEC), G20 and International Press. ',
+      content: 'Our conference presents a variety of committees namely United Nations Human Rights Council(UNHRC), United Nations Security Council(UNSC), Disarmament and Security Council(DISEC), G20 and LokSabha. ',
     },
     {
       title: 'What is the dress code for the conference?',

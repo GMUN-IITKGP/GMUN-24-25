@@ -141,7 +141,7 @@ const deleteAnswer = asyncHandler(async (req, res) => {
     throw new ApiError(404, "Answer not found");
   }
 
-  if (answer.user.toString() !== user._id.toString()) {
+  if (answer.user.toString() !== user._id.toString() || user.Role === "ADMIN") {
     throw new ApiError(403, "You are not authorized to delete this answer");
   }
 
@@ -159,7 +159,10 @@ const deleteQuestion = asyncHandler(async (req, res) => {
     throw new ApiError(404, "Question not found");
   }
 
-  if (question.user.toString() !== user._id.toString()) {
+  if (
+    question.user.toString() !== user._id.toString() &&
+    user.Role !== "ADMIN"
+  ) {
     throw new ApiError(403, "You are not authorized to delete this question");
   }
 

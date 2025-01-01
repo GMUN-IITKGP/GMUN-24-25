@@ -54,7 +54,9 @@ const Discuss = () => {
     } catch (error) {
       console.log(error);
       toast.error(error.response.data.message);
-      window.location.reload();
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
     }
   };
 
@@ -150,7 +152,8 @@ const Discuss = () => {
                 <span className={styles["comments-count"]}>
                   {post.answers.length} comments
                 </span>
-                {post.user._id === userData._id && (
+                {(post.user._id === userData._id ||
+                  userData.Role === "ADMIN") && (
                   <button
                     onClick={(event) => {
                       event.stopPropagation(); // Prevent the parent onClick from triggering

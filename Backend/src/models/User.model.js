@@ -26,6 +26,7 @@ const UserSchema = new Schema(
         "Organizing Committee", // Corrected typo here
         "Delegate",
         "Unregistered",
+        "ADMIN"
       ],
       default: "Unregistered",
     },

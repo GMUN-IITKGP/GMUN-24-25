@@ -23,6 +23,7 @@ import Sec from "./components/sec";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
 import PostPage from "./components/PostPage.jsx";
+import Sponsors from "./components/Sponsors.jsx";
 
 const router = createBrowserRouter([
   {
@@ -96,6 +97,10 @@ const router = createBrowserRouter([
       {
         path: "/FAQs",
         element: <FAQs />,
+      },
+      {
+        path: "/Sponsors",
+        element: <Sponsors/>,
       },
       {
         path: "/Discuss",

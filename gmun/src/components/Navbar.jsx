@@ -107,6 +107,9 @@ const Navbar = () => {
         <li className="nav-list">
           <Link to="/gallery">Gallery</Link>
         </li>
+        <li className="nav-list">
+          <Link to="/Sponsors">Sponsors</Link>
+        </li>
         {authStatus ? (
           <li onClick={handlelogout} className="register">
             Logout

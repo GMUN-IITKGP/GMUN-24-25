@@ -90,6 +90,11 @@
     .logo1 {
         width: 40vw;
         height: 40vw;
+
+    }
+
+    .preloader {
+        transform: translateY(-80px);
     }
 
     .front,

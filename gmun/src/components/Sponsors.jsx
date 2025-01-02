@@ -6,6 +6,7 @@ import './Sponsors.css';
  import vhere from "./sponsor1.webp"
  import iQuanta from "./iQuanta.png"
  import finnacle from "./finnacle.jpg"
+ import IDP from "./IDP.jpg"
  import shantitrip from "./shantitrip.png"
  import unstopng from "./unstopng.png"
  import Headingall from './Headingall';
@@ -65,6 +66,13 @@ description: 'Previous Association',
 id: 8,
 name: 'Nomura',
 logo: `${nomura}`,
+description: 'Previous association',
+},
+
+{
+id: 9,
+name: 'IDP',
+logo: `${IDP}`,
 description: 'Previous association',
 },
  

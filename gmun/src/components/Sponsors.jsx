@@ -19,19 +19,19 @@ const currentSponsors = [
     id: 1,
     name: 'IDP Education',
     logo: `${IDP}`,
-    description: 'Sponsor',
+    description: 'Overseas Education Partner',
   },
   {
     id: 2,
     name: 'Spykar',
     logo: `${spykar}`,
-    description: 'Sponsor',
+    description: 'Lifestyle Partner',
   },
   {
     id: 3,
     name: 'Farmley',
     logo: `${farmley}`,
-    description: 'Sponsor',
+    description: 'Snacking Partner',
   },
 ];
 

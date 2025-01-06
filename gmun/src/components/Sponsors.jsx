@@ -27,7 +27,7 @@ const currentSponsors = [
     id: 2,
     name: 'Spykar',
     logo: `${spykar}`,
-    description: 'Lifestyle Partner',
+    description: 'Style Partner',
   },
   {
     id: 3,

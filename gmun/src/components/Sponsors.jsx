@@ -13,6 +13,8 @@ import nomura from "./nomura.png";
 import spykar from "./Spykar.jpg";
 import IDP from "./IDP.jpg";
 import farmley from "./Farmley.png";
+import Seed from "./Seed.jpg";
+import EMT from "./EMT.png";
 
 const currentSponsors = [
   {
@@ -32,6 +34,18 @@ const currentSponsors = [
     name: 'Farmley',
     logo: `${farmley}`,
     description: 'Snacking Partner',
+  },
+  {
+    id: 4,
+    name: 'Seed',
+    logo: `${Seed}`,
+    description: 'Event Partner',
+  },
+  {
+    id: 5,
+    name: 'Ease My Trip',
+    logo: `${EMT}`,
+    description: 'Travel Partner',
   },
 ];
 

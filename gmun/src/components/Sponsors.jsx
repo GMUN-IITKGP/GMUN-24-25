@@ -15,6 +15,7 @@ import IDP from "./IDP.jpg";
 import farmley from "./Farmley.png";
 import Seed from "./Seed.jpg";
 import EMT from "./EMT.png";
+import LION from "./LION.png";
 
 const currentSponsors = [
   {
@@ -46,6 +47,12 @@ const currentSponsors = [
     name: 'Ease My Trip',
     logo: `${EMT}`,
     description: 'Travel Partner',
+  },
+  {
+    id: 6,
+    name: 'Lion Insurance Brokers',
+    logo: `${LION}`,
+    description: 'Insurance Partner',
   },
 ];
 

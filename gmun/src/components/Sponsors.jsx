@@ -1,4 +1,3 @@
-// Sponsors.js
 import React from 'react';
 import './Sponsors.css'; // Import your CSS file for styling
 import bhumun from "./bhumun.png";
@@ -23,6 +22,7 @@ const currentSponsors = [
     name: 'IDP Education',
     logo: `${IDP}`,
     description: 'Overseas Education Partner',
+    url: 'https://events.register.idp.com/registration/india/XVZW9OAYLIR',
   },
   {
     id: 2,
@@ -107,9 +107,15 @@ const previousSponsors = [
   },
 ];
 
-const Sponsor = ({ name, logo, description }) => (
+const Sponsor = ({ name, logo, description, url }) => (
   <div className="sponsor">
-    <img src={logo} alt={name} />
+    {url ? (
+      <a href={url} target="_blank" rel="noopener noreferrer">
+        <img src={logo} alt={name} />
+      </a>
+    ) : (
+      <img src={logo} alt={name} />
+    )}
     <h3>{name}</h3>
     <p>{description}</p>
   </div>
@@ -127,6 +133,7 @@ const Sponsors = () => {
               name={sponsor.name}
               logo={sponsor.logo}
               description={sponsor.description}
+              url={sponsor.url}
             />
           ))}
         </div>

@@ -15,6 +15,7 @@ import farmley from "./Farmley.png";
 import Seed from "./Seed.jpg";
 import EMT from "./EMT.png";
 import LION from "./LION.png";
+import CLASSMATE from "./CLASSMATE.jpg";
 
 const currentSponsors = [
   {
@@ -53,6 +54,12 @@ const currentSponsors = [
     name: 'Lion Insurance Brokers',
     logo: `${LION}`,
     description: 'Insurance Partner',
+  },
+  {
+    id: 7,
+    name: 'Classmate ITC Ltd',
+    logo: `${CLASSMATE}`,
+    description: 'Stationery Partner',
   },
 ];
 

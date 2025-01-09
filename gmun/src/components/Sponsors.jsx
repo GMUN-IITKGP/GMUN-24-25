@@ -16,47 +16,54 @@ import Seed from "./Seed.jpg";
 import EMT from "./EMT.png";
 import LION from "./LION.png";
 import CLASSMATE from "./CLASSMATE.jpg";
+import TITLE from "./TITLE.jpg";
 
 const currentSponsors = [
   {
     id: 1,
+    name: 'Adda52',
+    logo: `${TITLE}`,
+    description: 'Title Gaming Partner',
+  },
+  {
+    id: 2,
     name: 'IDP Education',
     logo: `${IDP}`,
     description: 'Overseas Education Partner',
     url: 'https://events.register.idp.com/registration/india/XVZW9OAYLIR',
   },
   {
-    id: 2,
+    id: 3,
     name: 'Spykar',
     logo: `${spykar}`,
     description: 'Style Partner',
   },
   {
-    id: 3,
+    id: 4,
     name: 'Farmley',
     logo: `${farmley}`,
     description: 'Snacking Partner',
   },
   {
-    id: 4,
+    id: 5,
     name: 'Seed',
     logo: `${Seed}`,
     description: 'Event Partner',
   },
   {
-    id: 5,
+    id: 6,
     name: 'Ease My Trip',
     logo: `${EMT}`,
     description: 'Travel Partner',
   },
   {
-    id: 6,
+    id: 7,
     name: 'Lion Insurance Brokers',
     logo: `${LION}`,
     description: 'Insurance Partner',
   },
   {
-    id: 7,
+    id: 8,
     name: 'Classmate ITC Ltd',
     logo: `${CLASSMATE}`,
     description: 'Stationery Partner',

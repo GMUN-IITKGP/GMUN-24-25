@@ -6,7 +6,7 @@ const Countdown = () => {
     const [fact, setFact] = useState("");
     const [usedFacts, setUsedFacts] = useState([]);
 
-    const targetDate = new Date("January 10, 2025 10:00:00").getTime();
+    const targetDate = new Date("January 11, 2025 10:00:00").getTime();
 
     const funFacts = [
 

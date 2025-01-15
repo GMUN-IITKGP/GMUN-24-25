@@ -77,19 +77,19 @@ const Countdown = () => {
             </h1>
             <div className="countdown-wrapper">
                 <div className="countdown-card">
-                    <div className="countdown-number">{timeLeft.days || "00"}</div>
+                    <div className="countdown-number">{"00"}</div>
                     <div className="countdown-label">Days</div>
                 </div>
                 <div className="countdown-card">
-                    <div className="countdown-number">{timeLeft.hours || "00"}</div>
+                    <div className="countdown-number">{"00"}</div>
                     <div className="countdown-label">Hours</div>
                 </div>
                 <div className="countdown-card">
-                    <div className="countdown-number">{timeLeft.minutes || "00"}</div>
+                    <div className="countdown-number">{"00"}</div>
                     <div className="countdown-label">Minutes</div>
                 </div>
                 <div className="countdown-card">
-                    <div className="countdown-number">{timeLeft.seconds || "00"}</div>
+                    <div className="countdown-number">{"00"}</div>
                     <div className="countdown-label">Seconds</div>
                 </div>
             </div>
